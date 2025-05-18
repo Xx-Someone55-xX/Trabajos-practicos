@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TP1 - 18 Puntos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body.dark-mode, html.dark-mode {
+      background-color: #121212 !important;
+      color: white !important;
+    }
+    body.light-mode, html.light-mode {
+      background-color: #f8f9fa !important;
+      color: black !important;
+    }
+    .card {
+      background-color: #1e1e1e;
+      color: white;
+    }
+    .light-mode .card {
+      background-color: #ffffff;
+      color: black;
+    }
+    .btn, .form-control {
+      background-color: #2b2b2b;
+      color: white;
+      border: 1px solid #444;
+    }
+    .light-mode .btn, .light-mode .form-control {
+      background-color: #ffffff;
+      color: black;
+      border: 1px solid #ccc;
+    }
+    .form-control:focus {
+      background-color: #cecece;
+      color: black;
+    }
+    pre {
+      background-color: #1e1e1e;
+      padding: 1em;
+      border-radius: 0.5em;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      color: #d4d4d4;
+    }
+    .light-mode pre {
+      background-color: #f0f0f0;
+      color: black;
+    }
+    .form-select {
+      background-color: #cecece;
+      color: black;
+    }
+    .d-none { display: none !important; }
+    .consigna {
+      color: #ffc107;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5em;
+    }
+    .syntax-keyword { color: #569CD6; }
+    .syntax-type { color: #4EC9B0; }
+    .syntax-function { color: #DCDCAA; }
+    .syntax-number { color: #B5CEA8; }
+    .syntax-string { color: #CE9178; }
+    .syntax-comment { color: #6A9955; font-style: italic; }
+  </style>
+</head>
+<body class="dark-mode">
+  <div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="mb-0">TP1 - Seleccioná un punto</h1>
+      <button class="btn btn-outline-light" onclick="toggleModo()">🌗 Cambiar modo</button>
+    </div>
+
+    <a href="index.html" class="btn btn-secondary mt-4">← Volver al inicio</a>
+  </div>
+
+  <script>
+
+    function mostrarPunto() {
+      const selector = document.getElementById("selector").value;
+      document.querySelectorAll(".card").forEach(card => card.classList.add("d-none"));
+      if (selector) {
+        document.getElementById(selector).classList.remove("d-none");
+      }
+    }
+
+    function toggleModo() {
+      document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("light-mode");
+      document.documentElement.classList.toggle("dark-mode");
+      document.documentElement.classList.toggle("light-mode");
+    }
+  </script>
+</body>
+</html>

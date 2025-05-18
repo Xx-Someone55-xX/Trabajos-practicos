@@ -1,0 +1,82 @@
+/* === ESTILOS GENERALES === */
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  color: #212529;
+}
+
+/* === ESTILO PARA BLOQUES DE CÓDIGO C (tipo VSC Prettier Dark+) === */
+.code-block {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  white-space: pre;
+}
+
+/* COLORES DE SINTAXIS */
+.keyword { color: #569cd6; }
+.datatype { color: #4ec9b0; }
+.comment { color: #6a9955; }
+.string { color: #ce9178; }
+.function { color: #dcdcaa; }
+.number  { color: #b5cea8; }
+.directive { color: #c586c0; }
+
+/* Contenedor de terminal estilo VSCode */
+.terminal-container {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+/* Barra superior */
+.terminal-header {
+  background-color: #333333;
+  padding: 0.4rem 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Botones estilo VSCode */
+.terminal-header .btn-close,
+.terminal-header .btn-minimize,
+.terminal-header .btn-maximize {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: default;
+  margin-right: 0.4rem;
+}
+
+.terminal-header .btn-close { background-color: #ff5f56; }  /* rojo */
+.terminal-header .btn-minimize { background-color: #ffbd2e; }  /* amarillo */
+.terminal-header .btn-maximize {
+  background-color: #27c93f;
+  margin-right: 0;
+}
+
+/* Área de texto de salida */
+.terminal-output {
+  padding: 1rem;
+  min-height: 80px;
+  white-space: pre-wrap;   /* permite saltos de línea */
+  color: #ffffff;          /* texto blanco */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
