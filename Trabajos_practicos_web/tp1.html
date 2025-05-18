@@ -59,8 +59,9 @@ int main() {
     
     return 0;
 }</code></pre>
-                       <button class="btn-copy">
-    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: block;">
+                      <!-- Botón copiar actualizado -->
+<button class="btn-copy">
+    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path d="M8 4v12h12V4H8zM6 2h16v16H6V2zM4 6H2v18h18v-2H4V6z"/>
     </svg>
     <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
@@ -68,75 +69,39 @@ int main() {
     </svg>
     <span>Copiar</span>
 </button>
-                    </div>
-                </section>
-            </article>
-        </div>
-    </main>
 
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Sistema de temas
-    const themeBtn = document.querySelector('.theme-btn');
-    const html = document.documentElement;
-    const moonIcon = themeBtn.querySelector('.moon-icon');
-    const sunIcon = themeBtn.querySelector('.sun-icon');
-
-    const applyTheme = (theme) => {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('tp-theme', theme);
+<!-- Script actualizado -->
+<script>
+document.querySelectorAll('.btn-copy').forEach(button => {
+    button.addEventListener('click', async function() {
+        const code = this.closest('.code-box').querySelector('code').innerText;
         
-        if(theme === 'dark') {
-            moonIcon.style.display = 'block';
-            sunIcon.style.display = 'none';
-        } else {
-            moonIcon.style.display = 'none';
-            sunIcon.style.display = 'block';
-        }
-    };
-
-    // Cargar tema guardado
-    const savedTheme = localStorage.getItem('tp-theme') || 'dark';
-    applyTheme(savedTheme);
-
-    // Manejador de clic
-    themeBtn.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        // Animación
-        themeBtn.animate([
-            { transform: 'scale(0.9) rotate(-30deg)', opacity: 0.8 },
-            { transform: 'scale(1.1) rotate(0deg)', opacity: 1 }
-        ], { duration: 300 });
-        
-        applyTheme(newTheme);
-    });
-
-    // Sistema de copiado
-    document.querySelectorAll('.btn-copy').forEach(button => {
-        button.addEventListener('click', async function() {
-            const code = this.closest('.code-box').querySelector('code').innerText;
-            const copyIcon = this.querySelector('.copy-icon');
-            const checkIcon = this.querySelector('.check-icon');
-            const span = this.querySelector('span');
+        try {
+            await navigator.clipboard.writeText(code);
             
-            try {
-                await navigator.clipboard.writeText(code);
-                copyIcon.style.display = 'none';
-                checkIcon.style.display = 'block';
-                span.textContent = '¡Copiado!';
-                
-                setTimeout(() => {
-                    copyIcon.style.display = 'block';
-                    checkIcon.style.display = 'none';
-                    span.textContent = 'Copiar';
-                }, 2000);
-            } catch (err) {
-                console.error('Error al copiar:', err);
-                span.textContent = 'Error';
-            }
-        });
+            // Cambios clave: Añadir clase y forzar estilos
+            this.classList.add('copied');
+            this.style.backgroundColor = '#10b981'; // Fuerza el color verde
+            this.style.borderColor = '#059669';
+            
+            this.querySelector('.copy-icon').style.display = 'none';
+            this.querySelector('.check-icon').style.display = 'block';
+            this.querySelector('span').textContent = '¡Copiado!';
+            
+            setTimeout(() => {
+                this.classList.remove('copied');
+                this.style.backgroundColor = ''; // Resetear estilos
+                this.style.borderColor = '';
+                this.querySelector('.copy-icon').style.display = 'block';
+                this.querySelector('.check-icon').style.display = 'none';
+                this.querySelector('span').textContent = 'Copiar';
+            }, 2000);
+            
+        } catch (err) {
+            console.error('Error:', err);
+            this.style.backgroundColor = '#ef4444';
+            setTimeout(() => this.style.backgroundColor = '', 2000);
+        }
     });
 });
 </script>

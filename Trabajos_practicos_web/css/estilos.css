@@ -412,39 +412,16 @@ body {
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: none !important; /* Eliminar transiciones */
 }
 
 .btn-copy.copied {
     background: #10b981 !important;
-    border-color: #059669 !important;
+    animation: pulse-green 0.5s ease;
 }
 
-.btn-copy .copy-icon {
-    display: block;
-    width: 18px;
-    height: 18px;
-    transition: opacity 0.3s ease;
-}
-
-.btn-copy .check-icon {
-    display: none;
-    width: 18px;
-    height: 18px;
-    stroke: #fff;
-    animation: checkPop 0.3s ease;
-}
-
-.btn-copy.copied .copy-icon {
-    display: none;
-}
-
-.btn-copy.copied .check-icon {
-    display: block !important;
-}
-
-@keyframes checkPop {
-    0% { transform: scale(0); }
-    80% { transform: scale(1.1); }
+@keyframes pulse-green {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }

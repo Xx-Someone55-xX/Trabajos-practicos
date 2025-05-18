@@ -1,32 +1,23 @@
 document.querySelectorAll('.btn-copy').forEach(button => {
     button.addEventListener('click', async function() {
-        const codeBlock = this.closest('.code-box').querySelector('code');
-        const textToCopy = codeBlock.innerText;
-        const originalText = this.querySelector('span').textContent;
+        const code = this.closest('.code-box').querySelector('code').innerText;
         
         try {
-            await navigator.clipboard.writeText(textToCopy);
+            await navigator.clipboard.writeText(code);
             
-            // Cambiar a estado copiado
+            // Forzar cambio visual
             this.classList.add('copied');
-            this.querySelector('.copy-icon').style.display = 'none';
-            this.querySelector('.check-icon').style.display = 'block';
-            this.querySelector('span').textContent = '¡Copiado!';
+            this.style.backgroundColor = '#10b981';
             
-            // Resetear después de 2 segundos
             setTimeout(() => {
                 this.classList.remove('copied');
-                this.querySelector('.copy-icon').style.display = 'block';
-                this.querySelector('.check-icon').style.display = 'none';
-                this.querySelector('span').textContent = originalText;
-            }, 2000);
+                this.style.backgroundColor = '';
+            }, 1000);
             
         } catch (err) {
-            console.error('Error al copiar:', err);
-            this.querySelector('span').textContent = 'Error';
-            setTimeout(() => {
-                this.querySelector('span').textContent = originalText;
-            }, 2000);
+            console.error('Error:', err);
+            this.style.backgroundColor = '#ef4444';
+            setTimeout(() => this.style.backgroundColor = '', 1000);
         }
     });
 });
