@@ -370,33 +370,6 @@ pre {
         font-size: 0.9rem;
     }
 }
-:root {
-    --bg-color: #1a1a1a;
-    --text-color: #e0e0e0;
-    --header-bg: #0f172a;
-    --card-bg: #2d3748;
-    --accent: #60a5fa;
-    transition: all 0.3s ease;
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.header {
-    background-color: var(--header-bg);
-}
-
-.trabajo-card {
-    background-color: var(--card-bg);
-}
-
-.theme-btn {
-    background-color: var(--accent);
-    color: white;
-}
 
 /* ===== Botón Copiar Mejorado ===== */
 .btn-copy {
