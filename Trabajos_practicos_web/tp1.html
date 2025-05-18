@@ -4,37 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP1 - 18 Puntos</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
 </head>
 <body>
     <header class="header">
         <nav class="container">
             <a href="index.html" class="btn-volver">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                 </svg>
                 <span>Volver al Inicio</span>
             </a>
-            <!-- Cambio en el botón del tema -->
-            <button id="theme-toggle" class="theme-btn">☀️</button>
+            <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">☀️</button>
         </nav>
     </header>
 
-    <main class="container">
-        <!-- Navegación -->
+    <main class="main-container">
         <div class="slide-controls">
             <button class="nav-btn" id="prev-btn">❮ Anterior</button>
             <span class="punto-counter">Punto <span id="current-punto">1</span>/18</span>
             <button class="nav-btn" id="next-btn">Siguiente ❯</button>
         </div>
 
-        <!-- Slides -->
         <div class="slides-container">
             <!-- Slide 1 -->
-            <div class="slide active">
-                <div class="punto-card">
-                    <h2>Punto 1: Título del ejercicio</h2>
+            <article class="slide active">
+                <section class="punto-card">
+                    <h2 class="punto-title">Punto 1: Título del ejercicio</h2>
                     <div class="code-box">
                         <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -43,7 +41,7 @@ int main() {
     return 0;
 }</code></pre>
                     </div>
-                    <a href="codigos/punto1.c" download class="btn-download">
+                    <a href="codigos/punto1.c" download class="btn-download" aria-label="Descargar código">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7 10 12 15 17 10"></polyline>
@@ -51,13 +49,13 @@ int main() {
                         </svg>
                         Descargar Código
                     </a>
-                </div>
-            </div>
+                </section>
+            </article>
             <!-- Slides restantes... -->
         </div>
     </main>
 
-    <script src="scripts/theme.js"></script>
-    <script src="scripts/slider.js"></script>
+    <script src="scripts/js/theme.js" defer></script>
+    <script src="scripts/js/slider.js" defer></script>
 </body>
 </html>
