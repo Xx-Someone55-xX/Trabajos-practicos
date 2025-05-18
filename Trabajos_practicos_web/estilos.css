@@ -1,170 +1,121 @@
-/* Estilos específicos para TP1 */
-.tp1-container {
+/* ===== Variables ===== */
+:root {
+    --bg-color: #1a1a1a;          /* Fondo oscuro */
+    --text-color: #e0e0e0;        /* Texto claro */
+    --header-bg: #0f172a;         /* Fondo del header */
+    --header-text: #e2e8f0;       /* Texto del header */
+    --card-bg: #2d3748;           /* Fondo tarjetas */
+    --card-hover: #4a5568;        /* Hover tarjetas */
+    --accent: #60a5fa;            /* Color destacado */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra oscura */
+}
+
+[data-theme="light"] {
+    --bg-color: #f8fafc;          /* Fondo claro */
+    --text-color: #1e293b;        /* Texto oscuro */
+    --header-bg: #1d4ed8;         /* Header azul */
+    --header-text: #f8fafc;       /* Texto header claro */
+    --card-bg: #ffffff;           /* Tarjetas blancas */
+    --card-hover: #f1f5f9;        /* Hover tarjetas */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* ===== Estilos Generales ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background 0.3s, color 0.3s;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ===== Header ===== */
+.header {
+    background: var(--header-bg);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--header-text);
+    font-size: 1.5rem;
+}
+
+/* ===== Botón Tema ===== */
+.theme-btn {
+    background: transparent;
+    border: 2px solid var(--header-text);
+    color: var(--header-text);
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ===== Tarjetas ===== */
+.trabajos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 1rem;
 }
 
-.slider-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--border-radius);
+.trabajo-card {
     background: var(--card-bg);
-    box-shadow: var(--shadow);
-}
-
-.slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-    min-width: 100%;
-    padding: 2rem;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: opacity 0.5s, transform 0.5s;
-}
-
-.slide.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-    opacity: 0.8;
-}
-
-.slider-arrow:hover {
-    opacity: 1;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-/* Estilos para el código */
-.code-section {
-    background: var(--bg-color);
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem 0;
-    overflow-x: auto;
-}
-
-code {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-}
-
-.btn-download {
-    background: var(--accent-color);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.btn-download:hover {
-    transform: translateY(-2px);
-}
-
-/* Navegación superior */
-.slide-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.punto-select {
-    background: var(--card-bg);
-    color: var(--text-color);
-    padding: 0.5rem;
-    border-radius: 6px;
-    border: 1px solid var(--accent-color);
-}
-
-.puntos-counter {
-    font-size: 1.2rem;
-    opacity: 0.8;
-}
-/* === Slides TP1 === */
-.slides-container {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    padding: 2rem;
-    margin-top: 2rem;
-    box-shadow: var(--shadow);
-}
-
-.slide {
-    display: none;
-}
-
-.slide.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.punto-card {
-    background: var(--bg-color);
+    border-radius: 0.5rem;
     padding: 1.5rem;
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
 }
 
-.code-box {
-    background: var(--header-bg);
-    padding: 1rem;
-    border-radius: 8px;
+.trabajo-card:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover);
+}
+
+.progreso-bar {
+    height: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
     margin: 1rem 0;
-    overflow-x: auto;
 }
 
-code {
-    font-family: 'Fira Code', monospace;
-    color: var(--accent-color);
+.progreso {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
 }
 
-.slide-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem 0;
-}
-
-.nav-btn {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.nav-btn:hover {
-    transform: translateY(-2px);
-}
-
-.punto-counter {
-    font-size: 1.2rem;
-    opacity: 0.9;
+.estado {
+    color: var(--accent);
+    font-weight: bold;
+    margin-top: 0.5rem;
 }

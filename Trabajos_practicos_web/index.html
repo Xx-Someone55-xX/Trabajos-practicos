@@ -3,41 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentación Trabajos en C</title>
+    <title>Trabajos Prácticos en C</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 <body>
     <header class="header">
         <nav class="container">
-            <h1 class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                </svg>
-                Trabajos en C
-            </h1>
-            <button id="theme-toggle" class="theme-toggle">🌞</button>
+            <h1 class="logo">Mis Trabajos en C</h1>
+            <button id="theme-toggle" class="theme-btn">☀️</button>
         </nav>
     </header>
 
-    <main>
+    <main class="main-content">
         <div class="trabajos-grid">
             <a href="tp1.html" class="trabajo-card">
-                <h2>Trabajo Práctico 1</h2>
-                <p>18 puntos implementados</p>
-                <div class="progreso-bar">
-                    <div class="progreso" style="width: 100%"></div>
+                <div class="card-content">
+                    <h2>TP1 - 18 Puntos</h2>
+                    <div class="progreso-bar">
+                        <div class="progreso" style="width: 100%"></div>
+                    </div>
+                    <p class="estado">Completo ✔️</p>
                 </div>
-                <div class="badge">Completo ✔️</div>
             </a>
 
             <a href="tp2.html" class="trabajo-card">
-                <h2>Trabajo Práctico 2</h2>
-                <p>6 puntos implementados</p>
-                <div class="progreso-bar">
-                    <div class="progreso" style="width: 33%"></div>
+                <div class="card-content">
+                    <h2>TP2 - 6 Puntos</h2>
+                    <div class="progreso-bar">
+                        <div class="progreso" style="width: 33%"></div>
+                    </div>
+                    <p class="estado">En Progreso 🚧</p>
                 </div>
-                <div class="badge">En progreso 🚧</div>
             </a>
         </div>
     </main>

@@ -1,18 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
+    const html = document.documentElement;
     
-    // Cargar tema guardado o usar dark como default
+    // Cargar tema guardado o usar dark por defecto
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    body.setAttribute('data-theme', savedTheme);
-    themeToggle.textContent = savedTheme === 'dark' ? '🌞' : '🌙';
+    html.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
+    // Cambiar tema
     themeToggle.addEventListener('click', () => {
-        const isDark = body.getAttribute('data-theme') === 'dark';
+        const isDark = html.getAttribute('data-theme') === 'dark';
         const newTheme = isDark ? 'light' : 'dark';
         
-        body.setAttribute('data-theme', newTheme);
-        themeToggle.textContent = isDark ? '🌙' : '🌞';
+        html.setAttribute('data-theme', newTheme);
+        themeToggle.textContent = isDark ? '🌙' : '☀️';
         localStorage.setItem('theme', newTheme);
         
         // Animación del botón
