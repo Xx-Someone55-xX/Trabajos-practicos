@@ -1,82 +1,170 @@
-/* === ESTILOS GENERALES === */
-body {
-  background-color: #f8f9fa;
-  font-family: Arial, sans-serif;
-  color: #212529;
+/* Estilos específicos para TP1 */
+.tp1-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-/* === ESTILO PARA BLOQUES DE CÓDIGO C (tipo VSC Prettier Dark+) === */
-.code-block {
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  padding: 1rem;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-family: 'Courier New', monospace;
-  font-size: 0.95rem;
-  white-space: pre;
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
 }
 
-/* COLORES DE SINTAXIS */
-.keyword { color: #569cd6; }
-.datatype { color: #4ec9b0; }
-.comment { color: #6a9955; }
-.string { color: #ce9178; }
-.function { color: #dcdcaa; }
-.number  { color: #b5cea8; }
-.directive { color: #c586c0; }
-
-/* Contenedor de terminal estilo VSCode */
-.terminal-container {
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  margin-top: 1rem;
-  overflow-x: auto;
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Barra superior */
-.terminal-header {
-  background-color: #333333;
-  padding: 0.4rem 1rem;
-  font-weight: bold;
-  color: #ffffff;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+.slide {
+    min-width: 100%;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s, transform 0.5s;
 }
 
-/* Botones estilo VSCode */
-.terminal-header .btn-close,
-.terminal-header .btn-minimize,
-.terminal-header .btn-maximize {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: default;
-  margin-right: 0.4rem;
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
 }
 
-.terminal-header .btn-close { background-color: #ff5f56; }  /* rojo */
-.terminal-header .btn-minimize { background-color: #ffbd2e; }  /* amarillo */
-.terminal-header .btn-maximize {
-  background-color: #27c93f;
-  margin-right: 0;
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    opacity: 0.8;
 }
 
-/* Área de texto de salida */
-.terminal-output {
-  padding: 1rem;
-  min-height: 80px;
-  white-space: pre-wrap;   /* permite saltos de línea */
-  color: #ffffff;          /* texto blanco */
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+.slider-arrow:hover {
+    opacity: 1;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Estilos para el código */
+.code-section {
+    background: var(--bg-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+}
+
+.btn-download {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+}
+
+/* Navegación superior */
+.slide-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.punto-select {
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--accent-color);
+}
+
+.puntos-counter {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+/* === Slides TP1 === */
+.slides-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.punto-card {
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-box {
+    background: var(--header-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    color: var(--accent-color);
+}
+
+.slide-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.nav-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+}
+
+.punto-counter {
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
