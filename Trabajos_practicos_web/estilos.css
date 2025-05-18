@@ -26,6 +26,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 body {
@@ -53,15 +54,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
-.logo {
-    color: var(--header-text);
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-/* ===== Botón Tema ===== */
+/* ===== Botón Tema Fijo ===== */
 .theme-btn {
     background: var(--header-text);
     color: var(--header-bg);
@@ -73,12 +69,49 @@ body {
     height: 40px;
     display: grid;
     place-items: center;
-    transition: transform 0.3s ease, background 0.3s;
+    transition: all 0.3s ease;
     box-shadow: var(--shadow);
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
 }
 
 .theme-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    opacity: 0.9;
+}
+
+/* ===== Botón Volver ===== */
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    z-index: 1;
+}
+
+.btn-volver:hover {
+    transform: translateY(-2px);
+    background: var(--header-bg);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.btn-volver svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-volver:hover svg {
+    transform: translateX(-3px);
 }
 
 /* ===== Tarjetas ===== */
@@ -98,7 +131,7 @@ body {
     text-decoration: none;
     color: inherit;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, background 0.3s;
+    transition: all 0.3s ease;
     border: 1px solid transparent;
 }
 
@@ -108,48 +141,65 @@ body {
     border-color: var(--accent);
 }
 
-.card-content {
-    padding: 1rem;
-    text-align: center;
-}
-
 .descripcion-tp {
     color: var(--accent);
     font-size: 1.1rem;
     margin-top: 1rem;
     opacity: 0.9;
+    text-align: center;
 }
 
-/* ===== Botones Especiales ===== */
-.btn-volver,
+/* ===== Slides ===== */
+.slide-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.nav-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.punto-counter {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* ===== Código ===== */
+.code-box {
+    background: var(--header-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+
 .btn-download {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.6rem;
     background: var(--accent);
     color: #fff;
     padding: 0.8rem 1.5rem;
-    border-radius: 50px;
+    border-radius: 6px;
     text-decoration: none;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    margin-top: 1rem;
 }
 
-.btn-volver:hover,
 .btn-download:hover {
     transform: translateY(-2px);
     background: var(--header-bg);
-    border-color: var(--accent);
-    box-shadow: var(--shadow);
-}
-
-.btn-volver svg,
-.btn-download svg {
-    width: 1.2rem;
-    height: 1.2rem;
-    transition: transform 0.3s ease;
-}
-
-.btn-volver:hover svg {
-    transform: translateX(-3px);
 }
