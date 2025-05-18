@@ -106,6 +106,8 @@ body {
     box-shadow: var(--shadow);
     text-align: center;
     border: 1px solid transparent;
+    text-decoration: none !important; /* Elimina subrayado del enlace */
+    color: inherit; /* Hereda el color del texto principal */
 }
 
 .trabajo-card:hover {
@@ -118,6 +120,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+/* Títulos de tarjetas */
+.card-content h2 {
+    color: var(--text-color) !important; /* Fuerza color original */
+    text-decoration: none !important; /* Elimina subrayado */
+    margin: 0;
+    font-size: 1.5rem;
 }
 
 .descripcion-tp {
