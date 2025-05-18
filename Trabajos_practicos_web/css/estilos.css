@@ -323,3 +323,68 @@ pre {
     stroke: currentColor;
     stroke-width: 2;
 }
+/* ===== Descripción del Ejercicio ===== */
+.exercise-description {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+.exercise-description h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.exercise-description p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .exercise-description {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+    
+    .exercise-description h3 {
+        font-size: 1.1rem;
+    }
+    
+    .exercise-description p {
+        font-size: 0.9rem;
+    }
+}
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: #0f172a;
+    --card-bg: #2d3748;
+    --accent: #60a5fa;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header {
+    background-color: var(--header-bg);
+}
+
+.trabajo-card {
+    background-color: var(--card-bg);
+}
+
+.theme-btn {
+    background-color: var(--accent);
+    color: white;
+}

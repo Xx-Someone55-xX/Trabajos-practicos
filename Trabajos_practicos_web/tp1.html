@@ -31,11 +31,26 @@
         <div class="slides-container">
             <article class="slide active">
                 <section class="punto-card">
+                    <!-- Sección agregada -->
+                    <div class="exercise-description">
+                        <h3>Ejercicio 1: Operaciones básicas</h3>
+                        <p>Dados como datos dos números calcular su suma y su producto e informar los resultados.</p>
+                    </div>
+                    
                     <div class="code-box">
                         <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 int main() {
-    printf("Implementación del punto 1");
+    int num1, num2;
+    printf("Ingrese dos números: ");
+    scanf("%d %d", &num1, &num2);
+    
+    int suma = num1 + num2;
+    int producto = num1 * num2;
+    
+    printf("Suma: %d\n", suma);
+    printf("Producto: %d\n", producto);
+    
     return 0;
 }</code></pre>
                         <button class="btn-copy" aria-label="Copiar código">
@@ -52,31 +67,51 @@ int main() {
     </main>
 
     <script>
-        // Toggle del tema
-        document.querySelector('.theme-btn').addEventListener('click', () => {
-            const html = document.documentElement;
-            const isDark = html.getAttribute('data-theme') === 'dark';
-            const newTheme = isDark ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            document.querySelector('.theme-btn').textContent = isDark ? '☀️' : '🌙';
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.querySelector('.theme-btn');
+    const html = document.documentElement;
 
-        // Cargar tema guardado
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        document.querySelector('.theme-btn').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    // Función para aplicar el tema
+    const applyTheme = (theme) => {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('tp-theme', theme);
+        themeBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
+        
+        // Actualizar estilos dinámicamente
+        const root = document.documentElement;
+        if(theme === 'light') {
+            root.style.setProperty('--bg-color', '#f8fafc');
+            root.style.setProperty('--text-color', '#1e293b');
+            root.style.setProperty('--header-bg', '#ffffff');
+            root.style.setProperty('--card-bg', '#ffffff');
+            root.style.setProperty('--accent', '#2563eb');
+        } else {
+            root.style.setProperty('--bg-color', '#1a1a1a');
+            root.style.setProperty('--text-color', '#e0e0e0');
+            root.style.setProperty('--header-bg', '#0f172a');
+            root.style.setProperty('--card-bg', '#2d3748');
+            root.style.setProperty('--accent', '#60a5fa');
+        }
+    };
 
-        // Copiar código
-        document.querySelectorAll('.btn-copy').forEach(button => {
-            button.addEventListener('click', () => {
-                const code = button.parentElement.querySelector('code').innerText;
-                navigator.clipboard.writeText(code).then(() => {
-                    button.classList.add('copied');
-                    setTimeout(() => button.classList.remove('copied'), 2000);
-                });
-            });
-        });
-    </script>
+    // Cargar tema guardado
+    const savedTheme = localStorage.getItem('tp-theme') || 'dark';
+    applyTheme(savedTheme);
+
+    // Manejador de clic
+    themeBtn.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Animación y aplicación del tema
+        themeBtn.animate([
+            { transform: 'scale(0.9)' },
+            { transform: 'scale(1)' }
+        ], { duration: 200 });
+        
+        applyTheme(newTheme);
+    });
+});
+</script>
 </body>
 </html>

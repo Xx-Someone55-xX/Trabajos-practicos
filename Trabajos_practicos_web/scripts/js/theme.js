@@ -2,33 +2,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-btn');
     const html = document.documentElement;
 
-    // Función para actualizar el ícono
-    const updateIcon = () => {
-        themeToggle.textContent = html.getAttribute('data-theme') === 'dark' ? '🌙' : '☀️';
+    // Función para aplicar el tema
+    const applyTheme = (theme) => {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('tp-theme', theme);  // Cambiado el nombre de la key
+        themeToggle.textContent = theme === 'dark' ? '🌙' : '☀️';
     };
 
-    // Cargar tema guardado o usar preferencia del sistema
-    const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const initialTheme = savedTheme || systemTheme;
-    
-    html.setAttribute('data-theme', initialTheme);
-    updateIcon();
+    // Detectar tema del sistema con polyfill
+    const getSystemTheme = () => {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return isDark ? 'dark' : 'light';
+    };
 
-    // Cambiar tema
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
+    // Cargar tema con validación reforzada
+    const loadTheme = () => {
+        try {
+            const savedTheme = localStorage.getItem('tp-theme');
+            return ['dark', 'light'].includes(savedTheme) ? savedTheme : getSystemTheme();
+        } catch (error) {
+            console.error('Error al cargar el tema:', error);
+            return 'dark';
+        }
+    };
+
+    // Animación mejorada con requestAnimationFrame
+    const animateButton = () => {
+        themeToggle.style.transform = 'scale(0.85)';
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1)';
+            }, 100);
+        });
+    };
+
+    // Manejador del click
+    const handleThemeToggle = () => {
+        const currentTheme = html.getAttribute('data-theme') || 'dark';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
-        // Actualizar tema y almacenamiento
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+        animateButton();
         
-        // Animación y actualización de ícono
-        themeToggle.style.transform = 'scale(0.9)';
-        setTimeout(() => {
-            themeToggle.style.transform = 'scale(1)';
-        }, 100);
-        updateIcon();
-    });
+        // Forzar repaint para transiciones CSS
+        html.style.display = 'none';
+        html.offsetHeight; // Trigger reflow
+        html.style.display = '';
+    };
+
+    // Inicialización segura
+    const initializeTheme = () => {
+        try {
+            const initialTheme = loadTheme();
+            applyTheme(initialTheme);
+            themeToggle.addEventListener('click', handleThemeToggle);
+        } catch (error) {
+            console.error('Error inicializando el tema:', error);
+            applyTheme('dark');
+        }
+    };
+
+    // Iniciar
+    initializeTheme();
 });
