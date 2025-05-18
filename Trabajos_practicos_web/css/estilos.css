@@ -417,22 +417,22 @@ body {
 
 .btn-copy.copied {
     background: #10b981 !important;
-    animation: bounce 0.5s ease;
+    border-color: #059669 !important;
 }
 
-.btn-copy svg {
+.btn-copy .copy-icon {
+    display: block;
     width: 18px;
     height: 18px;
     transition: opacity 0.3s ease;
 }
 
-.copy-icon {
-    display: inline-block;
-}
-
-.check-icon {
+.btn-copy .check-icon {
     display: none;
-    color: #fff;
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    animation: checkPop 0.3s ease;
 }
 
 .btn-copy.copied .copy-icon {
@@ -440,17 +440,7 @@ body {
 }
 
 .btn-copy.copied .check-icon {
-    display: inline-block;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-}
-
-.btn-copy.copied .check-icon {
-    stroke: #fff !important;
-    animation: checkPop 0.3s ease;
+    display: block !important;
 }
 
 @keyframes checkPop {

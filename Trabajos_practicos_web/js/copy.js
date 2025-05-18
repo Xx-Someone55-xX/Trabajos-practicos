@@ -1,28 +1,32 @@
 document.querySelectorAll('.btn-copy').forEach(button => {
     button.addEventListener('click', async function() {
-        const code = this.closest('.code-box').querySelector('code').innerText;
-        const copyIcon = this.querySelector('.copy-icon');
-        const checkIcon = this.querySelector('.check-icon');
-        const span = this.querySelector('span');
+        const codeBlock = this.closest('.code-box').querySelector('code');
+        const textToCopy = codeBlock.innerText;
+        const originalText = this.querySelector('span').textContent;
         
         try {
-            await navigator.clipboard.writeText(code);
-            this.classList.add('copied');
-            copyIcon.style.display = 'none';
-            checkIcon.style.display = 'block';
-            span.textContent = '¡Copiado!';
+            await navigator.clipboard.writeText(textToCopy);
             
+            // Cambiar a estado copiado
+            this.classList.add('copied');
+            this.querySelector('.copy-icon').style.display = 'none';
+            this.querySelector('.check-icon').style.display = 'block';
+            this.querySelector('span').textContent = '¡Copiado!';
+            
+            // Resetear después de 2 segundos
             setTimeout(() => {
                 this.classList.remove('copied');
-                copyIcon.style.display = 'block';
-                checkIcon.style.display = 'none';
-                span.textContent = 'Copiar';
+                this.querySelector('.copy-icon').style.display = 'block';
+                this.querySelector('.check-icon').style.display = 'none';
+                this.querySelector('span').textContent = originalText;
             }, 2000);
             
         } catch (err) {
             console.error('Error al copiar:', err);
-            span.textContent = 'Error';
-            setTimeout(() => span.textContent = 'Copiar', 2000);
+            this.querySelector('span').textContent = 'Error';
+            setTimeout(() => {
+                this.querySelector('span').textContent = originalText;
+            }, 2000);
         }
     });
 });
