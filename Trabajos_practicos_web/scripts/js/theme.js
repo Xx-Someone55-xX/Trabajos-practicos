@@ -64,4 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Iniciar
     initializeTheme();
+
+    document.querySelectorAll('.btn-copy').forEach(button => {
+    button.addEventListener('click', function() {
+        const span = this.querySelector('span');
+        this.classList.add('copied');
+        span.textContent = '¡Copiado!';
+        
+        setTimeout(() => {
+            this.classList.remove('copied');
+            span.textContent = 'Copiar';
+        }, 2000);
+    });
+});
 });

@@ -38,6 +38,11 @@
     }
 }
 
+/* ===== Fix para scrollbar ===== */
+html {
+    overflow-y: scroll;
+}
+
 /* ===== Estilos Base ===== */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -74,7 +79,7 @@ body {
     border-bottom: var(--header-border);
 }
 
-/* ===== Botones ===== */
+/* ===== Botón Tema Fijo ===== */
 .theme-btn {
     background: var(--accent);
     color: white;
@@ -91,13 +96,16 @@ body {
     display: grid;
     place-items: center;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .theme-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
+/* ===== Botón Volver ===== */
 .btn-volver {
     display: inline-flex;
     align-items: center;
@@ -118,6 +126,20 @@ body {
     transform: translateY(-2px);
     background: var(--button-hover-bg);
     border-color: var(--accent);
+}
+
+/* ===== Media Queries ===== */
+@media (max-width: 768px) {
+    .theme-btn {
+        right: 20px;
+        top: 20px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .header {
+        padding-right: 60px;
+    }
 }
 
 /* ===== Tarjetas ===== */
@@ -387,4 +409,54 @@ body {
 .theme-btn {
     background-color: var(--accent);
     color: white;
+}
+
+/* ===== Botón Copiar Mejorado ===== */
+.btn-copy {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-copy.copied {
+    background: #10b981 !important;
+    animation: bounce 0.5s ease;
+}
+
+.btn-copy svg {
+    width: 18px;
+    height: 18px;
+    transition: opacity 0.3s ease;
+}
+
+.copy-icon {
+    display: inline-block;
+}
+
+.check-icon {
+    display: none;
+    color: #fff;
+}
+
+.btn-copy.copied .copy-icon {
+    display: none;
+}
+
+.btn-copy.copied .check-icon {
+    display: inline-block;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
