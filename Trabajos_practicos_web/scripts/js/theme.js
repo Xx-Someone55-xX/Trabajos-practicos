@@ -1,25 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggle = document.querySelector('.theme-btn');
     const html = document.documentElement;
+
+    // Función para actualizar el ícono
+    const updateIcon = () => {
+        themeToggle.textContent = html.getAttribute('data-theme') === 'dark' ? '🌙' : '☀️';
+    };
+
+    // Cargar tema guardado o usar preferencia del sistema
+    const savedTheme = localStorage.getItem('theme');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const initialTheme = savedTheme || systemTheme;
     
-    // Cargar tema guardado o usar dark por defecto
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    html.setAttribute('data-theme', savedTheme);
-    themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    html.setAttribute('data-theme', initialTheme);
+    updateIcon();
 
     // Cambiar tema
     themeToggle.addEventListener('click', () => {
-        const isDark = html.getAttribute('data-theme') === 'dark';
-        const newTheme = isDark ? 'light' : 'dark';
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
+        // Actualizar tema y almacenamiento
         html.setAttribute('data-theme', newTheme);
-        themeToggle.textContent = isDark ? '🌙' : '☀️';
         localStorage.setItem('theme', newTheme);
         
-        // Animación del botón
+        // Animación y actualización de ícono
         themeToggle.style.transform = 'scale(0.9)';
         setTimeout(() => {
             themeToggle.style.transform = 'scale(1)';
         }, 100);
+        updateIcon();
     });
 });

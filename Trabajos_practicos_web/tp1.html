@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
                 </svg>
                 <span>Volver al Inicio</span>
             </a>
-            <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">☀️</button>
+            <button class="theme-btn" aria-label="Cambiar tema">🌙</button>
         </nav>
     </header>
 
@@ -29,10 +29,8 @@
         </div>
 
         <div class="slides-container">
-            <!-- Slide 1 -->
             <article class="slide active">
                 <section class="punto-card">
-                    <h2 class="punto-title">Punto 1: Título del ejercicio</h2>
                     <div class="code-box">
                         <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -40,22 +38,45 @@ int main() {
     printf("Implementación del punto 1");
     return 0;
 }</code></pre>
+                        <button class="btn-copy" aria-label="Copiar código">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            Copiar Código
+                        </button>
                     </div>
-                    <a href="codigos/punto1.c" download class="btn-download" aria-label="Descargar código">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Descargar Código
-                    </a>
                 </section>
             </article>
-            <!-- Slides restantes... -->
         </div>
     </main>
 
-    <script src="scripts/js/theme.js" defer></script>
-    <script src="scripts/js/slider.js" defer></script>
+    <script>
+        // Toggle del tema
+        document.querySelector('.theme-btn').addEventListener('click', () => {
+            const html = document.documentElement;
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            document.querySelector('.theme-btn').textContent = isDark ? '☀️' : '🌙';
+        });
+
+        // Cargar tema guardado
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-btn').textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+        // Copiar código
+        document.querySelectorAll('.btn-copy').forEach(button => {
+            button.addEventListener('click', () => {
+                const code = button.parentElement.querySelector('code').innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    button.classList.add('copied');
+                    setTimeout(() => button.classList.remove('copied'), 2000);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
