@@ -22,10 +22,10 @@
 }
 
 /* ===== Estilos Generales ===== */
-* {
+*, ::before, ::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
@@ -57,7 +57,7 @@ body {
     position: relative;
 }
 
-/* ===== Botón Tema Fijo ===== */
+/* ===== Botones ===== */
 .theme-btn {
     background: var(--header-text);
     color: var(--header-bg);
@@ -77,13 +77,8 @@ body {
     z-index: 1000;
 }
 
-.theme-btn:hover {
-    transform: scale(1.15);
-    opacity: 0.9;
-}
-
-/* ===== Botón Volver ===== */
-.btn-volver {
+.btn-volver,
+.btn-download {
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
@@ -94,32 +89,14 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     border: 2px solid transparent;
-    z-index: 1;
-}
-
-.btn-volver:hover {
-    transform: translateY(-2px);
-    background: var(--header-bg);
-    border-color: var(--accent);
-    box-shadow: var(--shadow);
-}
-
-.btn-volver svg {
-    width: 1.2rem;
-    height: 1.2rem;
-    transition: transform 0.3s ease;
-}
-
-.btn-volver:hover svg {
-    transform: translateX(-3px);
 }
 
 /* ===== Tarjetas ===== */
 .trabajos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     max-width: 1200px;
     margin: 2rem auto;
 }
@@ -128,11 +105,12 @@ body {
     background: var(--card-bg);
     border-radius: var(--border-radius);
     padding: 1.5rem;
-    text-decoration: none;
-    color: inherit;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
+    text-align: center;
     border: 1px solid transparent;
+    color: inherit;
+    text-decoration: none;
 }
 
 .trabajo-card:hover {
@@ -141,15 +119,37 @@ body {
     border-color: var(--accent);
 }
 
+/* Estilos corregidos para títulos */
+.card-content h2 {
+    color: inherit;
+    text-decoration: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    text-align: center;
+    width: 100%;
+}
+
 .descripcion-tp {
     color: var(--accent);
     font-size: 1.1rem;
-    margin-top: 1rem;
     opacity: 0.9;
-    text-align: center;
+    margin-top: 0.5rem;
 }
 
-/* ===== Slides ===== */
+/* ===== Efectos Hover ===== */
+.theme-btn:hover,
+.btn-volver:hover,
+.btn-download:hover,
+.nav-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.btn-volver:hover svg {
+    transform: translateX(-3px);
+}
+
+/* ===== Slides y Código ===== */
 .slide-controls {
     display: flex;
     justify-content: space-between;
@@ -157,27 +157,6 @@ body {
     margin: 2rem 0;
 }
 
-.nav-btn {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.nav-btn:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-}
-
-.punto-counter {
-    font-size: 1.2rem;
-    opacity: 0.8;
-}
-
-/* ===== Código ===== */
 .code-box {
     background: var(--header-bg);
     padding: 1rem;
