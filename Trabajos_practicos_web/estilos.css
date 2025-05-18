@@ -1,23 +1,24 @@
 /* ===== Variables ===== */
 :root {
-    --bg-color: #1a1a1a;          /* Fondo oscuro */
-    --text-color: #e0e0e0;        /* Texto claro */
-    --header-bg: #0f172a;         /* Fondo del header */
-    --header-text: #e2e8f0;       /* Texto del header */
-    --card-bg: #2d3748;           /* Fondo tarjetas */
-    --card-hover: #4a5568;        /* Hover tarjetas */
-    --accent: #60a5fa;            /* Color destacado */
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra oscura */
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: #0f172a;
+    --header-text: #e2e8f0;
+    --card-bg: #2d3748;
+    --card-hover: #4a5568;
+    --accent: #60a5fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --border-radius: 0.5rem;
 }
 
 [data-theme="light"] {
-    --bg-color: #f8fafc;          /* Fondo claro */
-    --text-color: #1e293b;        /* Texto oscuro */
-    --header-bg: #1d4ed8;         /* Header azul */
-    --header-text: #f8fafc;       /* Texto header claro */
-    --card-bg: #ffffff;           /* Tarjetas blancas */
-    --card-hover: #f1f5f9;        /* Hover tarjetas */
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+    --header-bg: #1d4ed8;
+    --header-text: #f8fafc;
+    --card-bg: #ffffff;
+    --card-hover: #f1f5f9;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== Estilos Generales ===== */
@@ -25,7 +26,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background 0.3s, color 0.3s;
 }
 
 body {
@@ -41,6 +41,9 @@ body {
     background: var(--header-bg);
     padding: 1rem 0;
     box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .container {
@@ -55,13 +58,14 @@ body {
 .logo {
     color: var(--header-text);
     font-size: 1.5rem;
+    font-weight: 600;
 }
 
 /* ===== Botón Tema ===== */
 .theme-btn {
-    background: transparent;
-    border: 2px solid var(--header-text);
-    color: var(--header-text);
+    background: var(--header-text);
+    color: var(--header-bg);
+    border: none;
     padding: 0.5rem;
     border-radius: 50%;
     cursor: pointer;
@@ -69,7 +73,8 @@ body {
     height: 40px;
     display: grid;
     place-items: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, background 0.3s;
+    box-shadow: var(--shadow);
 }
 
 .theme-btn:hover {
@@ -88,34 +93,63 @@ body {
 
 .trabajo-card {
     background: var(--card-bg);
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius);
     padding: 1.5rem;
     text-decoration: none;
     color: inherit;
     box-shadow: var(--shadow);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, background 0.3s;
+    border: 1px solid transparent;
 }
 
 .trabajo-card:hover {
     transform: translateY(-5px);
     background: var(--card-hover);
+    border-color: var(--accent);
 }
 
-.progreso-bar {
-    height: 8px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    margin: 1rem 0;
+.card-content {
+    padding: 1rem;
+    text-align: center;
 }
 
-.progreso {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 4px;
-}
-
-.estado {
+.descripcion-tp {
     color: var(--accent);
-    font-weight: bold;
-    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+/* ===== Botones Especiales ===== */
+.btn-volver,
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-volver:hover,
+.btn-download:hover {
+    transform: translateY(-2px);
+    background: var(--header-bg);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.btn-volver svg,
+.btn-download svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-volver:hover svg {
+    transform: translateX(-3px);
 }
