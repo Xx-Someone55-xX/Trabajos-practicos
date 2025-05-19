@@ -61,81 +61,16 @@ int main() {
 }</code></pre>
                       <!-- Botón copiar actualizado -->
 <button class="btn-copy">
-    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M8 4v12h12V4H8zM6 2h16v16H6V2zM4 6H2v18h18v-2H4V6z"/>
     </svg>
-    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
-        <path d="M20 6L9 17l-5-5" stroke-width="2"/>
+    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 6L9 17l-5-5"/>
     </svg>
     <span>Copiar</span>
 </button>
 
-<!-- Script actualizado -->
-<script>
-document.querySelectorAll('.btn-copy').forEach(button => {
-    button.addEventListener('click', async function() {
-        const code = this.closest('.code-box').querySelector('code').innerText;
-        
-        try {
-            await navigator.clipboard.writeText(code);
-            
-            // Cambios clave: Añadir clase y forzar estilos
-            this.classList.add('copied');
-            this.style.backgroundColor = '#10b981'; // Fuerza el color verde
-            this.style.borderColor = '#059669';
-            
-            this.querySelector('.copy-icon').style.display = 'none';
-            this.querySelector('.check-icon').style.display = 'block';
-            this.querySelector('span').textContent = '¡Copiado!';
-            
-            setTimeout(() => {
-                this.classList.remove('copied');
-                this.style.backgroundColor = ''; // Resetear estilos
-                this.style.borderColor = '';
-                this.querySelector('.copy-icon').style.display = 'block';
-                this.querySelector('.check-icon').style.display = 'none';
-                this.querySelector('span').textContent = 'Copiar';
-            }, 2000);
-            
-        } catch (err) {
-            console.error('Error:', err);
-            this.style.backgroundColor = '#ef4444';
-            setTimeout(() => this.style.backgroundColor = '', 2000);
-        }
-    });
-});
-</script>
-<script>
-// Sistema de tema oscuro/claro
-document.addEventListener('DOMContentLoaded', () => {
-    const themeBtn = document.querySelector('.theme-btn');
-    const html = document.documentElement;
-    const moonIcon = themeBtn.querySelector('.moon-icon');
-    const sunIcon = themeBtn.querySelector('.sun-icon');
-
-    const applyTheme = (theme) => {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('tp-theme', theme);
-        moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
-        sunIcon.style.display = theme === 'light' ? 'block' : 'none';
-    };
-
-    // Cargar tema guardado
-    const savedTheme = localStorage.getItem('tp-theme') || 'dark';
-    applyTheme(savedTheme);
-
-    themeBtn.addEventListener('click', () => {
-        const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(newTheme);
-        
-        // Animación
-        themeBtn.animate([
-            { transform: 'rotate(0deg) scale(1)' },
-            { transform: 'rotate(360deg) scale(1.2)' },
-            { transform: 'rotate(0deg) scale(1)' }
-        ], { duration: 600 });
-    });
-});
-</script>
+<script src="js/theme.js"></script>
+<script src="js/copy.js"></script>
 </body>
 </html>

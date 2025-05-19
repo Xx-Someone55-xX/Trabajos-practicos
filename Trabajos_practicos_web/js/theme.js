@@ -28,16 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Aplicar tema con transiciones
     const applyTheme = (theme) => {
-        html.style.transition = 'none'; // Desactivar transiciones durante el cambio
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem(themeKey, theme);
-        
-        // Actualizar icono
-        themeToggle.innerHTML = theme === 'dark' ? themeIcons.moon : themeIcons.sun;
-        
-        // Reactivar transiciones
-        setTimeout(() => html.style.transition = 'background-color 0.3s, color 0.3s', 10);
-    };
+    html.style.transition = 'none';
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem(themeKey, theme);
+    
+    // Actualizar icono
+    themeToggle.innerHTML = theme === 'dark' ? themeIcons.moon : themeIcons.sun;
+    
+    // Forzar repintado
+    void themeToggle.offsetWidth;
+    
+    setTimeout(() => {
+        html.style.transition = 'background-color 0.3s, color 0.3s';
+    }, 10);
+};
 
     // Animación de botón con CSS
     const animateButton = () => {
@@ -69,17 +73,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Iniciar sistema de temas
     initializeTheme();
 
-    // Sistema de copiado (mantener igual)
-    document.querySelectorAll('.btn-copy').forEach(button => {
-        button.addEventListener('click', function() {
-            const span = this.querySelector('span');
-            this.classList.add('copied');
-            span.textContent = '¡Copiado!';
-            
-            setTimeout(() => {
-                this.classList.remove('copied');
-                span.textContent = 'Copiar';
-            }, 2000);
-        });
-    });
 });

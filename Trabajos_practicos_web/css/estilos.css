@@ -385,37 +385,24 @@ pre {
     border-radius: 4px;
     border: none;
     cursor: pointer;
-    transition: none !important; /* Eliminar transiciones */
+    transition: background 0.3s ease; /* Nueva transición */
 }
 
-.btn-copy.copied {
-    background: #10b981 !important;
-    animation: pulse-green 0.5s ease;
+/* Nuevos estilos para los iconos */
+.btn-copy .copy-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    transition: opacity 0.3s ease;
 }
 
-@keyframes pulse-green {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.btn-volver:hover {
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
-}
-
-.nav-btn {
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-.code-box {
-    background: var(--code-bg);
-    border: var(--code-border);
-}
-
-.exercise-description h3 {
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 0.5rem;
+.btn-copy .check-icon {
+    display: none;
+    width: 18px;
+    height: 18px;
+    color: #10b981;
+    opacity: 0; /* Nuevo */
+    transform: scale(0); /* Nuevo */
 }
 
 /* Mejorar legibilidad en tarjetas */
@@ -435,4 +422,19 @@ pre {
     background: var(--accent);
     color: white !important; /* Forzar blanco puro */
     font-weight: 600;
+}
+
+btn-copy .copy-icon,
+.btn-copy .check-icon {
+    transition: all 0.3s ease;
+}
+
+.btn-copy.copied .check-icon {
+    display: inline-block !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+.btn-copy.copied .copy-icon {
+    display: none !important;
 }
