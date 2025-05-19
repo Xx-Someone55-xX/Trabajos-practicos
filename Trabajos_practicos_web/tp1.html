@@ -105,5 +105,37 @@ document.querySelectorAll('.btn-copy').forEach(button => {
     });
 });
 </script>
+<script>
+// Sistema de tema oscuro/claro
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.querySelector('.theme-btn');
+    const html = document.documentElement;
+    const moonIcon = themeBtn.querySelector('.moon-icon');
+    const sunIcon = themeBtn.querySelector('.sun-icon');
+
+    const applyTheme = (theme) => {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('tp-theme', theme);
+        moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
+        sunIcon.style.display = theme === 'light' ? 'block' : 'none';
+    };
+
+    // Cargar tema guardado
+    const savedTheme = localStorage.getItem('tp-theme') || 'dark';
+    applyTheme(savedTheme);
+
+    themeBtn.addEventListener('click', () => {
+        const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+        
+        // Animación
+        themeBtn.animate([
+            { transform: 'rotate(0deg) scale(1)' },
+            { transform: 'rotate(360deg) scale(1.2)' },
+            { transform: 'rotate(0deg) scale(1)' }
+        ], { duration: 600 });
+    });
+});
+</script>
 </body>
 </html>
