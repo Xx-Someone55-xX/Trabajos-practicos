@@ -1,6 +1,6 @@
 /* ===== Variables Globales ===== */
 :root {
-    /* Tema oscuro */
+    /* Tema oscuro (valores por defecto) */
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
     --header-bg: #0f172a;
@@ -17,25 +17,25 @@
     --card-border: none;
     --header-border: none;
     --code-border: none;
+}
 
-    /* Tema claro */
-    &[data-theme="light"] {
-    --bg-color: #ffffff;           /* Fondo blanco puro */
-    --text-color: #1a202c;         /* Casi negro (más oscuro) */
-    --header-bg: #f1f5f9;          /* Gris muy claro */
-    --header-text: #1e3a8a;        /* Azul oscuro intenso */
+/* Tema claro - Separado para mejor mantenimiento */
+:root[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #1a202c;
+    --header-bg: #f1f5f9;
+    --header-text: #1e3a8a;
     --card-bg: #cecece;
-    --card-hover: #e2e8f0;         /* Gris medio para hover */
-    --accent: #1d4ed8;             /* Azul oscuro vibrante */
+    --card-hover: #e2e8f0;
+    --accent: #1d4ed8;
     --shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
-    --button-hover-bg: #1e40af;    /* Azul más oscuro */
-    --code-bg: #f8fafc;            
-    --code-text: #0f172a;          /* Negro azulado */
-    --text-muted: #475569;         /* Gris oscuro */
-    --card-border: 1px solid #cbd5e1; /* Borde más visible */
-    --header-border: 1px solid #94a3b8; 
+    --button-hover-bg: #1e40af;
+    --code-bg: #f8fafc;
+    --code-text: #0f172a;
+    --text-muted: #475569;
+    --card-border: 1px solid #cbd5e1;
+    --header-border: 1px solid #94a3b8;
     --code-border: 1px solid #94a3b8;
-    }
 }
 
 /* ===== Fix para scrollbar ===== */
