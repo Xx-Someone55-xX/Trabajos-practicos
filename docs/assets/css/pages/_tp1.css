@@ -1,26 +1,33 @@
-/* Estilos específicos para la página TP1 */
+/* ===== Estilos específicos para TP1 Algoritmos ===== */
+/* Contenedor principal */
 .tp1-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
+/* Header del TP */
 .tp1-header {
     text-align: center;
     margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 .tp1-title {
     color: var(--accent);
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
-.tp1-description {
+.tp1-subtitle {
     color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
 }
 
+/* Contenedor de ejercicios */
 .exercise-container {
     background: var(--card-bg);
     border-radius: var(--border-radius);
@@ -30,41 +37,86 @@
     border: var(--card-border);
 }
 
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--text-muted);
+}
+
 .exercise-title {
     color: var(--accent);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    font-size: 1.3rem;
 }
 
 .exercise-points {
     background: var(--accent);
     color: white;
-    padding: 0.25rem 0.5rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 1rem;
-    font-size: 0.8rem;
     font-weight: bold;
+    font-size: 0.9rem;
 }
 
-.exercise-content {
-    display: grid;
-    gap: 1.5rem;
+/* Descripción del ejercicio */
+.exercise-description {
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
 }
 
+.exercise-description p {
+    margin-bottom: 1rem;
+}
+
+/* Requerimientos */
+.requirements-list {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.requirements-list li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Bloques de código */
 .code-container {
     position: relative;
+    margin: 1.5rem 0;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.code-filename {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Soluciones */
+.solution-container {
+    margin-top: 1.5rem;
+    border-top: 1px dashed var(--text-muted);
+    padding-top: 1.5rem;
 }
 
 .solution-btn {
     background: var(--accent);
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 1rem;
+    font-weight: 600;
     transition: all 0.3s ease;
+    margin-bottom: 1rem;
 }
 
 .solution-btn:hover {
@@ -79,10 +131,19 @@
 }
 
 .solution-content.show {
-    max-height: 1000px;
+    max-height: 2000px; /* Ajusta según necesidad */
 }
 
-/* Estilos específicos para la tabla de ejercicios */
+/* Navegación */
+.tp1-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--text-muted);
+}
+
+/* Tablas */
 .exercise-table {
     width: 100%;
     border-collapse: collapse;
@@ -98,21 +159,19 @@
 .exercise-table th {
     background: var(--card-hover);
     color: var(--text-color);
+    font-weight: 600;
 }
 
-/* Estilos para la navegación inferior */
-.tp1-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-    padding: 1rem 0;
-    border-top: 1px solid var(--text-muted);
-}
-
-/* Estilos responsive para TP1 */
+/* Responsive */
 @media (max-width: 768px) {
-    .exercise-content {
-        grid-template-columns: 1fr;
+    .tp1-container {
+        padding: 0 0.5rem;
+    }
+    
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
     
     .tp1-navigation {
@@ -124,4 +183,14 @@
         display: block;
         overflow-x: auto;
     }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.exercise-container {
+    animation: fadeIn 0.5s ease-out;
 }
