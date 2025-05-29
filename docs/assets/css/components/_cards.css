@@ -151,3 +151,44 @@
     0% { transform: translateY(10px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
+
+/* Estilos específicos para Física I */
+.materia-card:nth-child(3):hover::after {
+    background: #3498db;
+}
+
+.materia-card:nth-child(3):hover .materia-icon path,
+.materia-card:nth-child(3):hover .materia-icon circle {
+    stroke: white;
+    fill: white;
+}
+
+/* Estilos específicos para Sistemas y Procesos de Negocio */
+.materia-card:nth-child(4):hover::after {
+    background: #9b59b6;
+}
+
+.materia-card:nth-child(4):hover .materia-icon path {
+    stroke: white;
+}
+
+/* Animación para el icono de física */
+@keyframes rotateAtom {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.materia-card:nth-child(3):hover .materia-icon {
+    animation: rotateAtom 8s linear infinite;
+}
+
+/* Animación para el icono de sistemas */
+@keyframes pulseFlow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.materia-card:nth-child(4):hover .materia-icon {
+    animation: pulseFlow 2s ease-in-out infinite;
+}
