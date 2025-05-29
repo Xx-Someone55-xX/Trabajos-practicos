@@ -1,0 +1,34 @@
+/* ===== Bloques de Código ===== */
+.code-box {
+    background: var(--code-bg);
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 800px;
+    position: relative;
+    box-shadow: var(--shadow);
+    border: var(--code-border);
+}
+
+pre {
+    padding: 2rem;
+    overflow-x: auto;
+    color: var(--code-text);
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    tab-size: 4;
+    margin: 0;
+}
+
+/* Animaciones */
+@keyframes checkPop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}

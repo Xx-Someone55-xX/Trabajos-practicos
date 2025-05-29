@@ -133,3 +133,21 @@
     transform: scale(1.1);
     stroke: white;
 }
+
+/* Animación para nuevas materias */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación sutil al cargar */
+@keyframes iconFloat {
+    0% { transform: translateY(10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
