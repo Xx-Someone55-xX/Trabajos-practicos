@@ -1,0 +1,127 @@
+/* Estilos específicos para la página TP1 */
+.tp1-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.tp1-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.tp1-title {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.tp1-description {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.exercise-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: var(--card-border);
+}
+
+.exercise-title {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.exercise-points {
+    background: var(--accent);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.exercise-content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.code-container {
+    position: relative;
+}
+
+.solution-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.solution-btn:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+.solution-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.solution-content.show {
+    max-height: 1000px;
+}
+
+/* Estilos específicos para la tabla de ejercicios */
+.exercise-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.exercise-table th, .exercise-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--text-muted);
+}
+
+.exercise-table th {
+    background: var(--card-hover);
+    color: var(--text-color);
+}
+
+/* Estilos para la navegación inferior */
+.tp1-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--text-muted);
+}
+
+/* Estilos responsive para TP1 */
+@media (max-width: 768px) {
+    .exercise-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .tp1-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .exercise-table {
+        display: block;
+        overflow-x: auto;
+    }
+}

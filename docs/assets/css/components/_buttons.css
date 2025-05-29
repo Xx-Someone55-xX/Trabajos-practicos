@@ -1,0 +1,109 @@
+/* ===== Botón Tema ===== */
+.theme-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.05);
+    background: var(--button-hover-bg);
+}
+
+/* ===== Botón Volver ===== */
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: var(--shadow);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+    transform: translateY(-2px);
+    background: var(--button-hover-bg);
+    border-color: var(--accent);
+}
+
+.btn-volver svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+/* ===== Botones de Navegación ===== */
+.nav-btn {
+    background: var(--accent);
+    color: white !important;
+    border: none;
+    padding: 0.8rem 3.5rem;
+    margin: 0 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    background: var(--button-hover-bg);
+}
+
+/* ===== Botón Copiar ===== */
+.btn-copy {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-copy:hover {
+    background: var(--button-hover-bg);
+}
+
+.btn-copy .copy-icon,
+.btn-copy .check-icon {
+    transition: all 0.3s ease;
+}
+
+.btn-copy.copied .check-icon {
+    display: inline-block !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+.btn-copy.copied .copy-icon {
+    display: none !important;
+}

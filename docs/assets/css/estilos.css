@@ -516,18 +516,29 @@ btn-copy .copy-icon,
     animation: fadeInUp 0.5s ease-out;
 }
 
-/* Agregar en assets/css/estilos.css */
-.header .container {
+.header {
+    position: relative; /* Necesario para el posicionamiento absoluto del hijo */
+}
+
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    position: relative; /* Contenedor de referencia para el logo */
+    min-height: 100px; /* Asegura altura mínima */
 }
 
 .logo {
-    flex: 1;
-    text-align: center;
-    margin: 0 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+}
+
+.btn-volver,
+.theme-btn {
+    z-index: 1; /* Asegura que los botones estén sobre el título si hay superposición */
 }
 
 @media (max-width: 768px) {
@@ -541,12 +552,6 @@ btn-copy .copy-icon,
         width: 100%;
         justify-content: center;
         margin-bottom: 1rem;
-    }
-    
-    .logo {
-        order: 2;
-        flex: 0 0 100%;
-        margin: 0 0 1rem 0;
     }
     
     .theme-btn {

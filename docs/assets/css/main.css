@@ -1,0 +1,21 @@
+/* ===== Importación de módulos ===== */
+@import url('base/_variables.css');
+@import url('base/_reset.css');
+@import url('base/_typography.css');
+
+@import url('components/_buttons.css');
+@import url('components/_cards.css');
+@import url('components/_header.css');
+@import url('components/_code.css');
+
+@import url('layout/_grid.css');
+@import url('layout/_navigation.css');
+
+@import url('pages/_home.css');
+@import url('pages/_trabajos.css');
+@import url('pages/_tp1.css'); /* Nuevo archivo para TP1 */
+
+@import url('themes/_dark-light.css');
+
+@import url('utilities/_animations.css');
+@import url('utilities/_responsive.css');
