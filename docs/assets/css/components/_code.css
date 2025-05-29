@@ -32,3 +32,14 @@ pre {
     25% { transform: translateX(-3px); }
     75% { transform: translateX(3px); }
 }
+
+.code-box {
+    position: relative;
+    overflow: hidden;
+}
+
+pre {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+}

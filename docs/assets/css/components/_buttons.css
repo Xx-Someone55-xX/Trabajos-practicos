@@ -125,3 +125,53 @@
     transform: translateY(-2px);
     background: var(--button-hover-bg);
 }
+
+/* ===== Botón Copiar Mejorado ===== */
+.btn-copy {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.btn-copy:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+.btn-copy .fa-copy, 
+.btn-copy .fa-check {
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-copy.copied .fa-check {
+    display: inline-block !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+.btn-copy.copied .fa-copy {
+    display: none !important;
+}
+
+/* Animación para el icono de check */
+@keyframes checkPop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.btn-copy.copied .fa-check {
+    animation: checkPop 0.3s ease;
+}

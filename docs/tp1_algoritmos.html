@@ -6,6 +6,8 @@
     <title>TP1 - 18 Puntos</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+    <!-- Agregar Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
@@ -44,7 +46,7 @@
                     </div>
                     
                     <div class="code-box">
-                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+                        <pre><code class="language-c" id="code-block">#include &lt;stdio.h&gt;
 
 int main() {
     int num1, num2;
@@ -59,18 +61,20 @@ int main() {
     
     return 0;
 }</code></pre>
-                      <!-- Botón copiar actualizado -->
-<button class="btn-copy">
-    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M8 4v12h12V4H8zM6 2h16v16H6V2zM4 6H2v18h18v-2H4V6z"/>
-    </svg>
-    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20 6L9 17l-5-5"/>
-    </svg>
-    <span>Copiar</span>
-</button>
+                        <!-- Botón copiar actualizado -->
+                        <button class="btn-copy" id="copy-button">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none; color: #10b981;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
 
-<script src="assets/js/theme.js"></script>
-<script src="assets/js/copy.js"></script>
+    <!-- Incluir archivos JavaScript externos -->
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/copy.js"></script>
 </body>
 </html>
