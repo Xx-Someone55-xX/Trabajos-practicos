@@ -1,0 +1,14 @@
+/* Mejor contraste para nuevos iconos en modo oscuro */
+[data-theme="dark"] .materia-card:nth-child(2) .materia-icon path,
+[data-theme="dark"] .materia-card:nth-child(2) .materia-icon circle {
+    stroke: #2ecc71;
+    fill: #2ecc71;
+    filter: brightness(1.2);
+}
+
+[data-theme="dark"] .materia-card:nth-child(3) .materia-icon path,
+[data-theme="dark"] .materia-card:nth-child(3) .materia-icon circle {
+    stroke: #b84dff;
+    fill: #b84dff;
+    opacity: 0.95;
+}

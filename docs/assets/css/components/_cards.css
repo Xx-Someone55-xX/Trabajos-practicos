@@ -123,15 +123,15 @@
     height: 80px;
     margin: 0 auto 1rem;
     display: block;
-    stroke: var(--accent);
     stroke-linecap: round;
     stroke-linejoin: round;
     transition: all 0.3s ease;
 }
 
+/* Eliminar transformación al hacer hover */
 .materia-card:hover .materia-icon {
-    transform: scale(1.1);
-    stroke: white;
+    transform: none;
+    stroke: none;
 }
 
 /* Animación para nuevas materias */
@@ -146,49 +146,85 @@
     }
 }
 
-/* Animación sutil al cargar */
-@keyframes iconFloat {
-    0% { transform: translateY(10px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+/* ===== ESTILOS ESPECÍFICOS PARA CADA MATERIA ===== */
+
+/* Regla general: eliminar rellenos en todos los elementos SVG */
+.materia-card .materia-icon path,
+.materia-card .materia-icon rect,
+.materia-card .materia-icon circle {
+    fill: none;
 }
 
-/* Estilos específicos para Física I */
+/* Excepciones para elementos que deben tener relleno */
+.materia-card .materia-icon .filled-element {
+    fill: inherit;
+}
+
+/* Algoritmos y Estructura de Datos (Rojo) */
+.materia-card:nth-child(1) .materia-icon path,
+.materia-card:nth-child(1) .materia-icon rect,
+.materia-card:nth-child(1) .materia-icon text {
+    stroke: #e74c3c;
+}
+
+.materia-card:nth-child(1) .materia-icon .filled-element {
+    fill: #e74c3c;
+}
+
+.materia-card:nth-child(1) .materia-icon text {
+    fill: #e74c3c; /* El texto necesita relleno */
+}
+
+.materia-card:nth-child(1):hover::after {
+    background: #e74c3c;
+}
+
+/* Física I (Verde) */
+.materia-card:nth-child(2) .materia-icon path,
+.materia-card:nth-child(2) .materia-icon circle {
+    stroke: #2ecc71;
+}
+
+.materia-card:nth-child(2) .materia-icon .filled-element {
+    fill: #2ecc71; /* Solo electrones y núcleo */
+}
+
+.materia-card:nth-child(2):hover::after {
+    background: #2ecc71;
+}
+
+/* Sistemas y Procesos de Negocio (Púrpura) */
+.materia-card:nth-child(3) .materia-icon path,
+.materia-card:nth-child(3) .materia-icon rect {
+    stroke: #b84dff;
+}
+
+.materia-card:nth-child(3) .materia-icon .filled-element {
+    fill: #b84dff; /* Solo flechas y nodos */
+}
+
 .materia-card:nth-child(3):hover::after {
-    background: #3498db;
+    background: #b84dff;
 }
 
-.materia-card:nth-child(3):hover .materia-icon path,
-.materia-card:nth-child(3):hover .materia-icon circle {
-    stroke: white;
-    fill: white;
+/* Optimización para modo oscuro */
+[data-theme="dark"] .materia-card .materia-icon {
+    stroke-width: 3.2; /* Líneas más gruesas para mejor visibilidad */
 }
 
-/* Estilos específicos para Sistemas y Procesos de Negocio */
-.materia-card:nth-child(4):hover::after {
-    background: #9b59b6;
+[data-theme="dark"] .materia-card:nth-child(1) .materia-icon {
+    filter: brightness(1.3);
 }
 
-.materia-card:nth-child(4):hover .materia-icon path {
-    stroke: white;
+[data-theme="dark"] .materia-card:nth-child(2) .materia-icon {
+    filter: brightness(1.4);
 }
 
-/* Animación para el icono de física */
-@keyframes rotateAtom {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+[data-theme="dark"] .materia-card:nth-child(3) .materia-icon {
+    filter: brightness(1.3);
 }
 
-.materia-card:nth-child(3):hover .materia-icon {
-    animation: rotateAtom 8s linear infinite;
-}
-
-/* Animación para el icono de sistemas */
-@keyframes pulseFlow {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.materia-card:nth-child(4):hover .materia-icon {
-    animation: pulseFlow 2s ease-in-out infinite;
+/* Eliminar todas las animaciones */
+.materia-card:hover .materia-icon {
+    animation: none !important;
 }
