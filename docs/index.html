@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="icon" type="image/png" href="assets/icons/favicon.png">
 </head>
+
 <body>
     <header class="header">
         <nav class="container">
@@ -21,76 +22,72 @@
 
     <main class="main-content">
         <div class="materias-grid">
-            <!-- Algoritmos y Estructura de Datos -->
-            <a href="algoritmos.html" class="materia-card">
-                <div class="card-content">
-                    <svg class="materia-icon" viewBox="0 0 100 100" fill="none" stroke="#e74c3c" stroke-width="3">
-                        <!-- Marco de terminal -->
-                        <rect x="15" y="20" width="70" height="60" rx="5" fill="none" />
-                        
-                        <!-- Símbolo de comando -->
-                        <path class="filled-element" d="M30 50 L40 45 L40 55 Z" />
-                        
-                        <!-- Área de texto -->
-                        <rect x="50" y="40" width="15" height="20" fill="none" />
-                        <path d="M50 45 L60 45 M50 50 L60 50 M50 55 L60 55" stroke="#e74c3c" />
-                        
-                        <!-- Texto "C" -->
-                        <text x="65" y="55" font-family="monospace" font-size="15" text-anchor="middle" fill="#e74c3c">C</text>
-                    </svg>
-                    <h2>Algoritmos y Estructura de Datos</h2>
-                    <p class="descripcion-materia">Trabajos prácticos de programación y algoritmos</p>
-                </div>
-            </a>
+            <!-- Algoritmos y Estructura de Datos - Nuevo icono profesional -->
+     <a href="algoritmos.html" class="materia-card">
+  <div class="card-content">
+    <svg class="materia-icon" viewBox="0 0 100 100" fill="none" stroke="#e74c3c" stroke-width="3">
+      <!-- Hexágono regular (6 lados, simétrico) -->
+      <polygon 
+        points="50,10 85,30 85,70 50,90 15,70 15,30" 
+        stroke-linejoin="round"
+        fill="none" />
 
-            <!-- Física I -->
+      <!-- Letra C centrada -->
+            <path d="
+                M60,35 
+                C50,30 35,35 35,50 
+                C35,65 50,70 60,65" 
+                stroke-linecap="round"
+                fill="none" />
+    </svg>
+    <h2>Algoritmos y Estructura de Datos</h2>
+    <p class="descripcion-materia">Trabajos prácticos de programación y algoritmos</p>
+  </div>
+</a>
+
+            <!-- Física I - Nuevo icono profesional -->
             <a href="fisica.html" class="materia-card">
                 <div class="card-content">
                     <svg class="materia-icon" viewBox="0 0 100 100" fill="none" stroke="#2ecc71" stroke-width="3">
-                        <!-- Órbitas electrónicas -->
-                        <circle cx="50" cy="50" r="20" fill="none" stroke-dasharray="5,3" />
-                        <circle cx="50" cy="50" r="35" fill="none" />
+                        <!-- Átomo estilizado con núcleo y electrones -->
+                        <circle cx="50" cy="50" r="8" fill="#2ecc71" stroke="none" />
+                        <circle cx="50" cy="50" r="25" fill="none" stroke-dasharray="4,4" />
+                        <circle cx="50" cy="50" r="40" fill="none" />
                         
-                        <!-- Núcleo atómico -->
-                        <circle class="filled-element" cx="50" cy="50" r="5" stroke="none" />
+                        <!-- Electrones como puntos pequeños -->
+                        <circle cx="75" cy="50" r="3" fill="#2ecc71" stroke="none" />
+                        <circle cx="35" cy="65" r="3" fill="#2ecc71" stroke="none" />
+                        <circle cx="50" cy="15" r="3" fill="#2ecc71" stroke="none" />
+                        <circle cx="25" cy="35" r="3" fill="#2ecc71" stroke="none" />
                         
-                        <!-- Electrones -->
-                        <circle class="filled-element" cx="75" cy="50" r="4" stroke="none" />
-                        <circle class="filled-element" cx="35" cy="65" r="4" stroke="none" />
-                        <circle class="filled-element" cx="50" cy="15" r="4" stroke="none" />
-                        
-                        <!-- Símbolo de física (phi) -->
-                        <path d="M50 65 L50 75 M45 70 L55 70" stroke="#2ecc71" stroke-linecap="round" />
+                        <!-- Símbolo de física (φ) minimalista -->
+                        <path d="M50 70 L50 80 M46 75 L54 75" stroke="#2ecc71" stroke-linecap="round" />
                     </svg>
                     <h2>Física I</h2>
                     <p class="descripcion-materia">Mecánica clásica, termodinámica y ondas</p>
                 </div>
             </a>
 
-            <!-- Sistemas y Procesos de Negocio -->
+            <!-- Sistemas y Procesos de Negocio (Manteniendo el icono actual) -->
             <a href="sistemas.html" class="materia-card">
                 <div class="card-content">
                     <svg class="materia-icon" viewBox="0 0 100 100" fill="none" stroke="#b84dff" stroke-width="3">
-                        <!-- Cajas de proceso -->
-                        <rect x="15" y="20" width="25" height="15" rx="3" fill="none" />
-                        <rect x="15" y="45" width="25" height="15" rx="3" fill="none" />
-                        <rect x="15" y="70" width="25" height="15" rx="3" fill="none" />
-                        <rect x="60" y="32.5" width="25" height="15" rx="3" fill="none" />
-                        <rect x="60" y="57.5" width="25" height="15" rx="3" fill="none" />
+                        <!-- Diagrama de flujo -->
+                        <rect x="20" y="20" width="25" height="15" rx="3" fill="none" />
+                        <rect x="20" y="45" width="25" height="15" rx="3" fill="none" />
+                        <rect x="20" y="70" width="25" height="15" rx="3" fill="none" />
+                        <rect x="55" y="32.5" width="25" height="15" rx="3" fill="none" />
+                        <rect x="55" y="57.5" width="25" height="15" rx="3" fill="none" />
                         
-                        <!-- Conexiones -->
-                        <path d="M40 27.5 L55 27.5 M55 27.5 L60 32.5" fill="none" />
-                        <path d="M40 52.5 L55 52.5 M55 52.5 L60 57.5" fill="none" />
-                        <path d="M27.5 35 L27.5 45" fill="none" />
-                        <path d="M27.5 60 L27.5 70" fill="none" />
+                        <!-- Flechas de conexión -->
+                        <path d="M45 27.5 L55 27.5 M55 27.5 L60 32.5" fill="none" />
+                        <path d="M45 52.5 L55 52.5 M55 52.5 L60 57.5" fill="none" />
+                        <path d="M32.5 35 L32.5 45" fill="none" />
+                        <path d="M32.5 60 L32.5 70" fill="none" />
                         
                         <!-- Flechas direccionales -->
-                        <path class="filled-element" d="M70 40 L80 40 L77 37 M77 43 L80 40" fill="none" />
-                        <path class="filled-element" d="M70 65 L80 65 L77 62 M77 68 L80 65" fill="none" />
-                        
-                        <!-- Nodos de conexión -->
-                        <circle class="filled-element" cx="40" cy="27.5" r="2.5" />
-                        <circle class="filled-element" cx="40" cy="52.5" r="2.5" />
+                        <path d="M70 40 L80 40 L77 37 M77 43 L80 40" fill="none" />
+                        <path d="M70 65 L80 65 L77 62 M77 68 L80 65" fill="none" />
                     </svg>
                     <h2>Sistemas y Procesos de Negocio</h2>
                     <p class="descripcion-materia">Análisis, diseño y optimización de procesos</p>

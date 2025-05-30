@@ -1,14 +1,21 @@
-/* Mejor contraste para nuevos iconos en modo oscuro */
-[data-theme="dark"] .materia-card:nth-child(2) .materia-icon path,
-[data-theme="dark"] .materia-card:nth-child(2) .materia-icon circle {
-    stroke: #2ecc71;
-    fill: #2ecc71;
-    filter: brightness(1.2);
+:root {
+  /* Colores base (light mode) */
+  --color-cards: #ffffff;
+  --color-titulos: #2d3748;
+  --color-parrafos: #4a5568;
+  --color-boton-editar: #4299e1;
+  --color-boton-eliminar: #e53e3e;
+  --color-borde: #e2e8f0;
+  --color-sombra: rgba(0, 0, 0, 0.1);
 }
 
-[data-theme="dark"] .materia-card:nth-child(3) .materia-icon path,
-[data-theme="dark"] .materia-card:nth-child(3) .materia-icon circle {
-    stroke: #b84dff;
-    fill: #b84dff;
-    opacity: 0.95;
+[data-theme="dark"] {
+  /* Dark mode */
+  --color-cards: #1a202c;
+  --color-titulos: #e2e8f0;
+  --color-parrafos: #cbd5e0;
+  --color-boton-editar: #63b3ed;
+  --color-boton-eliminar: #fc8181;
+  --color-borde: #2d3748;
+  --color-sombra: rgba(0, 0, 0, 0.3);
 }

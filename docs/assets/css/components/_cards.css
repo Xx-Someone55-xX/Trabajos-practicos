@@ -228,3 +228,40 @@
 .materia-card:hover .materia-icon {
     animation: none !important;
 }
+
+/* Mejorar visibilidad del texto en iconos */
+.materia-card .materia-icon text {
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Reducir tamaño de elementos rellenos en física */
+.materia-card:nth-child(2) .materia-icon .filled-element {
+    r: 3; /* Tamaño reducido de electrones */
+}
+
+.materia-card:nth-child(2) .materia-icon circle:nth-child(1) {
+    r: 4; /* Tamaño del núcleo */
+}
+
+/* Aumentar contraste en modo oscuro */
+[data-theme="dark"] .materia-card .materia-icon {
+    stroke-width: 3.5;
+}
+
+[data-theme="dark"] .materia-card:nth-child(1) .materia-icon text {
+    filter: brightness(1.4);
+}
+   /* Estilos adicionales para mejorar los iconos */
+        .materia-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .materia-card:hover .materia-icon {
+            transform: scale(1.05);
+        }
+        
+        /* Optimización para modo oscuro */
+        [data-theme="dark"] .materia-icon {
+            stroke-width: 3.5;
+        }
