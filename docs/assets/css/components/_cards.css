@@ -206,9 +206,30 @@
     background: #b84dff;
 }
 
+/* Álgebra y Geometría Analítica (Amarillo) */
+.materia-card:nth-child(4) .materia-icon path,
+.materia-card:nth-child(4) .materia-icon line,
+.materia-card:nth-child(4) .materia-icon text {
+    stroke: #F1C40F;
+}
+
+.materia-card:nth-child(4) .materia-icon .filled-element {
+    fill: #F1C40F;
+}
+
+.materia-card:nth-child(4) .materia-icon text {
+    fill: #F1C40F;
+    stroke: none; /* Solo relleno para texto */
+}
+
+.materia-card:nth-child(4):hover::after {
+    background: #F1C40F;
+}
+
 /* Optimización para modo oscuro */
+
 [data-theme="dark"] .materia-card .materia-icon {
-    stroke-width: 3.2; /* Líneas más gruesas para mejor visibilidad */
+    stroke-width: 3.2;
 }
 
 [data-theme="dark"] .materia-card:nth-child(1) .materia-icon {
@@ -221,6 +242,10 @@
 
 [data-theme="dark"] .materia-card:nth-child(3) .materia-icon {
     filter: brightness(1.3);
+}
+
+[data-theme="dark"] .materia-card:nth-child(4) .materia-icon {
+    filter: brightness(1.2);
 }
 
 /* Eliminar todas las animaciones */
