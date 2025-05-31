@@ -131,7 +131,6 @@
 /* Eliminar transformación al hacer hover */
 .materia-card:hover .materia-icon {
     transform: none;
-    stroke: none;
 }
 
 /* Animación para nuevas materias */
