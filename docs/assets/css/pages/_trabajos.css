@@ -20,11 +20,6 @@ body.algoritmos-page .btn-volver:hover {
     border-color: var(--algoritmos-red-dark);
 }
 
-/* Borde inferior del encabezado */
-body.algoritmos-page .header {
-    border-bottom: 2px solid var(--algoritmos-red-dark);
-}
-
 /* Botón de tema */
 body.algoritmos-page .theme-btn {
     background: var(--algoritmos-red);

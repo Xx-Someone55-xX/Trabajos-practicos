@@ -18,4 +18,7 @@
   --color-boton-eliminar: #fc8181;
   --color-borde: #2d3748;
   --color-sombra: rgba(0, 0, 0, 0.3);
+  --header-bg: #0f172a; /* Fondo oscuro del header */
+  --header-text: #e2e8f0; /* Texto claro */
+  --header-line-color-index: #ffffff; /* Línea blanca en index (tema oscuro) */
 }

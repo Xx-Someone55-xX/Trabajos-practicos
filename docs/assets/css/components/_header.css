@@ -1,5 +1,5 @@
 .header {
-    background: #000 !important;
+    background: var(--header-bg) !important;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow);
-    position: relative; /* Añadido para el pseudo-elemento */
+    position: relative;
 }
 
 .header::after {
@@ -16,8 +16,9 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px; /* Grosor unificado */
-    background-color: transparent;
+    height: var(--header-line-width);
+    background-color: var(--header-line-color);
+    z-index: 10;
 }
 
 .header .container {
@@ -32,43 +33,14 @@
     position: relative;
 }
 
-/* Logo centrado */
 .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
     font-size: 1.5rem;
-    color: #fff !important;
+    color: var(--header-text) !important;
     font-weight: 700;
     white-space: nowrap;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-}
-
-/* Línea inferior para index */
-.index-header .header::after {
-    background-color: #4a5568; /* Color para tema claro */
-}
-
-[data-theme="dark"] .index-header .header::after {
-    background-color: #ffffff; /* Color para tema oscuro */
-}
-
-/* Línea inferior para algoritmos */
-.tp1-algoritmos-page .header::after {
-    background: #e74c3c !important;
-}
-
-body.algoritmos-page .header::after {
-    background: var(--algoritmos-red) !important;
-}
-
-/* Eliminar estilos antiguos redundantes */
-.header-line {
-    display: none;
-}
-
-.tp1-algoritmos-page .header,
-body.algoritmos-page .header {
-    border-bottom: none !important;
 }

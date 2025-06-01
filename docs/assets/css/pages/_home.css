@@ -1,13 +1,16 @@
-/* === HEADER ESPECÍFICO PARA INDEX === */
-
-.index-header .logo {
-    color: #fff !important; /* Texto blanco para contraste */
+.index-page {
+    --header-line-color: var(--header-line-color-index);
 }
 
+[data-theme="dark"] .index-page {
+    --header-line-color: var(--header-line-color-index-dark);
+}
+
+/* Estilos específicos del index (opcionales) */
 .index-header .theme-btn {
-    background: #333 !important; /* Botón gris oscuro */
+    background: #333 !important;
 }
 
 .index-header .theme-btn:hover {
-    background: #444 !important; /* Efecto hover más claro */
+    background: #444 !important;
 }
