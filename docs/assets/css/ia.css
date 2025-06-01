@@ -414,37 +414,6 @@ body {
     animation: checkPop 0.3s ease;
 }
 
-/* --- Botones específicos para páginas de algoritmos --- */
-.algoritmos-page .btn-copy,
-.algoritmos-page .theme-btn,
-.algoritmos-page .btn-volver,
-.tp1-algoritmos-page .btn-copy,
-.tp1-algoritmos-page .theme-btn,
-.tp1-algoritmos-page .btn-volver {
-    background-color: #e74c3c !important;
-    border-color: #e74c3c !important;
-}
-
-/* Efecto hover */
-.algoritmos-page .btn-copy:hover,
-.algoritmos-page .theme-btn:hover,
-.algoritmos-page .btn-volver:hover,
-.tp1-algoritmos-page .btn-copy:hover,
-.tp1-algoritmos-page .theme-btn:hover,
-.tp1-algoritmos-page .btn-volver:hover {
-    background-color: #c0392b !important;
-    border-color: #c0392b !important;
-    transform: translateY(-2px); /* Efecto adicional opcional */
-}
-
-/* Iconos del botón de tema */
-.algoritmos-page .theme-btn svg,
-.tp1-algoritmos-page .theme-btn svg {
-    fill: white !important;
-    stroke: white !important;
-    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
-}
-
 /* === _cards.css === */
 
 /* ===== Tarjetas de Trabajos ===== */
@@ -486,11 +455,13 @@ body {
     height: 3px;
     background: var(--accent);
     transform: scaleX(0);
+    transform-origin: right;
     transition: transform 0.3s ease;
 }
 
 .trabajo-card:hover::after {
     transform: scaleX(1);
+    transform-origin: left;
 }
 
 .card-content h2 {
@@ -539,6 +510,7 @@ body {
     background: var(--card-hover);
 }
 
+/* === Línea base (color permanente) === */
 .materia-card::after {
     content: "";
     position: absolute;
@@ -546,13 +518,28 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--accent);
     transform: scaleX(0);
+    transform-origin: right;
     transition: transform 0.3s ease;
+    /* Color específico por materia (sin hover) */
+}
+.materia-card:nth-child(1)::after { /* Algoritmos - Rojo */
+    background: #e74c3c;
+}
+.materia-card:nth-child(2)::after { /* Física - Verde */
+    background: #2ecc71;
+}
+.materia-card:nth-child(3)::after { /* Sistemas - Púrpura */
+    background: #b84dff;
+}
+.materia-card:nth-child(4)::after { /* Álgebra - Amarillo */
+    background: #F1C40F;
 }
 
+/* === Hover (solo animación, sin cambiar color) === */
 .materia-card:hover::after {
     transform: scaleX(1);
+    transform-origin: left;
 }
 
 .materia-card .card-content h2 {
@@ -790,7 +777,7 @@ pre {
 /* === _header.css === */
 
 .header {
-    background: var(--header-bg) !important;
+    background: #000000 !important;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -799,6 +786,7 @@ pre {
     z-index: 100;
     box-shadow: var(--shadow);
     position: relative;
+    color: #ffffff !important;
 }
 
 .header::after {
@@ -830,7 +818,7 @@ pre {
     transform: translateX(-50%);
     margin: 0;
     font-size: 1.5rem;
-    color: var(--header-text) !important;
+    color: #ffffff !important;
     font-weight: 700;
     white-space: nowrap;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -854,9 +842,14 @@ pre {
     --header-line-color: var(--header-line-color-index-dark);
 }
 
-/* Estilos específicos del index (opcional) */
+/* Estilos específicos del index (opcionales) */
+.index-header .header {
+    background: #000000 !important;
+}
+
 .index-header .logo {
-    color: var(--header-text) !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .index-header .theme-btn {
@@ -867,102 +860,33 @@ pre {
     background: #444 !important;
 }
 
-/* === HEADER ESPECÍFICO PARA INDEX === */
-
-.index-header .logo {
-    color: #fff !important; /* Texto blanco para contraste */
-}
-
-.index-header .theme-btn {
-    background: #333 !important; /* Botón gris oscuro */
-}
-
-.index-header .theme-btn:hover {
-    background: #444 !important; /* Efecto hover más claro */
-}
-
-/* === HEADER ESPECÍFICO PARA INDEX === */
-
-.index-header .logo {
-    color: #fff !important; /* Texto blanco para contraste */
-}
-
-.index-header .theme-btn {
-    background: #333 !important; /* Botón gris oscuro */
-}
-
-.index-header .theme-btn:hover {
-    background: #444 !important; /* Efecto hover más claro */
-}
-
 /* === _tp1.css === */
 
 .algoritmos-page {
     --header-line-color: var(--header-line-color-algoritmos);
 }
 
-/* Estilos específicos de algoritmos */
-.tp1-algoritmos-page .header {
-    box-shadow: 0 2px 10px rgba(231, 76, 60, 0.2);
-}
-
-.tp1-algoritmos-page .tp1-title {
-    color: var(--header-line-color-algoritmos) !important;
-    text-shadow: 0 1px 3px rgba(231, 76, 60, 0.3);
-}
-
+/* Estilos específicos de algoritmos (ejemplo) */
 .tp1-algoritmos-page .btn-volver,
-.tp1-algoritmos-page .nav-btn,
-.tp1-algoritmos-page .btn-copy {
+.tp1-algoritmos-page .nav-btn {
     background: var(--header-line-color-algoritmos) !important;
 }
 
-.tp1-algoritmos-page .btn-volver:hover,
-.tp1-algoritmos-page .nav-btn:hover,
-.tp1-algoritmos-page .btn-copy:hover {
+.tp1-algoritmos-page .btn-volver:hover {
     background: #c0392b !important;
 }
 
 /* === _trabajos.css === */
 
 /* Color específico para tarjetas en Algoritmos */
-body[class*="algoritmos"] .trabajo-card:hover::after {
+body.algoritmos-page .trabajo-card:hover::after {
     background: #e74c3c !important;
 }
-
 
 /* === DETALLES ROJOS PARA ALGORITMOS === */
 body.algoritmos-page {
     --algoritmos-red: #e74c3c;
     --algoritmos-red-dark: #c0392b;
-}
-
-[data-theme="light"] body.algoritmos-page {
-    --text-color: #2d3748 !important;       /* Texto más oscuro */
-    --text-muted: #4a5568 !important;       /* Texto secundario más oscuro */
-}
-
-body.algoritmos-page .card-content h2 {
-    color: var(--text-color) !important;    /* Usa la variable de color */
-}
-
-body.algoritmos-page .descripcion-tp {
-    color: var(--text-muted) !important;    /* Usa la variable de color */
-}
-
-/* Específico para la página de algoritmos */
-body.algoritmos-page .logo {
-    color: #ffffff !important; /* Blanco siempre en algoritmos */
-    text-shadow: 
-        0 1px 3px rgba(0,0,0,0.5),
-        0 0 10px rgba(231, 76, 60, 0.5); /* Glow rojo sutil */
-    transition: all 0.3s ease;
-}
-
-body.algoritmos-page .logo:hover {
-    text-shadow: 
-        0 1px 5px rgba(0,0,0,0.7),
-        0 0 15px rgba(231, 76, 60, 0.7); /* Efecto hover más intenso */
 }
 
 /* Botón Volver personalizado */
@@ -974,11 +898,6 @@ body.algoritmos-page .btn-volver {
 body.algoritmos-page .btn-volver:hover {
     background: var(--algoritmos-red-dark);
     border-color: var(--algoritmos-red-dark);
-}
-
-/* Borde inferior del encabezado */
-body.algoritmos-page .header {
-    border-bottom: 2px solid var(--algoritmos-red);
 }
 
 /* Botón de tema */
@@ -998,6 +917,36 @@ body.algoritmos-page .trabajo-card:hover {
 /* Textos de títulos con tono rojizo */
 body.algoritmos-page .card-content h2 {
     color: #ff6b6b;
+}
+
+[data-theme="light"] body.algoritmos-page {
+    --text-color: #2d3748 !important;       /* Texto más oscuro */
+    --text-muted: #4a5568 !important;       /* Texto secundario más oscuro */
+}
+
+/* Modifica los títulos para que sean legibles */
+body.algoritmos-page .card-content h2 {
+    color: var(--text-color) !important;    /* Usa la variable de color */
+}
+
+/* Asegura contraste en descripciones */
+body.algoritmos-page .descripcion-tp {
+    color: var(--text-muted) !important;    /* Usa la variable de color */
+}
+
+/* Específico para la página de algoritmos */
+body.algoritmos-page .logo {
+    color: #ffffff !important; /* Blanco siempre en algoritmos */
+    text-shadow: 
+        0 1px 3px rgba(0,0,0,0.5),
+        0 0 10px rgba(231, 76, 60, 0.5); /* Glow rojo sutil */
+    transition: all 0.3s ease;
+}
+
+body.algoritmos-page .logo:hover {
+    text-shadow: 
+        0 1px 5px rgba(0,0,0,0.7),
+        0 0 15px rgba(231, 76, 60, 0.7); /* Efecto hover más intenso */
 }
 
 /* === THEMES === */
@@ -1024,6 +973,9 @@ body.algoritmos-page .card-content h2 {
   --color-boton-eliminar: #fc8181;
   --color-borde: #2d3748;
   --color-sombra: rgba(0, 0, 0, 0.3);
+  --header-bg: #0f172a; /* Fondo oscuro del header */
+  --header-text: #e2e8f0; /* Texto claro */
+  --header-line-color-index: #ffffff; /* Línea blanca en index (tema oscuro) */
 }
 
 /* === UTILITIES === */

@@ -37,11 +37,13 @@
     height: 3px;
     background: var(--accent);
     transform: scaleX(0);
+    transform-origin: right;
     transition: transform 0.3s ease;
 }
 
 .trabajo-card:hover::after {
     transform: scaleX(1);
+    transform-origin: left;
 }
 
 .card-content h2 {
@@ -90,6 +92,7 @@
     background: var(--card-hover);
 }
 
+/* === Línea base (color permanente) === */
 .materia-card::after {
     content: "";
     position: absolute;
@@ -97,13 +100,28 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background: var(--accent);
     transform: scaleX(0);
+    transform-origin: right;
     transition: transform 0.3s ease;
+    /* Color específico por materia (sin hover) */
+}
+.materia-card:nth-child(1)::after { /* Algoritmos - Rojo */
+    background: #e74c3c;
+}
+.materia-card:nth-child(2)::after { /* Física - Verde */
+    background: #2ecc71;
+}
+.materia-card:nth-child(3)::after { /* Sistemas - Púrpura */
+    background: #b84dff;
+}
+.materia-card:nth-child(4)::after { /* Álgebra - Amarillo */
+    background: #F1C40F;
 }
 
+/* === Hover (solo animación, sin cambiar color) === */
 .materia-card:hover::after {
     transform: scaleX(1);
+    transform-origin: left;
 }
 
 .materia-card .card-content h2 {
