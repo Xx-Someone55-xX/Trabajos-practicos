@@ -1,8 +1,4 @@
 /* === HEADER ESPECÍFICO PARA INDEX === */
-.index-header .header {
-    background: #000 !important; /* Fondo negro */
-    border-bottom: 1px solid #333 !important; /* Línea gris oscuro */
-}
 
 .index-header .logo {
     color: #fff !important; /* Texto blanco para contraste */

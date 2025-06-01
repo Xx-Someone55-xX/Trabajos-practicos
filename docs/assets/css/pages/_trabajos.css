@@ -43,3 +43,33 @@ body.algoritmos-page .trabajo-card:hover {
 body.algoritmos-page .card-content h2 {
     color: #ff6b6b;
 }
+
+[data-theme="light"] body.algoritmos-page {
+    --text-color: #2d3748 !important;       /* Texto más oscuro */
+    --text-muted: #4a5568 !important;       /* Texto secundario más oscuro */
+}
+
+/* Modifica los títulos para que sean legibles */
+body.algoritmos-page .card-content h2 {
+    color: var(--text-color) !important;    /* Usa la variable de color */
+}
+
+/* Asegura contraste en descripciones */
+body.algoritmos-page .descripcion-tp {
+    color: var(--text-muted) !important;    /* Usa la variable de color */
+}
+
+/* Específico para la página de algoritmos */
+body.algoritmos-page .logo {
+    color: #ffffff !important; /* Blanco siempre en algoritmos */
+    text-shadow: 
+        0 1px 3px rgba(0,0,0,0.5),
+        0 0 10px rgba(231, 76, 60, 0.5); /* Glow rojo sutil */
+    transition: all 0.3s ease;
+}
+
+body.algoritmos-page .logo:hover {
+    text-shadow: 
+        0 1px 5px rgba(0,0,0,0.7),
+        0 0 15px rgba(231, 76, 60, 0.7); /* Efecto hover más intenso */
+}

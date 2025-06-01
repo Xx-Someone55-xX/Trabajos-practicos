@@ -134,7 +134,7 @@ body {
     --text-color: #1a202c;
     --header-bg: #f1f5f9;
     --header-text: #1e3a8a;
-    --card-bg: #cecece;
+    --card-bg: #f8fafc;
     --card-hover: #e2e8f0;
     --accent: #1d4ed8;
     --shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
@@ -731,12 +731,22 @@ pre {
 /* === _header.css === */
 
 .header {
-    background: var(--header-bg);
+    background: #000 !important; /* Fondo negro forzado */
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: var(--header-border);
+    padding-bottom: 4px; /* Espacio para la línea */
+}
+
+/* Línea inferior base (transparente por defecto) */
+.header-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: transparent; /* Se sobrescribirá por página */
 }
 
 .container {
@@ -758,6 +768,17 @@ pre {
     margin: 0;
     white-space: nowrap;
     font-size: 1.5rem;
+    color: var(--header-text) !important; /* Color dinámico */
+    font-weight: 700; /* Texto más grueso */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Sombra para mejor legibilidad */
+}
+
+/* Específico para tema claro */
+[data-theme="light"] .logo {
+    color: #ffffff !important; /* Blanco puro */
+    text-shadow: 
+        0 1px 1px rgba(0,0,0,0.5), /* Sombra más pronunciada */
+        0 0 8px rgba(255,255,255,0.3); /* Efecto glow sutil */
 }
 
 /* === LAYOUT === */
@@ -771,10 +792,6 @@ pre {
 /* === _home.css === */
 
 /* === HEADER ESPECÍFICO PARA INDEX === */
-.index-header .header {
-    background: #000 !important; /* Fondo negro */
-    border-bottom: 1px solid #333 !important; /* Línea gris oscuro */
-}
 
 .index-header .logo {
     color: #fff !important; /* Texto blanco para contraste */
@@ -994,10 +1011,39 @@ body[class*="algoritmos"] .trabajo-card:hover::after {
     background: #e74c3c !important;
 }
 
+
 /* === DETALLES ROJOS PARA ALGORITMOS === */
 body.algoritmos-page {
     --algoritmos-red: #e74c3c;
     --algoritmos-red-dark: #c0392b;
+}
+
+[data-theme="light"] body.algoritmos-page {
+    --text-color: #2d3748 !important;       /* Texto más oscuro */
+    --text-muted: #4a5568 !important;       /* Texto secundario más oscuro */
+}
+
+body.algoritmos-page .card-content h2 {
+    color: var(--text-color) !important;    /* Usa la variable de color */
+}
+
+body.algoritmos-page .descripcion-tp {
+    color: var(--text-muted) !important;    /* Usa la variable de color */
+}
+
+/* Específico para la página de algoritmos */
+body.algoritmos-page .logo {
+    color: #ffffff !important; /* Blanco siempre en algoritmos */
+    text-shadow: 
+        0 1px 3px rgba(0,0,0,0.5),
+        0 0 10px rgba(231, 76, 60, 0.5); /* Glow rojo sutil */
+    transition: all 0.3s ease;
+}
+
+body.algoritmos-page .logo:hover {
+    text-shadow: 
+        0 1px 5px rgba(0,0,0,0.7),
+        0 0 15px rgba(231, 76, 60, 0.7); /* Efecto hover más intenso */
 }
 
 /* Botón Volver personalizado */
