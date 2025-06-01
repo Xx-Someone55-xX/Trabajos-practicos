@@ -32,8 +32,8 @@
 :root[data-theme="light"] {
     --bg-color: var(--color-white);
     --text-color: #1a202c;
-    --header-bg: #f1f5f9;
-    --header-text: #1e3a8a;
+    --header-bg: #000;
+    --header-text: #fff;
     --card-bg: #cecece;
     --card-hover: #e2e8f0;
     --accent: #1d4ed8;
@@ -43,7 +43,7 @@
     --code-text: #0f172a;
     --text-muted: #475569;
     --card-border: 1px solid #cbd5e1;
-    --header-border: 1px solid #94a3b8;
+    --header-border: 1px solid #333;
     --code-border: 1px solid #94a3b8;
 }
 

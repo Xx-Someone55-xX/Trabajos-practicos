@@ -1,0 +1,45 @@
+/* Color específico para tarjetas en Algoritmos */
+body.algoritmos-page .trabajo-card:hover::after {
+    background: #e74c3c !important;
+}
+
+/* === DETALLES ROJOS PARA ALGORITMOS === */
+body.algoritmos-page {
+    --algoritmos-red: #e74c3c;
+    --algoritmos-red-dark: #c0392b;
+}
+
+/* Botón Volver personalizado */
+body.algoritmos-page .btn-volver {
+    background: var(--algoritmos-red);
+    border-color: var(--algoritmos-red);
+}
+
+body.algoritmos-page .btn-volver:hover {
+    background: var(--algoritmos-red-dark);
+    border-color: var(--algoritmos-red-dark);
+}
+
+/* Borde inferior del encabezado */
+body.algoritmos-page .header {
+    border-bottom: 2px solid var(--algoritmos-red-dark);
+}
+
+/* Botón de tema */
+body.algoritmos-page .theme-btn {
+    background: var(--algoritmos-red);
+}
+
+body.algoritmos-page .theme-btn:hover {
+    background: var(--algoritmos-red-dark);
+}
+
+/* Destello en tarjetas al hacer hover */
+body.algoritmos-page .trabajo-card:hover {
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* Textos de títulos con tono rojizo */
+body.algoritmos-page .card-content h2 {
+    color: #ff6b6b;
+}

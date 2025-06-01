@@ -1,5 +1,30 @@
 /* Esta es una estructura para trabajar con ia, en la cual lo que esta todo en mayuscula son los folders y 
-lo que esta con _.css son las files que contienen cada contenido de los css usados para el proyecto */
+lo que esta con _.css son las files que contienen cada contenido de los css usados para el proyecto
+La estructura original dentro de VSC es:
+
+assets/css/
+├── base/
+│   ├── _reset.css
+│   ├── _typography.css
+│   └── _variables.css
+├── components/
+│   ├── _buttons.css
+│   ├── _cards.css
+│   ├── _code.css (nuevo)
+│   └── _header.css
+├── layout/
+│   ├── _grid.css
+│   └── _navigation.css
+├── pages/
+│   ├── _home.css
+│   ├── _trabajos.css
+│   └── _tp1.css
+├── themes/
+│   └── _dark-light.css
+├── utilities/
+│   ├── _animations.css
+│   └── _responsive.css
+└── main.css  */
 
 /* === BASE === */
 
@@ -745,6 +770,24 @@ pre {
 
 /* === _home.css === */
 
+/* === HEADER ESPECÍFICO PARA INDEX === */
+.index-header .header {
+    background: #000 !important; /* Fondo negro */
+    border-bottom: 1px solid #333 !important; /* Línea gris oscuro */
+}
+
+.index-header .logo {
+    color: #fff !important; /* Texto blanco para contraste */
+}
+
+.index-header .theme-btn {
+    background: #333 !important; /* Botón gris oscuro */
+}
+
+.index-header .theme-btn:hover {
+    background: #444 !important; /* Efecto hover más claro */
+}
+
 /* === _tp1.css === */
 
 /* ===== Estilos específicos para TP1 Algoritmos ===== */
@@ -945,6 +988,52 @@ pre {
 }
 
 /* === _trabajos.css === */
+
+/* Color específico para tarjetas en Algoritmos */
+body[class*="algoritmos"] .trabajo-card:hover::after {
+    background: #e74c3c !important;
+}
+
+/* === DETALLES ROJOS PARA ALGORITMOS === */
+body.algoritmos-page {
+    --algoritmos-red: #e74c3c;
+    --algoritmos-red-dark: #c0392b;
+}
+
+/* Botón Volver personalizado */
+body.algoritmos-page .btn-volver {
+    background: var(--algoritmos-red);
+    border-color: var(--algoritmos-red);
+}
+
+body.algoritmos-page .btn-volver:hover {
+    background: var(--algoritmos-red-dark);
+    border-color: var(--algoritmos-red-dark);
+}
+
+/* Borde inferior del encabezado */
+body.algoritmos-page .header {
+    border-bottom: 2px solid var(--algoritmos-red);
+}
+
+/* Botón de tema */
+body.algoritmos-page .theme-btn {
+    background: var(--algoritmos-red);
+}
+
+body.algoritmos-page .theme-btn:hover {
+    background: var(--algoritmos-red-dark);
+}
+
+/* Destello en tarjetas al hacer hover */
+body.algoritmos-page .trabajo-card:hover {
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* Textos de títulos con tono rojizo */
+body.algoritmos-page .card-content h2 {
+    color: #ff6b6b;
+}
 
 /* === THEMES === */
 

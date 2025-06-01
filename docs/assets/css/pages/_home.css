@@ -1,0 +1,17 @@
+/* === HEADER ESPECÍFICO PARA INDEX === */
+.index-header .header {
+    background: #000 !important; /* Fondo negro */
+    border-bottom: 1px solid #333 !important; /* Línea gris oscuro */
+}
+
+.index-header .logo {
+    color: #fff !important; /* Texto blanco para contraste */
+}
+
+.index-header .theme-btn {
+    background: #333 !important; /* Botón gris oscuro */
+}
+
+.index-header .theme-btn:hover {
+    background: #444 !important; /* Efecto hover más claro */
+}
