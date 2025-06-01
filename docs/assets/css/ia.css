@@ -736,19 +736,36 @@ pre {
     position: sticky;
     top: 0;
     z-index: 100;
-    padding-bottom: 4px; /* Espacio para la línea */
+    padding-bottom: 2px; /* Reducido a 2px para coincidir con algoritmos.html */
 }
 
-/* Línea inferior base (transparente por defecto) */
+/* Contenedor especial para el header en index */
+.index-header .header {
+    position: relative;
+    padding-bottom: 0; /* Eliminamos el padding extra */
+}
+
+/* Línea inferior - Estilo base */
 .header-line {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background-color: transparent; /* Se sobrescribirá por página */
+    height: 2px; /* Grosor de 2px como en algoritmos.html */
+    background-color: transparent;
 }
 
+/* Línea para index.html - tema claro */
+[data-theme="light"] .index-header .header-line {
+    background-color: #4a5568 !important; /* Gris oscuro */
+}
+
+/* Línea para index.html - tema oscuro */
+[data-theme="dark"] .index-header .header-line {
+    background-color: #ffffff !important; /* Blanco */
+}
+
+/* Contenedor principal */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -761,6 +778,7 @@ pre {
     min-height: 80px;
 }
 
+/* Estilos del logo */
 .logo {
     position: absolute;
     left: 50%;
@@ -768,17 +786,22 @@ pre {
     margin: 0;
     white-space: nowrap;
     font-size: 1.5rem;
-    color: var(--header-text) !important; /* Color dinámico */
-    font-weight: 700; /* Texto más grueso */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Sombra para mejor legibilidad */
+    color: var(--header-text) !important;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
-/* Específico para tema claro */
+/* Logo en tema claro */
 [data-theme="light"] .logo {
-    color: #ffffff !important; /* Blanco puro */
+    color: #ffffff !important;
     text-shadow: 
-        0 1px 1px rgba(0,0,0,0.5), /* Sombra más pronunciada */
-        0 0 8px rgba(255,255,255,0.3); /* Efecto glow sutil */
+        0 1px 1px rgba(0,0,0,0.5),
+        0 0 8px rgba(255,255,255,0.3);
+}
+
+/* Transición suave para la línea */
+.header-line {
+    transition: background-color 0.3s ease;
 }
 
 /* === LAYOUT === */
@@ -805,9 +828,23 @@ pre {
     background: #444 !important; /* Efecto hover más claro */
 }
 
+/* === HEADER ESPECÍFICO PARA INDEX === */
+
+.index-header .logo {
+    color: #fff !important; /* Texto blanco para contraste */
+}
+
+.index-header .theme-btn {
+    background: #333 !important; /* Botón gris oscuro */
+}
+
+.index-header .theme-btn:hover {
+    background: #444 !important; /* Efecto hover más claro */
+}
+
 /* === _tp1.css === */
 
-/* ===== Estilos específicos para TP1 Algoritmos ===== */
+/* ===== ESTILOS MODIFICADOS PARA TP1 ALGORITMOS ===== */
 /* Contenedor principal */
 .tp1-container {
     max-width: 1200px;
@@ -815,193 +852,168 @@ pre {
     padding: 0 1rem;
 }
 
-/* Header del TP */
-.tp1-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+/* Header del TP - Estilo algoritmo */
+.tp1-algoritmos-page .header {
+    background: #1a1a1a !important;
+    border-bottom: 2px solid #e74c3c !important;
+    box-shadow: 0 2px 10px rgba(231, 76, 60, 0.2);
 }
 
-.tp1-title {
-    color: var(--accent);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+.tp1-algoritmos-page .header-line {
+    background-color: #e74c3c !important;
+    height: 2px;
 }
 
-.tp1-subtitle {
-    color: var(--text-muted);
-    font-size: 1.2rem;
+.tp1-algoritmos-page .tp1-title {
+    color: #e74c3c !important;
+    text-shadow: 0 1px 3px rgba(231, 76, 60, 0.3);
 }
 
-/* Contenedor de ejercicios */
-.exercise-container {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow);
-    border: var(--card-border);
+.tp1-algoritmos-page .tp1-subtitle {
+    color: #ecf0f1;
 }
 
-.exercise-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--text-muted);
+/* Botones - Estilo algoritmo */
+.tp1-algoritmos-page .btn-volver,
+.tp1-algoritmos-page .solution-btn,
+.tp1-algoritmos-page .nav-btn,
+.tp1-algoritmos-page .btn-copy,
+.tp1-algoritmos-page .theme-btn {
+    background: #e74c3c !important;
+    border: none !important;
+    color: white !important;
 }
 
-.exercise-title {
-    color: var(--accent);
-    font-size: 1.3rem;
-}
-
-.exercise-points {
-    background: var(--accent);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 1rem;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-/* Descripción del ejercicio */
-.exercise-description {
-    color: var(--text-color);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-}
-
-.exercise-description p {
-    margin-bottom: 1rem;
-}
-
-/* Requerimientos */
-.requirements-list {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-}
-
-.requirements-list li {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-}
-
-/* Bloques de código */
-.code-container {
-    position: relative;
-    margin: 1.5rem 0;
-}
-
-.code-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.code-filename {
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-/* Soluciones */
-.solution-container {
-    margin-top: 1.5rem;
-    border-top: 1px dashed var(--text-muted);
-    padding-top: 1.5rem;
-}
-
-.solution-btn {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-bottom: 1rem;
-}
-
-.solution-btn:hover {
-    background: var(--button-hover-bg);
+.tp1-algoritmos-page .btn-volver:hover,
+.tp1-algoritmos-page .solution-btn:hover,
+.tp1-algoritmos-page .nav-btn:hover,
+.tp1-algoritmos-page .btn-copy:hover {
+    background: #c0392b !important;
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(192, 57, 43, 0.3);
 }
 
-.solution-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
+/* Textos rojos */
+.tp1-algoritmos-page .punto-counter,
+.tp1-algoritmos-page .exercise-description h3 {
+    color: #e74c3c !important;
 }
 
-.solution-content.show {
-    max-height: 2000px; /* Ajusta según necesidad */
+/* Contenedor de ejercicios - Estilo algoritmo */
+.tp1-algoritmos-page .exercise-container {
+    background: #2d2d2d;
+    border-left: 4px solid #e74c3c;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Navegación */
-.tp1-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--text-muted);
+.tp1-algoritmos-page .exercise-header {
+    border-bottom: 1px solid #e74c3c;
 }
 
-/* Tablas */
-.exercise-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
+.tp1-algoritmos-page .exercise-title {
+    color: #e74c3c !important;
 }
 
-.exercise-table th, .exercise-table td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid var(--text-muted);
+.tp1-algoritmos-page .exercise-points {
+    background: #e74c3c;
+    color: white;
 }
 
-.exercise-table th {
-    background: var(--card-hover);
-    color: var(--text-color);
-    font-weight: 600;
+/* Tablas - Estilo algoritmo */
+.tp1-algoritmos-page .exercise-table th {
+    background: #2d2d2d;
+    color: #e74c3c;
+    border-bottom: 2px solid #e74c3c;
+}
+
+.tp1-algoritmos-page .exercise-table td {
+    border-bottom: 1px solid #3d3d3d;
+}
+
+/* Bloques de código - Ajuste de estilo */
+.tp1-algoritmos-page .code-box {
+    border: 1px solid #3d3d3d;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.1);
+}
+
+/* Efectos hover - Coherencia con algoritmos */
+.tp1-algoritmos-page .exercise-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+    border-left-color: #ff6b6b;
+}
+
+/* Navegación - Estilo coherente */
+.tp1-algoritmos-page .tp1-navigation {
+    border-top: 2px solid #e74c3c;
+}
+
+/* ===== MODO CLARO ===== */
+[data-theme="light"].tp1-algoritmos-page {
+    --text-color: #333;
+    --card-bg: #f9f9f9;
+}
+
+[data-theme="light"].tp1-algoritmos-page .header {
+    background: #fff !important;
+    border-bottom-color: #c0392b !important;
+}
+
+[data-theme="light"].tp1-algoritmos-page .header-line {
+    background-color: #c0392b !important;
+}
+
+[data-theme="light"].tp1-algoritmos-page .btn-volver,
+[data-theme="light"].tp1-algoritmos-page .solution-btn,
+[data-theme="light"].tp1-algoritmos-page .nav-btn,
+[data-theme="light"].tp1-algoritmos-page .btn-copy,
+[data-theme="light"].tp1-algoritmos-page .theme-btn {
+    background: #c0392b !important;
+}
+
+[data-theme="light"].tp1-algoritmos-page .btn-volver:hover,
+[data-theme="light"].tp1-algoritmos-page .solution-btn:hover,
+[data-theme="light"].tp1-algoritmos-page .nav-btn:hover,
+[data-theme="light"].tp1-algoritmos-page .btn-copy:hover {
+    background: #a5281d !important;
+}
+
+[data-theme="light"].tp1-algoritmos-page .punto-counter,
+[data-theme="light"].tp1-algoritmos-page .exercise-description h3,
+[data-theme="light"].tp1-algoritmos-page .exercise-title {
+    color: #c0392b !important;
+}
+
+[data-theme="light"].tp1-algoritmos-page .exercise-container {
+    background: #fff;
+    border-left: 4px solid #c0392b;
+    box-shadow: 0 2px 8px rgba(192, 57, 43, 0.1);
+}
+
+[data-theme="light"].tp1-algoritmos-page .exercise-header {
+    border-bottom-color: #c0392b;
+}
+
+[data-theme="light"].tp1-algoritmos-page .exercise-points {
+    background: #c0392b;
+}
+
+[data-theme="light"].tp1-algoritmos-page .exercise-table th {
+    background: #f5f5f5;
+    color: #c0392b;
+    border-bottom-color: #c0392b;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .tp1-container {
+    .tp1-algoritmos-page .tp1-container {
         padding: 0 0.5rem;
     }
     
-    .exercise-header {
+    .tp1-algoritmos-page .exercise-header {
         flex-direction: column;
-        align-items: flex-start;
         gap: 0.5rem;
     }
-    
-    .tp1-navigation {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .exercise-table {
-        display: block;
-        overflow-x: auto;
-    }
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.exercise-container {
-    animation: fadeIn 0.5s ease-out;
 }
 
 /* === _trabajos.css === */

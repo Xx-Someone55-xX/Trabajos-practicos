@@ -4,19 +4,36 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    padding-bottom: 4px; /* Espacio para la línea */
+    padding-bottom: 2px; /* Reducido a 2px para coincidir con algoritmos.html */
 }
 
-/* Línea inferior base (transparente por defecto) */
+/* Contenedor especial para el header en index */
+.index-header .header {
+    position: relative;
+    padding-bottom: 0; /* Eliminamos el padding extra */
+}
+
+/* Línea inferior - Estilo base */
 .header-line {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 2px; /* Grosor de 2px como en algoritmos.html */
     background-color: transparent;
 }
 
+/* Línea para index.html - tema claro */
+[data-theme="light"] .index-header .header-line {
+    background-color: #4a5568 !important; /* Gris oscuro */
+}
+
+/* Línea para index.html - tema oscuro */
+[data-theme="dark"] .index-header .header-line {
+    background-color: #ffffff !important; /* Blanco */
+}
+
+/* Contenedor principal */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -29,6 +46,7 @@
     min-height: 80px;
 }
 
+/* Estilos del logo */
 .logo {
     position: absolute;
     left: 50%;
@@ -36,15 +54,20 @@
     margin: 0;
     white-space: nowrap;
     font-size: 1.5rem;
-    color: var(--header-text) !important; /* Color dinámico */
-    font-weight: 700; /* Texto más grueso */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Sombra para mejor legibilidad */
+    color: var(--header-text) !important;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
-/* Específico para tema claro */
+/* Logo en tema claro */
 [data-theme="light"] .logo {
-    color: #ffffff !important; /* Blanco puro */
+    color: #ffffff !important;
     text-shadow: 
-        0 1px 1px rgba(0,0,0,0.5), /* Sombra más pronunciada */
-        0 0 8px rgba(255,255,255,0.3); /* Efecto glow sutil */
+        0 1px 1px rgba(0,0,0,0.5),
+        0 0 8px rgba(255,255,255,0.3);
+}
+
+/* Transición suave para la línea */
+.header-line {
+    transition: background-color 0.3s ease;
 }
