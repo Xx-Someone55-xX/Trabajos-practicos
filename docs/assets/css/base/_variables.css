@@ -8,7 +8,7 @@
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
     --header-bg: #000000; 
-     --header-text: #ffffff !important;
+    --header-text: #ffffff;
     --card-bg: #2d3748;
     --card-hover: #4a5568;
     --accent: #60a5fa;
@@ -39,8 +39,6 @@
 :root[data-theme="light"] {
     --bg-color: var(--color-white);
     --text-color: #1a202c;
-    --header-bg: #000; /* Header negro en modo claro */
-    --header-text: #fff !important; /* Texto blanco */
     --card-bg: #f8fafc; /* Original: #b2b0b0 (lo corregí a tu estilo original) */
     --card-hover: #e2e8f0;
     --accent: #1d4ed8;

@@ -7,6 +7,15 @@
 }
 
 /* Estilos específicos del index (opcionales) */
+.index-header .header {
+    background: #000000 !important;
+}
+
+.index-header .logo {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
 .index-header .theme-btn {
     background: #333 !important;
 }
