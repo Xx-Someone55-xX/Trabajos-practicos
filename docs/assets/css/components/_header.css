@@ -1,16 +1,37 @@
 .header {
-    background: #000 !important; /* Fondo negro forzado */
-    box-shadow: var(--shadow);
+    background: #000 !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    padding-bottom: 2px; /* Reducido a 2px para coincidir con algoritmos.html */
+    box-shadow: var(--shadow);
 }
 
-/* Contenedor especial para el header en index */
-.index-header .header {
+.header .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: var(--header-height);
     position: relative;
-    padding-bottom: 0; /* Eliminamos el padding extra */
+}
+
+/* Logo centrado */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fff !important;
+    font-weight: 700;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 /* Línea inferior - Estilo base */
@@ -19,55 +40,42 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px; /* Grosor de 2px como en algoritmos.html */
+    height: 2px;
     background-color: transparent;
-}
-
-/* Línea para index.html - tema claro */
-[data-theme="light"] .index-header .header-line {
-    background-color: #4a5568 !important; /* Gris oscuro */
-}
-
-/* Línea para index.html - tema oscuro */
-[data-theme="dark"] .index-header .header-line {
-    background-color: #ffffff !important; /* Blanco */
-}
-
-/* Contenedor principal */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    min-height: 80px;
-}
-
-/* Estilos del logo */
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    white-space: nowrap;
-    font-size: 1.5rem;
-    color: var(--header-text) !important;
-    font-weight: 700;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
-/* Logo en tema claro */
-[data-theme="light"] .logo {
-    color: #ffffff !important;
-    text-shadow: 
-        0 1px 1px rgba(0,0,0,0.5),
-        0 0 8px rgba(255,255,255,0.3);
-}
-
-/* Transición suave para la línea */
-.header-line {
     transition: background-color 0.3s ease;
+}
+
+/* Estilos específicos para index */
+.index-header .header-line {
+    background-color: #4a5568;
+}
+
+[data-theme="dark"] .index-header .header-line {
+    background-color: #ffffff;
+}
+
+/* Eliminar estilos conflictivos */
+.tp1-algoritmos-page .header,
+body.algoritmos-page .header {
+    background: #000 !important;
+    border-bottom: none;
+}
+
+/* Mantener solo los bordes inferiores personalizados */
+.tp1-algoritmos-page .header::after,
+body.algoritmos-page .header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+.tp1-algoritmos-page .header::after {
+    background: #e74c3c;
+}
+
+body.algoritmos-page .header::after {
+    background: var(--algoritmos-red);
 }
