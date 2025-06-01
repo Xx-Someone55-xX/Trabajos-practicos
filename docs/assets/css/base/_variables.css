@@ -7,7 +7,7 @@
     /* Tema oscuro (valores por defecto) */
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
-    --header-bg: #000000; 
+    --header-bg: #000000;
     --header-text: #ffffff;
     --card-bg: #2d3748;
     --card-hover: #4a5568;
@@ -27,19 +27,21 @@
     --max-width: 1200px;
     --spacing: 1rem;
 
-    /* Nuevas variables para la línea del header */
+    /* Variables para la línea del header */
     --header-line-width: 2px;
     --header-line-color: var(--accent);
-    --header-line-color-index: #4a5568; /* Color para index.html (tema claro) */
-    --header-line-color-index-dark: #ffffff; /* Color para index.html (tema oscuro) */
-    --header-line-color-algoritmos: #e74c3c; /* Color para algoritmos */
+    --header-line-color-index: #4a5568;
+    --header-line-color-index-dark: #ffffff;
+    --header-line-color-algoritmos: #e74c3c; /* Color rojo para ambas páginas */
 }
 
 /* Tema claro */
 :root[data-theme="light"] {
     --bg-color: var(--color-white);
     --text-color: #1a202c;
-    --card-bg: #f8fafc; /* Original: #b2b0b0 (lo corregí a tu estilo original) */
+    --header-bg: #000000; /* Header siempre negro */
+    --header-text: #ffffff; /* Texto siempre blanco */
+    --card-bg: #f8fafc;
     --card-hover: #e2e8f0;
     --accent: #1d4ed8;
     --shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
@@ -50,6 +52,27 @@
     --card-border: 1px solid #cbd5e1;
     --header-border: 1px solid #333;
     --code-border: 1px solid #94a3b8;
+}
+
+/* ===== Estilos del Header ===== */
+.header {
+    position: relative;
+    border-bottom: var(--header-line-width) solid var(--header-line-color);
+}
+
+/* Páginas específicas */
+.index-page {
+    --header-line-color: var(--header-line-color-index);
+}
+
+[data-theme="dark"] .index-page {
+    --header-line-color: var(--header-line-color-index-dark);
+}
+
+.algoritmos-page,
+.tp1-algoritmos-page {
+    --header-line-color: var(--header-line-color-algoritmos); /* Mismo rojo para ambas */
+    --accent: #e74c3c; /* Acentuados también en rojo */
 }
 
 /* ===== Layout Principal ===== */

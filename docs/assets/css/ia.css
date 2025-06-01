@@ -107,8 +107,8 @@ body {
     /* Tema oscuro (valores por defecto) */
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
-    --header-bg: #0f172a;
-    --header-text: #e2e8f0;
+    --header-bg: #000000;
+    --header-text: #ffffff;
     --card-bg: #2d3748;
     --card-hover: #4a5568;
     --accent: #60a5fa;
@@ -127,21 +127,21 @@ body {
     --max-width: 1200px;
     --spacing: 1rem;
 
-    /* Nuevas variables para la línea del header */
+    /* Variables para la línea del header */
     --header-line-width: 2px;
     --header-line-color: var(--accent);
     --header-line-color-index: #4a5568;
     --header-line-color-index-dark: #ffffff;
-    --header-line-color-algoritmos: #e74c3c;
+    --header-line-color-algoritmos: #e74c3c; /* Color rojo para ambas páginas */
 }
 
 /* Tema claro */
 :root[data-theme="light"] {
     --bg-color: var(--color-white);
     --text-color: #1a202c;
-    --header-bg: #000;
-    --header-text: #fff !important;
-    --card-bg: #b2b0b0;
+    --header-bg: #000000; /* Header siempre negro */
+    --header-text: #ffffff; /* Texto siempre blanco */
+    --card-bg: #f8fafc;
     --card-hover: #e2e8f0;
     --accent: #1d4ed8;
     --shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
@@ -152,6 +152,27 @@ body {
     --card-border: 1px solid #cbd5e1;
     --header-border: 1px solid #333;
     --code-border: 1px solid #94a3b8;
+}
+
+/* ===== Estilos del Header ===== */
+.header {
+    position: relative;
+    border-bottom: var(--header-line-width) solid var(--header-line-color);
+}
+
+/* Páginas específicas */
+.index-page {
+    --header-line-color: var(--header-line-color-index);
+}
+
+[data-theme="dark"] .index-page {
+    --header-line-color: var(--header-line-color-index-dark);
+}
+
+.algoritmos-page,
+.tp1-algoritmos-page {
+    --header-line-color: var(--header-line-color-algoritmos); /* Mismo rojo para ambas */
+    --accent: #e74c3c; /* Acentuados también en rojo */
 }
 
 /* ===== Layout Principal ===== */
@@ -391,6 +412,37 @@ body {
 
 .btn-copy.copied .fa-check {
     animation: checkPop 0.3s ease;
+}
+
+/* --- Botones específicos para páginas de algoritmos --- */
+.algoritmos-page .btn-copy,
+.algoritmos-page .theme-btn,
+.algoritmos-page .btn-volver,
+.tp1-algoritmos-page .btn-copy,
+.tp1-algoritmos-page .theme-btn,
+.tp1-algoritmos-page .btn-volver {
+    background-color: #e74c3c !important;
+    border-color: #e74c3c !important;
+}
+
+/* Efecto hover */
+.algoritmos-page .btn-copy:hover,
+.algoritmos-page .theme-btn:hover,
+.algoritmos-page .btn-volver:hover,
+.tp1-algoritmos-page .btn-copy:hover,
+.tp1-algoritmos-page .theme-btn:hover,
+.tp1-algoritmos-page .btn-volver:hover {
+    background-color: #c0392b !important;
+    border-color: #c0392b !important;
+    transform: translateY(-2px); /* Efecto adicional opcional */
+}
+
+/* Iconos del botón de tema */
+.algoritmos-page .theme-btn svg,
+.tp1-algoritmos-page .theme-btn svg {
+    fill: white !important;
+    stroke: white !important;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
 }
 
 /* === _cards.css === */
