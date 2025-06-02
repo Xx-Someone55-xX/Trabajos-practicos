@@ -175,3 +175,29 @@
 .btn-copy.copied .fa-check {
     animation: checkPop 0.3s ease;
 }
+
+/* Estilos para los botones de navegación */
+.nav-btn {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover:not(.disabled) {
+    background-color: var(--primary-hover);
+}
+
+.nav-btn.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Ocultar slides no activos inicialmente */
+.slide:not(.active) {
+    display: none;
+}

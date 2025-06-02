@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   
 </head>
 <body class="tp1-algoritmos-page">
     <header class="header">
@@ -41,6 +40,7 @@
         </div>
 
         <div class="slides-container">
+            <!-- Punto 1 -->
             <article class="slide active">
                 <section class="punto-card">
                     <div class="exercise-description">
@@ -49,22 +49,26 @@
                     </div>
                     
                     <div class="code-box">
-                        <pre><code class="language-c" id="code-block">#include &lt;stdio.h&gt;
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
 
-int main() {
-    int num1, num2;
-    printf("Ingrese dos números: ");
-    scanf("%d %d", &num1, &num2);
-    
-    int suma = num1 + num2;
-    int producto = num1 * num2;
-    
-    printf("Suma: %d\n", suma);
-    printf("Producto: %d\n", producto);
-    
+int main()
+{
+    float num1 = 0, num2 = 0, sum = 0, multi = 0;
+
+    printf("Ingrese el primer numero: ");
+    scanf("%f", &num1);
+    printf("Ingrese el segundo numero: ");
+    scanf("%f", &num2);
+
+    sum = num1 + num2;
+    multi = num1 * num2;
+
+    printf("\nLa suma de los numeros es: %.2f", sum);
+    printf("\nLa multiplicacion de los numeros es: %.2f", multi);
+
     return 0;
 }</code></pre>
-                        <button class="btn-copy" id="copy-button">
+                        <button class="btn-copy">
                             <i class="fas fa-copy copy-icon"></i>
                             <i class="fas fa-check check-icon" style="display: none;"></i>
                             <span>Copiar</span>
@@ -72,21 +76,813 @@ int main() {
                     </div>
                 </section>
             </article>
+
+            <!-- Punto 2 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 2: Promedio de cinco números</h3>
+                        <p>Dados cinco números obtener el promedio de los mismos e informar el resultado.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float num1 = 0, num2 = 0, num3 = 0, num4 = 0, num5 = 0, prom = 0;
+
+    printf("Ingrese cinco numeros para conocer su promedio: ");
+    scanf("%f %f %f %f %f", &num1, &num2, &num3, &num4, &num5);
+
+    prom = (num1 + num2 + num3 + num4 + num5) / 5;
+
+    printf("El promedio de los numeros ingresados es: %.2f\n", prom);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 3 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 3: Operaciones con enteros</h3>
+                        <p>Dados dos números enteros obtener su suma, resta, multiplicación y división.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num1 = 0, num2 = 0, sum = 0, multi = 0, resta = 0;
+    float div = 0;
+
+    printf("Ingrese el primer numero: ");
+    scanf("%d", &num1);
+    printf("Ingrese el segundo numero: ");
+    scanf("%d", &num2);
+
+    sum = num1 + num2;
+    multi = num1 * num2;
+    resta = num1 - num2;
+    div = (float)num1 / num2;
+
+    printf("\nLa suma de los numeros es: %d", sum);
+    printf("\nLa multiplicacion de los numeros es: %d", multi);
+    printf("\nLa resta de los numeros es: %d", resta);
+    printf("\nLa division de los numeros es: %.2f", div);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 4 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 4: Cálculo del tercer ángulo de un triángulo</h3>
+                        <p>Dadas las medidas de dos ángulos de un triángulo, determinar la medida del
+   tercer ángulo e informar el resultado. Validar los datos ingresados.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float ang1 = 0, ang2 = 0, ang3 = 0;
+
+    printf("Ingrese el primer angulo: ");
+    scanf("%f", &ang1);
+
+    printf("Ingrese el segundo angulo: ");
+    scanf("%f", &ang2);
+
+    if (ang1 <= 0 || ang2 <= 0)
+    {
+        printf("Error: Los angulos deben ser mayores a 0.\n");
+        return 1;
+    }
+
+    if ((ang1 + ang2) >= 180)
+    {
+        printf("Error: La suma de los dos angulos debe ser menor que 180.\n");
+        return 1;
+    }
+
+    ang3 = 180 - (ang1 + ang2);
+    printf("El tercer angulo es: %.2f\n", ang3);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 5 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 5: Cálculo de perímetro y superficie de un cuadrado</h3>
+                        <p>Dado como dato el valor del lado de un cuadrado calcular su perímetro y su
+superficie, e informar los mismos.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float lado = 0, per = 0, sup = 0;
+
+    printf("Ingrese el lado del cuadrado para conocer su perimetro y superficie: ");
+    scanf("%f", &lado);
+    per = lado * 4;
+    sup = lado * lado;
+    printf("Perimetro: %.2f \n", per);
+    printf("Superficie: %.2f \n", sup);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 6 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 6: Cálculo del impuesto IVA</h3>
+                        <p>Dado como dato el importe de una factura, calcular el valor correspondiente al IVA.
+(21% del valor de venta).</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float factu = 0, iva = 0;
+
+    printf("Ingrese el valor de la factura para saber el valor del IVA: ");
+    scanf("%f", &factu);
+    iva = (factu * 21) / 100;
+    printf("El valor del IVA es: %.2f", iva);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 7 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 7: Cálculo del sueldo mensual de un operario</h3>
+                        <p>Calcular el sueldo de un operario conociendo la cantidad de horas que trabajó en el
+mes y el valor de la hora trabajada.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float hs = 0, valorh = 0, sueldo = 0;
+
+    printf("Ingrese la cantidad de horas que trabajo el funcionario en el mes: ");
+    scanf("%f", &hs);
+    printf("Ingrese el valor de cada hora del funcionario: ");
+    scanf("%f", &valorh);
+    sueldo = hs * valorh;
+    printf("El sueldo del operario es: %.2f", sueldo);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 8 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 8: Cálculo de factura con bonificación e IVA</h3>
+                        <p>Dado el importe bruto de una factura calcular el resultado de bonificarlo con un 4%.
+Al monto obtenido calcularle el IVA. Finalmente informar el importe bruto, el valor
+de la bonificación, el importe bruto bonificado, el monto correspondiente al IVA y
+el importe neto resultante.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float impb = 0, bonus = 0, impbb = 0, iva = 0, impn = 0;
+
+    printf("Ingrese el importe bruto: ");
+    scanf("%f", &impb);
+
+    bonus = (impb * 4) / 100;
+    impbb = impb + ((impb * 4) / 100);
+    iva = (impb * 21) / 100;
+    impn = impb - iva;
+
+    printf("El valor del importe bruto es: %.2f\n", impb);
+    printf("El valor de la bonificacion es: %.2f\n", bonus);
+    printf("El valor del importe bruto bonificado es: %.2f\n", impbb);
+    printf("El valor del IVA es: %.2f\n", iva);
+    printf("El valor del importe neto es: %.2f\n", impn);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 9 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 9: Cálculo del total de dinero en monedas de un banco</h3>
+                        <p>Calcular cuántos pesos tiene un banco en monedas si dispone de N1 monedas de 1
+peso, N2 de medio peso, N3 de un cuarto de peso, N4 de 10 centavos de peso y N5
+de 5 centavos de peso.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n1 = 0, n2 = 0, n3 = 0, n4 = 0, n5 = 0;
+    float total = 0;
+
+    printf("Ingrese la cantidad de monedas de 1 peso: ");
+    scanf("%d", &n1);
+    printf("Ingrese la cantidad de monedas de medio peso: ");
+    scanf("%d", &n2);
+    printf("Ingrese la cantidad de monedas de un cuarto de peso: ");
+    scanf("%d", &n3);
+    printf("Ingrese la cantidad de monedas de 10 centavos: ");
+    scanf("%d", &n4);
+    printf("Ingrese la cantidad de monedas de 5 centavos: ");
+    scanf("%d", &n5);
+    total = n1 + (n2 * 0.5) + (n3 * 0.25) + (n4 * 0.1) + (n5 * 0.05);
+    printf("El banco tiene %.2f", total);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 10 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 10: Rotación circular de valores entre tres variables</h3>
+                        <p>Ingresar 3 valores en 3 variables X, Y y Z. Se desea obtener una rotación de
+sus valores, es decir que el contenido de Z pase a X, el contenido de X pase a Y, y el
+contenido de Y pase a Z. Mostrar luego las variables en el mismo orden en que se
+ingresaron (X,Y,Z).
+Indicar cómo será la salida luego de realizar lo pedido en el párrafo anterior, si se
+ingresa 5 en la variable X, 15 en la variable Y y 25 en la variable Z.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int x = 0, y = 0, z = 0, w = 0;
+
+    printf("Ingrese el valor de la variable X: ");
+    scanf("%d", &x);
+    printf("Ingrese el valor de la variable Y: ");
+    scanf("%d", &y);
+    printf("Ingrese el valor de la variable Z: ");
+    scanf("%d", &z);
+
+    w = x;
+    x = z;
+    z = y;
+    y = w;
+
+    printf("\nLos valores rotados seran: \nx: %d \ny: %d \nz: %d", x, y, z);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 11 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 11: Ordenamiento creciente de dos números distintos</h3>
+                        <p>Dados dos números distintos, mostrarlos ordenados en forma creciente.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float num1 = 0, num2 = 0;
+
+    do
+    {
+        printf("Ingrese el primer numero: ");
+        scanf("%f", &num1);
+        printf("Ingrese el segundo numero: ");
+        scanf("%f", &num2);
+
+        if (num1 == num2)
+        {
+            printf("Los numeros deben ser distintos. Intente nuevamente.\n\n");
+        }
+
+    } while (num1 == num2);
+
+    if (num1 > num2)
+    {
+        printf("Numeros en orden creciente: %.2f %.2f\n", num2, num1);
+    }
+    else
+    {
+        printf("Numeros en orden creciente: %.2f %.2f\n", num1, num2);
+    }
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 12 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 12: ¿El número es positivo o negativo?</h3>
+                        <p>Dado un número determinar si es positivo o negativo.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float num = 0;
+
+    printf("Ingrese un numero para ver si es positivo o negativo: ");
+    scanf("%f", &num);
+
+    if (num < 0)
+    {
+        printf("El numero ingresado es negativo");
+    }
+    else if (num > 0)
+    {
+        printf("El numero ingresado es positivo");
+    }
+    else
+    {
+        printf("El numero ingresado es 0");
+    }
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 13 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 13: Verificación de triángulo rectángulo a partir de sus ángulos</h3>
+                        <p>Dada la medida de cada uno de los tres ángulos de un triángulo determinar e
+informar mediante un mensaje si pertenecen o no a un triángulo rectángulo.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float ang1 = 0, ang2 = 0, ang3 = 0, sum = 0;
+
+    do
+    {
+        printf("Ingrese el valor del primer angulo: ");
+        scanf("%f", &ang1);
+        printf("Ingrese el valor del segundo angulo: ");
+        scanf("%f", &ang2);
+        printf("Ingrese el valor del tercer angulo: ");
+        scanf("%f", &ang3);
+
+        sum = ang1 + ang2 + ang3;
+
+        if (sum != 180)
+        {
+            printf("Los angulos no forman un triangulo valido. Ingrese uno nuevo\n");
+        }
+
+    } while (sum != 180);
+
+    if (ang1 == 90 || ang2 == 90 || ang3 == 90)
+    {
+        printf("Los angulos ingresados pertenecen a un triangulo rectangulo\n");
+    }
+    else
+    {
+        printf("Los angulos ingresados NO pertenecen a un triangulo rectangulo\n");
+    }
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 14 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 14: Orden creciente de tres números</h3>
+                        <p>Ingresar tres nros. enteros, distintos. Determinar y mostrar si ingresaron en
+orden creciente.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    int num1 = 0, num2 = 0, num3 = 0;
+
+    printf("Ingrese 3 numeros: ");
+    scanf("%d %d %d", &num1, &num2, &num3);
+
+    if (num3 > num2 && num2 > num1)
+    {
+        printf("Los numeros ingresados estan en orden creciente");
+    }
+    else
+    {
+        printf("Los numeros ingresados no estan en orden creciente");
+    }
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 15 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 15: Comparación de estatura con la media por sexo</h3>
+                        <p>Determinar y exhibir si la estatura de una persona adulta dada, es mayor que la
+estatura media de las personas adultas de su sexo, siendo:
+Estatura media de mujeres adultas: 1,65 m.
+Estatura media de varones adultos: 1,72 m.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+<code class="language-c">#include &lt;ctype.h&gt;
+
+int main()
+{
+    char sex;
+    float h;
+
+    do
+    {
+        printf("Ingrese el genero de la persona (M/F): ");
+        scanf(" %c", &sex);
+        sex = tolower(sex); // Para el ingreso de mayusculas //
+
+        if (sex != 'm' && sex != 'f')
+        {
+            printf("El genero ingresado no es valido. Intente nuevamente.\n");
+        }
+
+    } while (sex != 'm' && sex != 'f');
+
+    printf("Ingrese la estatura de la persona (en metros): ");
+    scanf("%f", &h);
+
+    if (sex == 'f')
+    {
+        if (h > 1.65)
+            printf("La estatura de la mujer ingresada es mayor al promedio\n");
+        else if (h == 1.65)
+            printf("La estatura de la mujer ingresada es promedio\n");
+        else
+            printf("La estatura de la mujer ingresada es menor al promedio\n");
+    }
+    else if (sex == 'm')
+    {
+        if (h > 1.72)
+            printf("La estatura del hombre ingresado es mayor al promedio\n");
+        else if (h == 1.72)
+            printf("La estatura del hombre ingresado es promedio\n");
+        else
+            printf("La estatura del hombre ingresado es menor al promedio\n");
+    }
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 16 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 16: Clasificación de triángulo según sus Lados</h3>
+                        <p>Se leen tres números que son las longitudes de los lados de un triángulo.
+Determinar e informar si el mismo es equilátero, isósceles o escaleno.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float lado1 = 0, lado2 = 0, lado3 = 0;
+
+    do
+    {
+        printf("Ingrese el primer lado: ");
+        scanf(" %f", &lado1); // Agregar espacio antes de %f
+        printf("Ingrese el segundo lado: ");
+        scanf(" %f", &lado2); // Agregar espacio antes de %f
+        printf("Ingrese el tercer lado: ");
+        scanf(" %f", &lado3); // Agregar espacio antes de %f
+
+        if ((lado1 + lado2 > lado3) &&
+            (lado1 + lado3 > lado2) &&
+            (lado2 + lado3 > lado1))
+        {
+            break;
+        }
+        else
+        {
+            printf("Los lados ingresados no forman un triangulo valido. Intente de nuevo.\n\n");
+        }
+
+    } while (1);
+
+    if (lado1 == lado2 && lado2 == lado3)
+    {
+        printf("El triangulo es equilatero.\n");
+    }
+    else if (lado1 == lado2 || lado1 == lado3 || lado2 == lado3)
+    {
+        printf("El triangulo es isosceles.\n");
+    }
+    else
+    {
+        printf("El triangulo es escaleno.\n");
+    }
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 17 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 17: Cálculo de bonificación por compra de libros según tipo de cliente</h3>
+                        <p>Una distribuidora de libros vende a librerías y a particulares. Aplica
+bonificaciones por cantidad según el siguiente criterio:
+a librerías: hasta 24 unidades, el 20%; más de 24 unidades, el 25%.
+a particulares: menos de 6 unidades, nada; desde 6 hasta 18 unidades, el 5%; y
+más de 18 unidades, el 10%.
+El tipo de cliente está codificado así: 'L' para librerías, 'P' para particular. Dado el
+importe bruto de una compra de libros, el tipo de cliente de que se trata y la cantidad
+total pedida por el mismo, determinar el importe bruto bonificado.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+<code class="language-c">#include &lt;ctype.h&gt;
+
+int main()
+{
+    char tipo_cliente;
+    int cant = 0;
+    float impbr = 0, bonus = 0, impbon = 0;
+
+    printf("Ingrese el tipo de cliente (L para libreria, P para particular): ");
+    scanf(" %c", &tipo_cliente);
+
+    tipo_cliente = tolower(tipo_cliente);
+
+    printf("Ingrese la cant de libros: ");
+    scanf("%d", &cant);
+
+    printf("Ingrese el importe bruto de la compra: ");
+    scanf("%f", &impbr);
+
+    switch (tipo_cliente)
+    {
+    case 'l':
+        if (cant <= 24)
+            bonus = 0.20;
+        else
+            bonus = 0.25;
+        break;
+    case 'p':
+        if (cant < 6)
+            bonus = 0.0;
+        else if (cant <= 18)
+            bonus = 0.05;
+        else
+            bonus = 0.10;
+        break;
+    default:
+        printf("Tipo de cliente no válido.\n");
+        return 1;
+    }
+
+    impbon = impbr * (1 - bonus);
+
+    printf("Importe bonificado: %.2f\n", impbon);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
+            <!-- Punto 18 -->
+            <article class="slide">
+                <section class="punto-card">
+                    <div class="exercise-description">
+                        <h3>Ejercicio 18: Cálculo del importe a pagar según consumo de kilowatios</h3>
+                        <p>Dado como dato la cantidad de kilowatios consumidos por un usuario en un
+mes, calcular el importe a pagar por el mismo teniendo en cuenta que:
+si la cantidad de kilowatios consumidos es menor ó igual a 200, el precio del
+kilowatio es de 0.05 pesos.
+si la cantidad de kilowatios consumidos es mayor que 200 y menor que 1000, el precio
+del kilowatio es de 0.1 pesos.
+si la cantidad de kilowatios consumidos es mayor ó igual que 1000, el precio del
+kilowatio es de 0.15 pesos.</p>
+                    </div>
+                    
+                    <div class="code-box">
+                        <pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main()
+{
+    float kw = 0, kwf = 0;
+
+    do
+    {
+
+        printf("Ingrese la cantidad de kilowatios consumidos por un usuario en un mes: ");
+        scanf(" %f", &kw);
+
+        if (kw < 0)
+        {
+            printf("Ingrese un valor de kilowatios valido");
+        }
+
+    } while (kw < 0);
+
+    if (kw <= 200)
+    {
+        kwf = kw * 0.05;
+    }
+
+    else if (kw > 200 && kw < 1000)
+    {
+        kwf = kw * 0.1;
+    }
+    else
+    {
+        kwf = kw * 0.15;
+    }
+    printf("El precio de los kilowatios consumidos es %.2f pesos\n", kwf);
+
+    return 0;
+}</code></pre>
+                        <button class="btn-copy">
+                            <i class="fas fa-copy copy-icon"></i>
+                            <i class="fas fa-check check-icon" style="display: none;"></i>
+                            <span>Copiar</span>
+                        </button>
+                    </div>
+                </section>
+            </article>
+
         </div>
     </main>
 
     <script src="../../assets/js/theme.js"></script>
     <script src="../../assets/js/copy.js"></script>
     <script src="../../assets/js/color_theme.js"></script>
-    <script src="assets/js/db/sql.js"></script>
-    <script type="module">
-    import { initDatabase, getCodigo } from '../assets/js/db/database.js';
-    import { setupTPController } from '../assets/js/controllers/tp1.js';
-    
-    document.addEventListener('DOMContentLoaded', async () => {
-        await initDatabase();
-        setupTPController(getCodigo);
-    });
-</script>
+    <script src="../../assets/js/anterior_siguiente.js"></script>
+    <script>
+    </script>
 </body>
 </html>
