@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+/* 1) Dados como datos dos números calcular su suma y su producto e informar los resultados. */
+
 int main()
 {
     float num1 = 0, num2 = 0, sum = 0, multi = 0;

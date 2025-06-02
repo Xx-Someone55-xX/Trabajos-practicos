@@ -1,3 +1,265 @@
+/* ===== Tarjetas de Materias ===== */
+.materias-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: var(--max-width);
+    margin: 2rem auto;
+}
+
+.materia-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: var(--card-border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Modificar los estilos de hover de las tarjetas de materias */
+.materia-card:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover);
+}
+
+/* Algoritmos - Rojo */
+.materia-card:nth-child(1):hover {
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Física - Verde */
+.materia-card:nth-child(2):hover {
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+}
+
+/* Sistemas - Púrpura */
+.materia-card:nth-child(3):hover {
+    box-shadow: 0 10px 20px rgba(184, 77, 255, 0.3);
+}
+
+/* Álgebra - Amarillo */
+.materia-card:nth-child(4):hover {
+    box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
+}
+
+/* === Línea base (color permanente) === */
+.materia-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.materia-card:nth-child(1)::after { /* Algoritmos - Rojo */
+    background: #e74c3c;
+}
+.materia-card:nth-child(2)::after { /* Física - Verde */
+    background: #2ecc71;
+}
+.materia-card:nth-child(3)::after { /* Sistemas - Púrpura */
+    background: #b84dff;
+}
+.materia-card:nth-child(4)::after { /* Álgebra - Amarillo */
+    background: #F1C40F;
+}
+
+/* === Hover (solo animación, sin cambiar color) === */
+.materia-card:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.materia-card .card-content h2 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.descripcion-materia {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Estilos para el icono de materia */
+.materia-card .materia-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    display: block;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.3s ease;
+}
+
+/* Efecto de brillo al icono con el mismo color */
+.materia-card:hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+    transform: scale(1.05);
+}
+
+/* Algoritmos - Rojo */
+.materia-card:nth-child(1):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(231, 76, 60, 0.4));
+}
+
+/* Física - Verde */
+.materia-card:nth-child(2):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.4));
+}
+
+/* Sistemas - Púrpura */
+.materia-card:nth-child(3):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(184, 77, 255, 0.4));
+}
+
+/* Álgebra - Amarillo */
+.materia-card:nth-child(4):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(241, 196, 15, 0.4));
+}
+
+/* ===== ESTILOS ESPECÍFICOS PARA CADA MATERIA ===== */
+
+/* Regla general: eliminar rellenos en todos los elementos SVG */
+.materia-card .materia-icon path,
+.materia-card .materia-icon rect,
+.materia-card .materia-icon circle {
+    fill: none;
+}
+
+/* Excepciones para elementos que deben tener relleno */
+.materia-card .materia-icon .filled-element {
+    fill: inherit;
+}
+
+/* Algoritmos y Estructura de Datos (Rojo) */
+.materia-card:nth-child(1) .materia-icon path,
+.materia-card:nth-child(1) .materia-icon rect,
+.materia-card:nth-child(1) .materia-icon text {
+    stroke: #e74c3c;
+}
+
+.materia-card:nth-child(1) .materia-icon .filled-element {
+    fill: #e74c3c;
+}
+
+.materia-card:nth-child(1) .materia-icon text {
+    fill: #e74c3c; /* El texto necesita relleno */
+}
+
+/* Física I (Verde) */
+.materia-card:nth-child(2) .materia-icon path,
+.materia-card:nth-child(2) .materia-icon circle {
+    stroke: #2ecc71;
+}
+
+.materia-card:nth-child(2) .materia-icon .filled-element {
+    fill: #2ecc71; /* Solo electrones y núcleo */
+}
+
+/* Sistemas y Procesos de Negocio (Púrpura) */
+.materia-card:nth-child(3) .materia-icon path,
+.materia-card:nth-child(3) .materia-icon rect {
+    stroke: #b84dff;
+}
+
+.materia-card:nth-child(3) .materia-icon .filled-element {
+    fill: #b84dff; /* Solo flechas y nodos */
+}
+
+/* Álgebra y Geometría Analítica (Amarillo) */
+.materia-card:nth-child(4) .materia-icon path,
+.materia-card:nth-child(4) .materia-icon line,
+.materia-card:nth-child(4) .materia-icon text {
+    stroke: #F1C40F;
+}
+
+.materia-card:nth-child(4) .materia-icon .filled-element {
+    fill: #F1C40F;
+}
+
+.materia-card:nth-child(4) .materia-icon text {
+    fill: #F1C40F;
+    stroke: none; /* Solo relleno para texto */
+}
+
+/* Animación para nuevas materias */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optimización para modo oscuro */
+[data-theme="dark"] .materia-card .materia-icon {
+    stroke-width: 3.2;
+}
+
+[data-theme="dark"] .materia-card:nth-child(1) .materia-icon {
+    filter: brightness(1.3);
+}
+
+[data-theme="dark"] .materia-card:nth-child(2) .materia-icon {
+    filter: brightness(1.4);
+}
+
+[data-theme="dark"] .materia-card:nth-child(3) .materia-icon {
+    filter: brightness(1.3);
+}
+
+[data-theme="dark"] .materia-card:nth-child(4) .materia-icon {
+    filter: brightness(1.2);
+}
+
+/* Eliminar todas las animaciones */
+.materia-card:hover .materia-icon {
+    animation: none !important;
+}
+
+/* Mejorar visibilidad del texto en iconos */
+.materia-card .materia-icon text {
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Reducir tamaño de elementos rellenos en física */
+.materia-card:nth-child(2) .materia-icon .filled-element {
+    r: 3; /* Tamaño reducido de electrones */
+}
+
+.materia-card:nth-child(2) .materia-icon circle:nth-child(1) {
+    r: 4; /* Tamaño del núcleo */
+}
+
+/* Aumentar contraste en modo oscuro */
+[data-theme="dark"] .materia-card .materia-icon {
+    stroke-width: 3.5;
+}
+
+[data-theme="dark"] .materia-card:nth-child(1) .materia-icon text {
+    filter: brightness(1.4);
+}
+
 /* ===== Tarjetas de Trabajos ===== */
 .trabajos-grid {
     display: grid;
@@ -56,254 +318,3 @@
     color: var(--text-muted);
     font-size: 1rem;
 }
-
-/* ===== Tarjetas de Materias ===== */
-.materias-grid {
-    display: grid;
-    gap: 2rem;
-    padding: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    max-width: var(--max-width);
-    margin: 2rem auto;
-}
-
-.materia-card {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    text-align: center;
-    border: var(--card-border);
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeInUp 0.5s ease-out;
-}
-
-.materia-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background: var(--card-hover);
-}
-
-/* === Línea base (color permanente) === */
-.materia-card::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-    /* Color específico por materia (sin hover) */
-}
-.materia-card:nth-child(1)::after { /* Algoritmos - Rojo */
-    background: #e74c3c;
-}
-.materia-card:nth-child(2)::after { /* Física - Verde */
-    background: #2ecc71;
-}
-.materia-card:nth-child(3)::after { /* Sistemas - Púrpura */
-    background: #b84dff;
-}
-.materia-card:nth-child(4)::after { /* Álgebra - Amarillo */
-    background: #F1C40F;
-}
-
-/* === Hover (solo animación, sin cambiar color) === */
-.materia-card:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.materia-card .card-content h2 {
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.descripcion-materia {
-    color: var(--text-muted);
-    font-size: 1rem;
-}
-
-/* Estilos para el icono de materia */
-.materia-card .materia-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1rem;
-    display: block;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: all 0.3s ease;
-}
-
-/* Eliminar transformación al hacer hover */
-.materia-card:hover .materia-icon {
-    transform: none;
-}
-
-/* Animación para nuevas materias */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===== ESTILOS ESPECÍFICOS PARA CADA MATERIA ===== */
-
-/* Regla general: eliminar rellenos en todos los elementos SVG */
-.materia-card .materia-icon path,
-.materia-card .materia-icon rect,
-.materia-card .materia-icon circle {
-    fill: none;
-}
-
-/* Excepciones para elementos que deben tener relleno */
-.materia-card .materia-icon .filled-element {
-    fill: inherit;
-}
-
-/* Algoritmos y Estructura de Datos (Rojo) */
-.materia-card:nth-child(1) .materia-icon path,
-.materia-card:nth-child(1) .materia-icon rect,
-.materia-card:nth-child(1) .materia-icon text {
-    stroke: #e74c3c;
-}
-
-.materia-card:nth-child(1) .materia-icon .filled-element {
-    fill: #e74c3c;
-}
-
-.materia-card:nth-child(1) .materia-icon text {
-    fill: #e74c3c; /* El texto necesita relleno */
-}
-
-.materia-card:nth-child(1):hover::after {
-    background: #e74c3c;
-}
-
-/* Física I (Verde) */
-.materia-card:nth-child(2) .materia-icon path,
-.materia-card:nth-child(2) .materia-icon circle {
-    stroke: #2ecc71;
-}
-
-.materia-card:nth-child(2) .materia-icon .filled-element {
-    fill: #2ecc71; /* Solo electrones y núcleo */
-}
-
-.materia-card:nth-child(2):hover::after {
-    background: #2ecc71;
-}
-
-/* Sistemas y Procesos de Negocio (Púrpura) */
-.materia-card:nth-child(3) .materia-icon path,
-.materia-card:nth-child(3) .materia-icon rect {
-    stroke: #b84dff;
-}
-
-.materia-card:nth-child(3) .materia-icon .filled-element {
-    fill: #b84dff; /* Solo flechas y nodos */
-}
-
-.materia-card:nth-child(3):hover::after {
-    background: #b84dff;
-}
-
-/* Álgebra y Geometría Analítica (Amarillo) */
-.materia-card:nth-child(4) .materia-icon path,
-.materia-card:nth-child(4) .materia-icon line,
-.materia-card:nth-child(4) .materia-icon text {
-    stroke: #F1C40F;
-}
-
-.materia-card:nth-child(4) .materia-icon .filled-element {
-    fill: #F1C40F;
-}
-
-.materia-card:nth-child(4) .materia-icon text {
-    fill: #F1C40F;
-    stroke: none; /* Solo relleno para texto */
-}
-
-.materia-card:nth-child(4):hover::after {
-    background: #F1C40F;
-}
-
-/* Optimización para modo oscuro */
-
-[data-theme="dark"] .materia-card .materia-icon {
-    stroke-width: 3.2;
-}
-
-[data-theme="dark"] .materia-card:nth-child(1) .materia-icon {
-    filter: brightness(1.3);
-}
-
-[data-theme="dark"] .materia-card:nth-child(2) .materia-icon {
-    filter: brightness(1.4);
-}
-
-[data-theme="dark"] .materia-card:nth-child(3) .materia-icon {
-    filter: brightness(1.3);
-}
-
-[data-theme="dark"] .materia-card:nth-child(4) .materia-icon {
-    filter: brightness(1.2);
-}
-
-/* Eliminar todas las animaciones */
-.materia-card:hover .materia-icon {
-    animation: none !important;
-}
-
-/* Mejorar visibilidad del texto en iconos */
-.materia-card .materia-icon text {
-    font-weight: bold;
-    pointer-events: none;
-}
-
-/* Reducir tamaño de elementos rellenos en física */
-.materia-card:nth-child(2) .materia-icon .filled-element {
-    r: 3; /* Tamaño reducido de electrones */
-}
-
-.materia-card:nth-child(2) .materia-icon circle:nth-child(1) {
-    r: 4; /* Tamaño del núcleo */
-}
-
-/* Aumentar contraste en modo oscuro */
-[data-theme="dark"] .materia-card .materia-icon {
-    stroke-width: 3.5;
-}
-
-[data-theme="dark"] .materia-card:nth-child(1) .materia-icon text {
-    filter: brightness(1.4);
-}
-   /* Estilos adicionales para mejorar los iconos */
-        .materia-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .materia-card:hover .materia-icon {
-            transform: scale(1.05);
-        }
-        
-        /* Optimización para modo oscuro */
-        [data-theme="dark"] .materia-icon {
-            stroke-width: 3.5;
-        }

@@ -232,6 +232,57 @@ body {
     margin-bottom: 0;
 }
 
+/* Agregar nueva variable para el color de procesos */
+:root {
+    --color-procesos: #b84dff;
+    --color-procesos-dark: #9b3dde;
+}
+
+/* === Estilos específicos para la página de Procesos === */
+.procesos-page {
+    --header-line-color: var(--color-procesos);
+    --accent: var(--color-procesos);
+}
+
+/* Botones */
+.procesos-page .btn-volver,
+.procesos-page .nav-btn,
+.procesos-page .theme-btn {
+    background: var(--color-procesos);
+}
+
+.procesos-page .btn-volver:hover,
+.procesos-page .nav-btn:hover,
+.procesos-page .theme-btn:hover {
+    background: var(--color-procesos-dark);
+}
+
+/* Cards */
+.procesos-page .trabajo-card:hover {
+    box-shadow: 0 5px 15px rgba(184, 77, 255, 0.3);
+}
+
+.procesos-page .trabajo-card:hover::after {
+    background: var(--color-procesos);
+}
+
+/* Efecto en el logo */
+.procesos-page .logo:hover {
+    text-shadow: 
+        0 1px 5px rgba(0,0,0,0.7),
+        0 0 15px rgba(184, 77, 255, 0.7);
+}
+
+/* Contador de puntos */
+.procesos-page .punto-counter {
+    color: var(--color-procesos);
+}
+
+/* Descripción de ejercicio */
+.procesos-page .exercise-description h3 {
+    color: var(--color-procesos);
+}
+
 /* === COMPONENTS === */
 
 /* === _buttons.css */
