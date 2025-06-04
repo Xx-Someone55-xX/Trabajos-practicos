@@ -206,3 +206,15 @@ body.arquitectura-page .trabajo-card:hover {
     border-color: var(--color-arquitectura-dark);
     box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
 }
+
+.materia-card:nth-child(6):hover {
+    box-shadow: 0 10px 20px rgba(255, 107, 158, 0.3);
+}
+
+.materia-card:nth-child(6)::after {
+    background: var(--color-logica);
+}
+
+.materia-card:nth-child(6):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(255, 107, 158, 0.4));
+}

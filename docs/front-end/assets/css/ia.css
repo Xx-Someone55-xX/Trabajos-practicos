@@ -100,34 +100,27 @@ body {
 
 /* === _variables.css === /*
 
+/* ===== VARIABLES GLOBALES ===== */
 :root {
+    /* Colores base */
     --color-white: #ffffff;
     --color-black: #000000;
+    
+    /* Colores temáticos */
     --color-algoritmos: #e74c3c;
     --color-algoritmos-dark: #c0392b;
     --color-fisica: #2ecc71;
     --color-fisica-dark: #27ae60;
     --color-procesos: #b84dff;
     --color-procesos-dark: #9b3dde;
+    --color-algebra: #F1C40F;
+    --color-algebra-dark: #D4AC0D;
     --color-index: #4a5568;
     --color-index-dark: #ffffff;
-}
-
-[data-theme="dark"] {
-    --color-fisica: #1e8449;
-    --color-fisica-dark: #145a32;
-    --color-index: var(--color-index-dark);
-}
-
-/* ===== Variables Globales ===== */
-:root {
-    --color-white: #ffffff;
-    --color-black: #000000;
-    --color-procesos: #b84dff;
-    --color-procesos-dark: #9b3dde;
-    --color-fisica: #2ecc71;
-    --color-fisica-dark: #27ae60;
-    --color-algoritmos: #e74c3c;
+    --color-arquitectura: #3498db;
+    --color-arquitectura-dark: #2980b9;
+    
+    /* Variables de diseño */
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
     --header-bg: #000000;
@@ -154,18 +147,18 @@ body {
     --header-line-color-algoritmos: var(--color-algoritmos);
 }
 
-/* Tema claro */
+/* ===== TEMA CLARO ===== */
 :root[data-theme="light"] {
     --bg-color: var(--color-white);
     --text-color: #1a202c;
     --header-bg: #000000;
     --header-text: #ffffff;
-    --card-bg: #f8fafc;
+    --card-bg: #efefef;
     --card-hover: #e2e8f0;
     --accent: #1d4ed8;
     --shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
     --button-hover-bg: #1e40af;
-    --code-bg: #f8fafc;
+    --code-bg: #ddd ;
     --code-text: #0f172a;
     --text-muted: #475569;
     --card-border: 1px solid #cbd5e1;
@@ -173,10 +166,16 @@ body {
     --code-border: 1px solid #94a3b8;
 }
 
-/* Tema oscuro */
+/* ===== TEMA OSCURO ===== */
 [data-theme="dark"] {
     --color-fisica: #1e8449;
     --color-fisica-dark: #145a32;
+    --color-algebra: #F39C12;
+    --color-algebra-dark: #D68910;
+    --color-index: var(--color-index-dark);
+    --header-bg: #0f172a;
+    --header-text: #e2e8f0;
+    --header-line-color-index: #ffffff;
 }
 
 /* === COMPONENTS === */
@@ -457,6 +456,61 @@ body {
     transform-origin: left;
 }
 
+/* === Estilos para las tarjetas de puntos/exercises === */
+.punto-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1rem auto;
+    max-width: var(--max-width);
+    box-shadow: var(--shadow);
+    border: var(--card-border);
+}
+
+.exercise-description {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border: var(--code-border);
+}
+
+.exercise-description h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.exercise-description p {
+    white-space: pre-line;
+    margin-bottom: 0;
+}
+
+.materia-card:nth-child(5):hover {
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.materia-card:nth-child(5)::after {
+    background: var(--color-arquitectura);
+}
+
+.materia-card:nth-child(5):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(52, 152, 219, 0.4));
+}
+
+body.arquitectura-page .trabajo-card {
+    border-left: 4px solid var(--color-arquitectura);
+}
+
+body.arquitectura-page .trabajo-card:hover {
+    border-color: var(--color-arquitectura-dark);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
 /* === _code.css === */
 
 /* ===== Bloques de Código ===== */
@@ -464,7 +518,7 @@ body {
     background: var(--code-bg);
     border-radius: 8px;
     margin: 2rem auto;
-    max-width: 800px;
+    width: 100%;
     position: relative;
     box-shadow: var(--shadow);
     border: var(--code-border);
@@ -480,7 +534,7 @@ pre {
     line-height: 1.5;
     tab-size: 4;
     margin: 0;
-    max-height: 400px;
+    max-height: 100%;
 }
 
 /* TP Container y menú lateral */
@@ -627,6 +681,48 @@ pre {
 
 /* === PAGES === */
 
+/* === _algebra.css === */
+
+/* ===== ÁLGEBRA ===== */
+body.algebra-page {
+    --header-line-color: var(--color-algebra);
+    --accent: var(--color-algebra);
+    --theme-color: var(--color-algebra);
+    --theme-color-dark: var(--color-algebra-dark);
+}
+
+/* Botones */
+body.algebra-page .btn-volver,
+body.algebra-page .nav-btn,
+body.algebra-page .theme-btn {
+    background: var(--color-algebra);
+}
+body.algebra-page .btn-volver:hover,
+body.algebra-page .nav-btn:hover,
+body.algebra-page .theme-btn:hover {
+    background: var(--color-algebra-dark);
+}
+
+/* Tarjetas de trabajos */
+body.algebra-page .trabajo-card {
+    border-left: 4px solid var(--color-algebra);
+}
+body.algebra-page .trabajo-card:hover {
+    border-color: var(--color-algebra-dark);
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3); /* Sombra amarilla */
+}
+
+/* Contador y títulos */
+body.algebra-page .punto-counter,
+body.algebra-page .exercise-description h3 {
+    color: var(--color-algebra);
+}
+
+/* Logo con efecto hover */
+body.algebra-page .logo:hover {
+    text-shadow: 0 1px 5px rgba(0,0,0,0.7), 0 0 15px rgba(241, 196, 15, 0.7);
+}
+
 /* === _algoritmos.css === */
 
 /* ===== ALGORITMOS ===== */
@@ -686,24 +782,31 @@ body.tp1-algoritmos-page .exercise-description h3 {
     color: var(--color-algoritmos);
 }
 
-/* === _colores_pages.css === */
+/* === _arquitectura.css === */
 
-/* ===== VARIABLES Y ESTILOS BASE POR PÁGINA ===== */
-:root {
-    --color-algoritmos: #e74c3c;
-    --color-algoritmos-dark: #c0392b;
-    --color-fisica: #2ecc71;
-    --color-fisica-dark: #27ae60;
-    --color-procesos: #b84dff;
-    --color-procesos-dark: #9b3dde;
-    --color-index: #4a5568;
-    --color-index-dark: #ffffff;
+/* ===== ARQUITECTURA ===== */
+body.arquitectura-page {
+    --header-line-color: var(--color-arquitectura);
+    --accent: var(--color-arquitectura);
+    --theme-color: var(--color-arquitectura);
+    --theme-color-dark: var(--color-arquitectura-dark);
 }
 
-[data-theme="dark"] {
-    --color-fisica: #1e8449;
-    --color-fisica-dark: #145a32;
-    --color-index: var(--color-index-dark);
+body.arquitectura-page .btn-volver,
+body.arquitectura-page .nav-btn,
+body.arquitectura-page .theme-btn {
+    background: var(--color-arquitectura);
+}
+
+body.arquitectura-page .btn-volver:hover,
+body.arquitectura-page .nav-btn:hover,
+body.arquitectura-page .theme-btn:hover {
+    background: var(--color-arquitectura-dark);
+}
+
+body.arquitectura-page .punto-counter,
+body.arquitectura-page .exercise-description h3 {
+    color: var(--color-arquitectura);
 }
 
 /* === _fisica1.css === */
@@ -757,6 +860,8 @@ body.index-page .theme-btn {
 body.index-page .theme-btn:hover {
     background: #444 !important;
 }
+
+/* === _logica.css === */
 
 /* === _procesos.css === */
 

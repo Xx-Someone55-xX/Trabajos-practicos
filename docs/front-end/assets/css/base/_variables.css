@@ -17,6 +17,8 @@
     --color-index-dark: #ffffff;
     --color-arquitectura: #3498db;
     --color-arquitectura-dark: #2980b9;
+    --color-logica: #ff6b9e;
+    --color-logica-dark: #e8437a;
     
     /* Variables de diseño */
     --bg-color: #1a1a1a;
@@ -70,6 +72,8 @@
     --color-fisica-dark: #145a32;
     --color-algebra: #F39C12;
     --color-algebra-dark: #D68910;
+    --color-logica: #ff85b3;
+    --color-logica-dark: #e8437a;
     --color-index: var(--color-index-dark);
     --header-bg: #0f172a;
     --header-text: #e2e8f0;

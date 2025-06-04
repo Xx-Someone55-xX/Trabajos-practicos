@@ -32,12 +32,19 @@
         </div>
     </header>
 
-    <main class="main-container">
+        <!-- Menú lateral de navegación -->
         <div class="slide-controls">
-            <button class="nav-btn" id="prev-btn">❮ Anterior</button>
-            <span class="punto-counter">Punto <span id="current-punto">1</span>/6</span>
-            <button class="nav-btn" id="next-btn">Siguiente ❯</button>
+            <ul class="nav-points">
+                <li class="nav-point active" data-point="1">Punto 1</li>
+                <li class="nav-point" data-point="2">Punto 2</li>
+                <li class="nav-point" data-point="3">Punto 3</li>
+                <li class="nav-point" data-point="4">Punto 4</li>
+                <li class="nav-point" data-point="5">Punto 5</li>
+                <li class="nav-point" data-point="6">Punto 6</li>
+            </ul>
         </div>
+
+    <main class="main-container">
 
         <div class="slides-container">
             <!-- Punto 1 -->
@@ -468,7 +475,7 @@ int main()
     <script src="../../assets/js/theme.js"></script>
     <script src="../../assets/js/copy.js"></script>
     <script src="../../assets/js/color_theme.js"></script>
-    <script src="../../assets/js/anterior_siguiente.js"></script>
+    <script src="../../assets/js/selector_puntos.js"></script>
     <script>
     </script>
 </body>
