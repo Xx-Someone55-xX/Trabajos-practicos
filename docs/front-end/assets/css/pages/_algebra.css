@@ -1,0 +1,39 @@
+/* ===== ÁLGEBRA ===== */
+body.algebra-page {
+    --header-line-color: var(--color-algebra);
+    --accent: var(--color-algebra);
+    --theme-color: var(--color-algebra);
+    --theme-color-dark: var(--color-algebra-dark);
+}
+
+/* Botones */
+body.algebra-page .btn-volver,
+body.algebra-page .nav-btn,
+body.algebra-page .theme-btn {
+    background: var(--color-algebra);
+}
+body.algebra-page .btn-volver:hover,
+body.algebra-page .nav-btn:hover,
+body.algebra-page .theme-btn:hover {
+    background: var(--color-algebra-dark);
+}
+
+/* Tarjetas de trabajos */
+body.algebra-page .trabajo-card {
+    border-left: 4px solid var(--color-algebra);
+}
+body.algebra-page .trabajo-card:hover {
+    border-color: var(--color-algebra-dark);
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3); /* Sombra amarilla */
+}
+
+/* Contador y títulos */
+body.algebra-page .punto-counter,
+body.algebra-page .exercise-description h3 {
+    color: var(--color-algebra);
+}
+
+/* Logo con efecto hover */
+body.algebra-page .logo:hover {
+    text-shadow: 0 1px 5px rgba(0,0,0,0.7), 0 0 15px rgba(241, 196, 15, 0.7);
+}

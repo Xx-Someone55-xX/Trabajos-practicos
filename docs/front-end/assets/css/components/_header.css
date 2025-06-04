@@ -1,3 +1,4 @@
+/* ===== Estilos del Header ===== */
 .header {
     background: #000000 !important;
     width: 100%;
@@ -9,6 +10,7 @@
     box-shadow: var(--shadow);
     position: relative;
     color: #ffffff !important;
+    border-bottom: var(--header-line-width) solid var(--header-line-color);
 }
 
 .header::after {

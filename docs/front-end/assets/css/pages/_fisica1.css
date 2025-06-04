@@ -1,0 +1,25 @@
+/* ===== FÍSICA ===== */
+body.fisica-page {
+    --header-line-color: var(--color-fisica);
+    --accent: var(--color-fisica);
+    --theme-color: var(--color-fisica);
+    --theme-color-dark: var(--color-fisica-dark);
+}
+
+body.fisica-page .btn-volver,
+body.fisica-page .nav-btn,
+body.fisica-page .theme-btn {
+    background: var(--color-fisica);
+}
+body.fisica-page .btn-volver:hover,
+body.fisica-page .nav-btn:hover,
+body.fisica-page .theme-btn:hover {
+    background: var(--color-fisica-dark);
+}
+body.fisica-page .trabajo-card {
+    border-left: 4px solid var(--color-fisica);
+}
+body.fisica-page .trabajo-card:hover {
+    border-color: var(--color-fisica-dark);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}

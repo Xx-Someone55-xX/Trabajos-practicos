@@ -1,10 +1,24 @@
-/* ===== Variables Globales ===== */
+/* ===== VARIABLES GLOBALES ===== */
 :root {
     /* Colores base */
     --color-white: #ffffff;
     --color-black: #000000;
     
-    /* Tema oscuro (valores por defecto) */
+    /* Colores temáticos */
+    --color-algoritmos: #e74c3c;
+    --color-algoritmos-dark: #c0392b;
+    --color-fisica: #2ecc71;
+    --color-fisica-dark: #27ae60;
+    --color-procesos: #b84dff;
+    --color-procesos-dark: #9b3dde;
+    --color-algebra: #F1C40F;
+    --color-algebra-dark: #D4AC0D;
+    --color-index: #4a5568;
+    --color-index-dark: #ffffff;
+    --color-arquitectura: #3498db;
+    --color-arquitectura-dark: #2980b9;
+    
+    /* Variables de diseño */
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
     --header-bg: #000000;
@@ -13,7 +27,6 @@
     --card-hover: #4a5568;
     --accent: #60a5fa;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --border-radius: 0.5rem;
     --button-hover-bg: #4f8fdf;
     --code-bg: #1e1e1e;
     --code-text: #d4d4d4;
@@ -21,32 +34,29 @@
     --card-border: none;
     --header-border: none;
     --code-border: none;
-
-    /* Tamaños */
+    --border-radius: 0.5rem;
     --header-height: 80px;
     --max-width: 1200px;
     --spacing: 1rem;
-
-    /* Variables para la línea del header */
     --header-line-width: 2px;
     --header-line-color: var(--accent);
     --header-line-color-index: #4a5568;
     --header-line-color-index-dark: #ffffff;
-    --header-line-color-algoritmos: #e74c3c; /* Color rojo para ambas páginas */
+    --header-line-color-algoritmos: var(--color-algoritmos);
 }
 
-/* Tema claro */
+/* ===== TEMA CLARO ===== */
 :root[data-theme="light"] {
     --bg-color: var(--color-white);
     --text-color: #1a202c;
-    --header-bg: #000000; /* Header siempre negro */
-    --header-text: #ffffff; /* Texto siempre blanco */
-    --card-bg: #f8fafc;
+    --header-bg: #000000;
+    --header-text: #ffffff;
+    --card-bg: #efefef;
     --card-hover: #e2e8f0;
     --accent: #1d4ed8;
     --shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
     --button-hover-bg: #1e40af;
-    --code-bg: #f8fafc;
+    --code-bg: #ddd ;
     --code-text: #0f172a;
     --text-muted: #475569;
     --card-border: 1px solid #cbd5e1;
@@ -54,131 +64,14 @@
     --code-border: 1px solid #94a3b8;
 }
 
-/* ===== Estilos del Header ===== */
-.header {
-    position: relative;
-    border-bottom: var(--header-line-width) solid var(--header-line-color);
-}
-
-/* Páginas específicas */
-.index-page {
-    --header-line-color: var(--header-line-color-index);
-}
-
-[data-theme="dark"] .index-page {
-    --header-line-color: var(--header-line-color-index-dark);
-}
-
-.algoritmos-page,
-.tp1-algoritmos-page {
-    --header-line-color: var(--header-line-color-algoritmos); /* Mismo rojo para ambas */
-    --accent: #e74c3c; /* Acentuados también en rojo */
-}
-
-/* ===== Layout Principal ===== */
-.main-container {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 120px);
-    padding: 2rem 0;
-}
-
-.slides-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* ===== Controles de Navegación ===== */
-.slide-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
-    margin: 2rem auto;
-    gap: 5rem;
-    padding: 0 1rem;
-}
-
-.punto-counter {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    white-space: nowrap;
-    letter-spacing: 0.5px;
-}
-
-/* ===== Descripción del Ejercicio ===== */
-.exercise-description {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    text-align: left;
-}
-
-.exercise-description h3 {
-    color: var(--accent);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.exercise-description p {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 0;
-}
-
-/* Agregar nueva variable para el color de procesos */
-:root {
-    --color-procesos: #b84dff;
-    --color-procesos-dark: #9b3dde;
-}
-
-/* === Estilos específicos para la página de Procesos === */
-.procesos-page {
-    --header-line-color: var(--color-procesos);
-    --accent: var(--color-procesos);
-}
-
-/* Botones */
-.procesos-page .btn-volver,
-.procesos-page .nav-btn,
-.procesos-page .theme-btn {
-    background: var(--color-procesos);
-}
-
-.procesos-page .btn-volver:hover,
-.procesos-page .nav-btn:hover,
-.procesos-page .theme-btn:hover {
-    background: var(--color-procesos-dark);
-}
-
-/* Cards */
-.procesos-page .trabajo-card:hover {
-    box-shadow: 0 5px 15px rgba(184, 77, 255, 0.3);
-}
-
-.procesos-page .trabajo-card:hover::after {
-    background: var(--color-procesos);
-}
-
-/* Efecto en el logo */
-.procesos-page .logo:hover {
-    text-shadow: 
-        0 1px 5px rgba(0,0,0,0.7),
-        0 0 15px rgba(184, 77, 255, 0.7);
-}
-
-/* Contador de puntos */
-.procesos-page .punto-counter {
-    color: var(--color-procesos);
-}
-
-/* Descripción de ejercicio */
-.procesos-page .exercise-description h3 {
-    color: var(--color-procesos);
+/* ===== TEMA OSCURO ===== */
+[data-theme="dark"] {
+    --color-fisica: #1e8449;
+    --color-fisica-dark: #145a32;
+    --color-algebra: #F39C12;
+    --color-algebra-dark: #D68910;
+    --color-index: var(--color-index-dark);
+    --header-bg: #0f172a;
+    --header-text: #e2e8f0;
+    --header-line-color-index: #ffffff;
 }

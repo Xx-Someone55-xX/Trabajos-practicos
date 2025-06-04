@@ -17,7 +17,6 @@
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
 }
-
 .theme-btn:hover {
     transform: scale(1.05);
     background: var(--button-hover-bg);
@@ -39,13 +38,11 @@
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
-
 .btn-volver:hover {
     transform: translateY(-2px);
     background: var(--button-hover-bg);
     border-color: var(--accent);
 }
-
 .btn-volver svg {
     width: 24px;
     height: 24px;
@@ -66,10 +63,14 @@
     font-weight: 600;
     transition: all 0.3s ease;
 }
-
-.nav-btn:hover {
+.nav-btn:hover:not(.disabled) {
     transform: translateY(-2px);
     background: var(--button-hover-bg);
+}
+.nav-btn.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 /* ===== Botón Copiar ===== */
@@ -87,117 +88,30 @@
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.btn-copy:hover {
-    background: var(--button-hover-bg);
-}
-
-.btn-copy .copy-icon,
-.btn-copy .check-icon {
-    transition: all 0.3s ease;
-}
-
-.btn-copy.copied .check-icon {
-    display: inline-block !important;
-    opacity: 1 !important;
-    transform: scale(1) !important;
-}
-
-.btn-copy.copied .copy-icon {
-    display: none !important;
-}
-
-.nav-btn {
-    background: var(--accent);
-    color: white !important;
-    border: none;
-    padding: 0.8rem 3.5rem;
-    margin: 0 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.nav-btn:hover {
-    transform: translateY(-2px);
-    background: var(--button-hover-bg);
-}
-
-/* ===== Botón Copiar Mejorado ===== */
-.btn-copy {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--accent);
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
     z-index: 10;
 }
-
 .btn-copy:hover {
     background: var(--button-hover-bg);
     transform: translateY(-2px);
 }
-
 .btn-copy .fa-copy, 
 .btn-copy .fa-check {
     font-size: 1rem;
     transition: all 0.3s ease;
 }
-
 .btn-copy.copied .fa-check {
     display: inline-block !important;
     opacity: 1 !important;
     transform: scale(1) !important;
 }
-
 .btn-copy.copied .fa-copy {
     display: none !important;
 }
-
-/* Animación para el icono de check */
 @keyframes checkPop {
     0% { transform: scale(0); }
     80% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
-
 .btn-copy.copied .fa-check {
     animation: checkPop 0.3s ease;
-}
-
-/* Estilos para los botones de navegación */
-.nav-btn {
-    padding: 8px 16px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.nav-btn:hover:not(.disabled) {
-    background-color: var(--primary-hover);
-}
-
-.nav-btn.disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-/* Ocultar slides no activos inicialmente */
-.slide:not(.active) {
-    display: none;
 }

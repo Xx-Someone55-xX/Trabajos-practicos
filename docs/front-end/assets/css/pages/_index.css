@@ -1,0 +1,21 @@
+/* ===== INDEX ===== */
+body.index-page {
+    --header-line-color: var(--color-index);
+    --theme-color: var(--color-index);
+}
+body[data-theme="dark"].index-page {
+    --header-line-color: var(--color-index-dark);
+}
+body.index-page .header {
+    background: #000000 !important;
+}
+body.index-page .logo {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+body.index-page .theme-btn {
+    background: #333 !important;
+}
+body.index-page .theme-btn:hover {
+    background: #444 !important;
+}

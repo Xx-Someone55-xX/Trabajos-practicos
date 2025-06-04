@@ -11,9 +11,14 @@
 @import url('layout/_grid.css');
 @import url('layout/_navigation.css');
 
-@import url('pages/_home.css');
-@import url('pages/_trabajos.css');
-@import url('pages/_tp1.css');
+@import url('pages/_algebra.css');
+@import url('pages/_algoritmos.css');
+@import url('pages/_arquitectura.css');
+@import url('pages/_colores_pages.css');
+@import url('pages/_fisica1.css');
+@import url('pages/_index.css');
+@import url('pages/_logica.css');
+@import url('pages/_procesos.css');
 
 @import url('themes/_dark-light.css');
 

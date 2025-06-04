@@ -1,5 +1,5 @@
 :root {
-  /* Colores base (light mode) */
+  /* Colores base (modo claro) */
   --color-cards: #ffffff;
   --color-titulos: #2d3748;
   --color-parrafos: #4a5568;
@@ -10,7 +10,7 @@
 }
 
 [data-theme="dark"] {
-  /* Dark mode */
+  /* Modo oscuro */
   --color-cards: #1a202c;
   --color-titulos: #e2e8f0;
   --color-parrafos: #cbd5e0;
@@ -18,7 +18,7 @@
   --color-boton-eliminar: #fc8181;
   --color-borde: #2d3748;
   --color-sombra: rgba(0, 0, 0, 0.3);
-  --header-bg: #0f172a; /* Fondo oscuro del header */
-  --header-text: #e2e8f0; /* Texto claro */
-  --header-line-color-index: #ffffff; /* Línea blanca en index (tema oscuro) */
+  --header-bg: #0f172a;
+  --header-text: #e2e8f0;
+  --header-line-color-index: #ffffff;
 }

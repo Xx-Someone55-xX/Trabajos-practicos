@@ -16,15 +16,17 @@ assets/css/
 │   ├── _grid.css
 │   └── _navigation.css
 ├── pages/
-│   ├── _home.css
-│   ├── _trabajos.css
-│   └── _tp1.css
+│   ├── _algoritmos.css
+│   ├── _colores_pages.css
+│   ├── _fisica1.css
+│   ├── _index.css
+│   └── _procesos.css
 ├── themes/
 │   └── _dark-light.css
 ├── utilities/
 │   ├── _animations.css
 │   └── _responsive.css
-└── main.css  */
+└── main.css */
 
 /* === BASE === */
 
@@ -98,13 +100,34 @@ body {
 
 /* === _variables.css === /*
 
-/* ===== Variables Globales ===== */
 :root {
-    /* Colores base */
     --color-white: #ffffff;
     --color-black: #000000;
-    
-    /* Tema oscuro (valores por defecto) */
+    --color-algoritmos: #e74c3c;
+    --color-algoritmos-dark: #c0392b;
+    --color-fisica: #2ecc71;
+    --color-fisica-dark: #27ae60;
+    --color-procesos: #b84dff;
+    --color-procesos-dark: #9b3dde;
+    --color-index: #4a5568;
+    --color-index-dark: #ffffff;
+}
+
+[data-theme="dark"] {
+    --color-fisica: #1e8449;
+    --color-fisica-dark: #145a32;
+    --color-index: var(--color-index-dark);
+}
+
+/* ===== Variables Globales ===== */
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-procesos: #b84dff;
+    --color-procesos-dark: #9b3dde;
+    --color-fisica: #2ecc71;
+    --color-fisica-dark: #27ae60;
+    --color-algoritmos: #e74c3c;
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
     --header-bg: #000000;
@@ -113,7 +136,6 @@ body {
     --card-hover: #4a5568;
     --accent: #60a5fa;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --border-radius: 0.5rem;
     --button-hover-bg: #4f8fdf;
     --code-bg: #1e1e1e;
     --code-text: #d4d4d4;
@@ -121,26 +143,23 @@ body {
     --card-border: none;
     --header-border: none;
     --code-border: none;
-
-    /* Tamaños */
+    --border-radius: 0.5rem;
     --header-height: 80px;
     --max-width: 1200px;
     --spacing: 1rem;
-
-    /* Variables para la línea del header */
     --header-line-width: 2px;
     --header-line-color: var(--accent);
     --header-line-color-index: #4a5568;
     --header-line-color-index-dark: #ffffff;
-    --header-line-color-algoritmos: #e74c3c; /* Color rojo para ambas páginas */
+    --header-line-color-algoritmos: var(--color-algoritmos);
 }
 
 /* Tema claro */
 :root[data-theme="light"] {
     --bg-color: var(--color-white);
     --text-color: #1a202c;
-    --header-bg: #000000; /* Header siempre negro */
-    --header-text: #ffffff; /* Texto siempre blanco */
+    --header-bg: #000000;
+    --header-text: #ffffff;
     --card-bg: #f8fafc;
     --card-hover: #e2e8f0;
     --accent: #1d4ed8;
@@ -154,133 +173,10 @@ body {
     --code-border: 1px solid #94a3b8;
 }
 
-/* ===== Estilos del Header ===== */
-.header {
-    position: relative;
-    border-bottom: var(--header-line-width) solid var(--header-line-color);
-}
-
-/* Páginas específicas */
-.index-page {
-    --header-line-color: var(--header-line-color-index);
-}
-
-[data-theme="dark"] .index-page {
-    --header-line-color: var(--header-line-color-index-dark);
-}
-
-.algoritmos-page,
-.tp1-algoritmos-page {
-    --header-line-color: var(--header-line-color-algoritmos); /* Mismo rojo para ambas */
-    --accent: #e74c3c; /* Acentuados también en rojo */
-}
-
-/* ===== Layout Principal ===== */
-.main-container {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 120px);
-    padding: 2rem 0;
-}
-
-.slides-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* ===== Controles de Navegación ===== */
-.slide-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
-    margin: 2rem auto;
-    gap: 5rem;
-    padding: 0 1rem;
-}
-
-.punto-counter {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    white-space: nowrap;
-    letter-spacing: 0.5px;
-}
-
-/* ===== Descripción del Ejercicio ===== */
-.exercise-description {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    text-align: left;
-}
-
-.exercise-description h3 {
-    color: var(--accent);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.exercise-description p {
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 0;
-}
-
-/* Agregar nueva variable para el color de procesos */
-:root {
-    --color-procesos: #b84dff;
-    --color-procesos-dark: #9b3dde;
-}
-
-/* === Estilos específicos para la página de Procesos === */
-.procesos-page {
-    --header-line-color: var(--color-procesos);
-    --accent: var(--color-procesos);
-}
-
-/* Botones */
-.procesos-page .btn-volver,
-.procesos-page .nav-btn,
-.procesos-page .theme-btn {
-    background: var(--color-procesos);
-}
-
-.procesos-page .btn-volver:hover,
-.procesos-page .nav-btn:hover,
-.procesos-page .theme-btn:hover {
-    background: var(--color-procesos-dark);
-}
-
-/* Cards */
-.procesos-page .trabajo-card:hover {
-    box-shadow: 0 5px 15px rgba(184, 77, 255, 0.3);
-}
-
-.procesos-page .trabajo-card:hover::after {
-    background: var(--color-procesos);
-}
-
-/* Efecto en el logo */
-.procesos-page .logo:hover {
-    text-shadow: 
-        0 1px 5px rgba(0,0,0,0.7),
-        0 0 15px rgba(184, 77, 255, 0.7);
-}
-
-/* Contador de puntos */
-.procesos-page .punto-counter {
-    color: var(--color-procesos);
-}
-
-/* Descripción de ejercicio */
-.procesos-page .exercise-description h3 {
-    color: var(--color-procesos);
+/* Tema oscuro */
+[data-theme="dark"] {
+    --color-fisica: #1e8449;
+    --color-fisica-dark: #145a32;
 }
 
 /* === COMPONENTS === */
@@ -297,7 +193,7 @@ body {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    position: fixed;
+    position: absolute;
     right: 30px;
     top: 20px;
     z-index: 1000;
@@ -306,7 +202,6 @@ body {
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
 }
-
 .theme-btn:hover {
     transform: scale(1.05);
     background: var(--button-hover-bg);
@@ -328,13 +223,11 @@ body {
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
-
 .btn-volver:hover {
     transform: translateY(-2px);
     background: var(--button-hover-bg);
     border-color: var(--accent);
 }
-
 .btn-volver svg {
     width: 24px;
     height: 24px;
@@ -355,10 +248,14 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
 }
-
-.nav-btn:hover {
+.nav-btn:hover:not(.disabled) {
     transform: translateY(-2px);
     background: var(--button-hover-bg);
+}
+.nav-btn.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 /* ===== Botón Copiar ===== */
@@ -376,181 +273,35 @@ body {
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.btn-copy:hover {
-    background: var(--button-hover-bg);
-}
-
-.btn-copy .copy-icon,
-.btn-copy .check-icon {
-    transition: all 0.3s ease;
-}
-
-.btn-copy.copied .check-icon {
-    display: inline-block !important;
-    opacity: 1 !important;
-    transform: scale(1) !important;
-}
-
-.btn-copy.copied .copy-icon {
-    display: none !important;
-}
-
-.nav-btn {
-    background: var(--accent);
-    color: white !important;
-    border: none;
-    padding: 0.8rem 3.5rem;
-    margin: 0 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.nav-btn:hover {
-    transform: translateY(-2px);
-    background: var(--button-hover-bg);
-}
-
-/* ===== Botón Copiar Mejorado ===== */
-.btn-copy {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--accent);
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
     z-index: 10;
 }
-
 .btn-copy:hover {
     background: var(--button-hover-bg);
     transform: translateY(-2px);
 }
-
 .btn-copy .fa-copy, 
 .btn-copy .fa-check {
     font-size: 1rem;
     transition: all 0.3s ease;
 }
-
 .btn-copy.copied .fa-check {
     display: inline-block !important;
     opacity: 1 !important;
     transform: scale(1) !important;
 }
-
 .btn-copy.copied .fa-copy {
     display: none !important;
 }
-
-/* Animación para el icono de check */
 @keyframes checkPop {
     0% { transform: scale(0); }
     80% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
-
 .btn-copy.copied .fa-check {
     animation: checkPop 0.3s ease;
 }
 
-/* Estilos para los botones de navegación */
-.nav-btn {
-    padding: 8px 16px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.nav-btn:hover:not(.disabled) {
-    background-color: var(--primary-hover);
-}
-
-.nav-btn.disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-/* Ocultar slides no activos inicialmente */
-.slide:not(.active) {
-    display: none;
-}
-
 /* === _cards.css === */
-
-/* ===== Tarjetas de Trabajos ===== */
-.trabajos-grid {
-    display: grid;
-    gap: 2rem;
-    padding: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    max-width: var(--max-width);
-    margin: 2rem auto;
-}
-
-.trabajo-card {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--shadow);
-    text-align: center;
-    border: var(--card-border);
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.trabajo-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background: var(--card-hover);
-}
-
-.trabajo-card::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-.trabajo-card:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.card-content h2 {
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.descripcion-tp {
-    color: var(--text-muted);
-    font-size: 1rem;
-}
 
 /* ===== Tarjetas de Materias ===== */
 .materias-grid {
@@ -583,11 +334,24 @@ body {
 
 .materia-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     background: var(--card-hover);
 }
 
-/* === Línea base (color permanente) === */
+/* Colores por materia */
+.materia-card:nth-child(1):hover {
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+.materia-card:nth-child(2):hover {
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+}
+.materia-card:nth-child(3):hover {
+    box-shadow: 0 10px 20px rgba(184, 77, 255, 0.3);
+}
+.materia-card:nth-child(4):hover {
+    box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
+}
+
+/* Línea base y hover animado */
 .materia-card::after {
     content: "";
     position: absolute;
@@ -598,39 +362,17 @@ body {
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
-    /* Color específico por materia (sin hover) */
 }
-.materia-card:nth-child(1)::after { /* Algoritmos - Rojo */
-    background: #e74c3c;
-}
-.materia-card:nth-child(2)::after { /* Física - Verde */
-    background: #2ecc71;
-}
-.materia-card:nth-child(3)::after { /* Sistemas - Púrpura */
-    background: #b84dff;
-}
-.materia-card:nth-child(4)::after { /* Álgebra - Amarillo */
-    background: #F1C40F;
-}
-
-/* === Hover (solo animación, sin cambiar color) === */
 .materia-card:hover::after {
     transform: scaleX(1);
     transform-origin: left;
 }
+.materia-card:nth-child(1)::after { background: #e74c3c; }
+.materia-card:nth-child(2)::after { background: #2ecc71; }
+.materia-card:nth-child(3)::after { background: #b84dff; }
+.materia-card:nth-child(4)::after { background: #F1C40F; }
 
-.materia-card .card-content h2 {
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.descripcion-materia {
-    color: var(--text-muted);
-    font-size: 1rem;
-}
-
-/* Estilos para el icono de materia */
+/* Iconos */
 .materia-card .materia-icon {
     width: 80px;
     height: 80px;
@@ -640,170 +382,82 @@ body {
     stroke-linejoin: round;
     transition: all 0.3s ease;
 }
-
-/* Eliminar transformación al hacer hover */
 .materia-card:hover .materia-icon {
-    transform: none;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+    transform: scale(1.05);
 }
-
-/* Animación para nuevas materias */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Brillo por materia en hover */
+.materia-card:nth-child(1):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(231, 76, 60, 0.4));
 }
-
-/* ===== ESTILOS ESPECÍFICOS PARA CADA MATERIA ===== */
-
-/* Regla general: eliminar rellenos en todos los elementos SVG */
-.materia-card .materia-icon path,
-.materia-card .materia-icon rect,
-.materia-card .materia-icon circle {
-    fill: none;
+.materia-card:nth-child(2):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.4));
 }
-
-/* Excepciones para elementos que deben tener relleno */
-.materia-card .materia-icon .filled-element {
-    fill: inherit;
+.materia-card:nth-child(3):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(184, 77, 255, 0.4));
 }
-
-/* Algoritmos y Estructura de Datos (Rojo) */
-.materia-card:nth-child(1) .materia-icon path,
-.materia-card:nth-child(1) .materia-icon rect,
-.materia-card:nth-child(1) .materia-icon text {
-    stroke: #e74c3c;
+.materia-card:nth-child(4):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(241, 196, 15, 0.4));
 }
-
-.materia-card:nth-child(1) .materia-icon .filled-element {
-    fill: #e74c3c;
-}
-
-.materia-card:nth-child(1) .materia-icon text {
-    fill: #e74c3c; /* El texto necesita relleno */
-}
-
-.materia-card:nth-child(1):hover::after {
-    background: #e74c3c;
-}
-
-/* Física I (Verde) */
-.materia-card:nth-child(2) .materia-icon path,
-.materia-card:nth-child(2) .materia-icon circle {
-    stroke: #2ecc71;
-}
-
-.materia-card:nth-child(2) .materia-icon .filled-element {
-    fill: #2ecc71; /* Solo electrones y núcleo */
-}
-
-.materia-card:nth-child(2):hover::after {
-    background: #2ecc71;
-}
-
-/* Sistemas y Procesos de Negocio (Púrpura) */
-.materia-card:nth-child(3) .materia-icon path,
-.materia-card:nth-child(3) .materia-icon rect {
-    stroke: #b84dff;
-}
-
-.materia-card:nth-child(3) .materia-icon .filled-element {
-    fill: #b84dff; /* Solo flechas y nodos */
-}
-
-.materia-card:nth-child(3):hover::after {
-    background: #b84dff;
-}
-
-/* Álgebra y Geometría Analítica (Amarillo) */
-.materia-card:nth-child(4) .materia-icon path,
-.materia-card:nth-child(4) .materia-icon line,
-.materia-card:nth-child(4) .materia-icon text {
-    stroke: #F1C40F;
-}
-
-.materia-card:nth-child(4) .materia-icon .filled-element {
-    fill: #F1C40F;
-}
-
-.materia-card:nth-child(4) .materia-icon text {
-    fill: #F1C40F;
-    stroke: none; /* Solo relleno para texto */
-}
-
-.materia-card:nth-child(4):hover::after {
-    background: #F1C40F;
-}
-
-/* Optimización para modo oscuro */
-
+/* Optimización modo oscuro */
 [data-theme="dark"] .materia-card .materia-icon {
     stroke-width: 3.2;
 }
-
 [data-theme="dark"] .materia-card:nth-child(1) .materia-icon {
     filter: brightness(1.3);
 }
+/* ... similares para los otros ítems */
 
-[data-theme="dark"] .materia-card:nth-child(2) .materia-icon {
-    filter: brightness(1.4);
+/* ===== Tarjetas de Trabajos ===== */
+.trabajos-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: var(--max-width);
+    margin: 2rem auto;
 }
 
-[data-theme="dark"] .materia-card:nth-child(3) .materia-icon {
-    filter: brightness(1.3);
+.trabajo-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: var(--card-border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--theme-color, #ccc);
 }
 
-[data-theme="dark"] .materia-card:nth-child(4) .materia-icon {
-    filter: brightness(1.2);
+.trabajo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: var(--card-hover);
 }
 
-/* Eliminar todas las animaciones */
-.materia-card:hover .materia-icon {
-    animation: none !important;
+.trabajo-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
 }
 
-/* Mejorar visibilidad del texto en iconos */
-.materia-card .materia-icon text {
-    font-weight: bold;
-    pointer-events: none;
+.trabajo-card:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
-/* Reducir tamaño de elementos rellenos en física */
-.materia-card:nth-child(2) .materia-icon .filled-element {
-    r: 3; /* Tamaño reducido de electrones */
-}
-
-.materia-card:nth-child(2) .materia-icon circle:nth-child(1) {
-    r: 4; /* Tamaño del núcleo */
-}
-
-/* Aumentar contraste en modo oscuro */
-[data-theme="dark"] .materia-card .materia-icon {
-    stroke-width: 3.5;
-}
-
-[data-theme="dark"] .materia-card:nth-child(1) .materia-icon text {
-    filter: brightness(1.4);
-}
-   /* Estilos adicionales para mejorar los iconos */
-        .materia-icon {
-            transition: transform 0.3s ease;
-        }
-        
-        .materia-card:hover .materia-icon {
-            transform: scale(1.05);
-        }
-        
-        /* Optimización para modo oscuro */
-        [data-theme="dark"] .materia-icon {
-            stroke-width: 3.5;
-        }
-
-/* === _code.css */
+/* === _code.css === */
 
 /* ===== Bloques de Código ===== */
 .code-box {
@@ -814,6 +468,7 @@ body {
     position: relative;
     box-shadow: var(--shadow);
     border: var(--code-border);
+    overflow: hidden;
 }
 
 pre {
@@ -825,34 +480,77 @@ pre {
     line-height: 1.5;
     tab-size: 4;
     margin: 0;
+    max-height: 400px;
 }
 
-/* Animaciones */
-@keyframes checkPop {
-    0% { transform: scale(0); }
-    80% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+/* TP Container y menú lateral */
+.tp-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    padding: 1rem;
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    75% { transform: translateX(3px); }
+.puntos-menu {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
 }
 
-.code-box {
-    position: relative;
+.puntos-list {
+    list-style: none;
+    padding: 0;
+}
+.puntos-list li {
+    margin: 0.5rem 0;
+}
+.punto-link {
+    display: block;
+    padding: 0.5rem;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+.punto-link:hover, .punto-link.active {
+    background: #3498db;
+    color: white;
+}
+
+/* Contenedor de código con encabezado */
+.code-container {
+    background: #282c34;
+    border-radius: 8px;
     overflow: hidden;
 }
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #1e2127;
+    color: white;
+}
+.copy-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.copy-btn:hover {
+    background: #2980b9;
+}
 
-pre {
-    position: relative;
-    max-height: 400px;
-    overflow: auto;
+/* Ocultar slides no activos inicialmente */
+.slide:not(.active) {
+    display: none;
 }
 
 /* === _header.css === */
 
+/* ===== Estilos del Header ===== */
 .header {
     background: #000000 !important;
     width: 100%;
@@ -864,6 +562,7 @@ pre {
     box-shadow: var(--shadow);
     position: relative;
     color: #ffffff !important;
+    border-bottom: var(--header-line-width) solid var(--header-line-color);
 }
 
 .header::after {
@@ -907,123 +606,184 @@ pre {
 
 /* === _navigation.css === */
 
+/* Controles de navegación de puntos */
+.slide-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 2rem auto;
+    gap: 5rem;
+    padding: 0 1rem;
+}
+
+.punto-counter {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+}
+
 /* === PAGES === */
 
-/* === _home.css === */
+/* === _algoritmos.css === */
 
-.index-page {
-    --header-line-color: var(--header-line-color-index);
+/* ===== ALGORITMOS ===== */
+body.algoritmos-page,
+body.tp1-algoritmos-page {
+    --header-line-color: var(--color-algoritmos);
+    --accent: var(--color-algoritmos);
+    --theme-color: var(--color-algoritmos);
+    --theme-color-dark: var(--color-algoritmos-dark);
 }
 
-[data-theme="dark"] .index-page {
-    --header-line-color: var(--header-line-color-index-dark);
+body.algoritmos-page .btn-volver,
+body.tp1-algoritmos-page .btn-volver,
+body.algoritmos-page .nav-btn,
+body.tp1-algoritmos-page .nav-btn,
+body.algoritmos-page .theme-btn,
+body.tp1-algoritmos-page .theme-btn {
+    background: var(--color-algoritmos);
 }
 
-/* Estilos específicos del index (opcionales) */
-.index-header .header {
+body.algoritmos-page .btn-volver:hover,
+body.tp1-algoritmos-page .btn-volver:hover,
+body.algoritmos-page .nav-btn:hover,
+body.tp1-algoritmos-page .nav-btn:hover,
+body.algoritmos-page .theme-btn:hover,
+body.tp1-algoritmos-page .theme-btn:hover {
+    background: var(--color-algoritmos-dark);
+}
+
+body.algoritmos-page .trabajo-card,
+body.tp1-algoritmos-page .trabajo-card {
+    border-left: 4px solid var(--color-algoritmos);
+}
+body.algoritmos-page .trabajo-card:hover,
+body.tp1-algoritmos-page .trabajo-card:hover {
+    border-color: var(--color-algoritmos-dark);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+body.algoritmos-page .trabajo-card:hover::after,
+body.tp1-algoritmos-page .trabajo-card:hover::after {
+    background: var(--color-algoritmos) !important;
+}
+
+body.algoritmos-page .logo,
+body.tp1-algoritmos-page .logo {
+    color: #ffffff !important;
+}
+body.algoritmos-page .logo:hover,
+body.tp1-algoritmos-page .logo:hover {
+    text-shadow: 0 1px 5px rgba(0,0,0,0.7), 0 0 15px rgba(231, 76, 60, 0.7);
+}
+
+body.algoritmos-page .punto-counter,
+body.tp1-algoritmos-page .punto-counter,
+body.algoritmos-page .exercise-description h3,
+body.tp1-algoritmos-page .exercise-description h3 {
+    color: var(--color-algoritmos);
+}
+
+/* === _colores_pages.css === */
+
+/* ===== VARIABLES Y ESTILOS BASE POR PÁGINA ===== */
+:root {
+    --color-algoritmos: #e74c3c;
+    --color-algoritmos-dark: #c0392b;
+    --color-fisica: #2ecc71;
+    --color-fisica-dark: #27ae60;
+    --color-procesos: #b84dff;
+    --color-procesos-dark: #9b3dde;
+    --color-index: #4a5568;
+    --color-index-dark: #ffffff;
+}
+
+[data-theme="dark"] {
+    --color-fisica: #1e8449;
+    --color-fisica-dark: #145a32;
+    --color-index: var(--color-index-dark);
+}
+
+/* === _fisica1.css === */
+
+/* ===== FÍSICA ===== */
+body.fisica-page {
+    --header-line-color: var(--color-fisica);
+    --accent: var(--color-fisica);
+    --theme-color: var(--color-fisica);
+    --theme-color-dark: var(--color-fisica-dark);
+}
+
+body.fisica-page .btn-volver,
+body.fisica-page .nav-btn,
+body.fisica-page .theme-btn {
+    background: var(--color-fisica);
+}
+body.fisica-page .btn-volver:hover,
+body.fisica-page .nav-btn:hover,
+body.fisica-page .theme-btn:hover {
+    background: var(--color-fisica-dark);
+}
+body.fisica-page .trabajo-card {
+    border-left: 4px solid var(--color-fisica);
+}
+body.fisica-page .trabajo-card:hover {
+    border-color: var(--color-fisica-dark);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+/* === _index.css === */
+
+/* ===== INDEX ===== */
+body.index-page {
+    --header-line-color: var(--color-index);
+    --theme-color: var(--color-index);
+}
+body[data-theme="dark"].index-page {
+    --header-line-color: var(--color-index-dark);
+}
+body.index-page .header {
     background: #000000 !important;
 }
-
-.index-header .logo {
+body.index-page .logo {
     color: #ffffff !important;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
-
-.index-header .theme-btn {
+body.index-page .theme-btn {
     background: #333 !important;
 }
-
-.index-header .theme-btn:hover {
+body.index-page .theme-btn:hover {
     background: #444 !important;
 }
 
-/* === _tp1.css === */
+/* === _procesos.css === */
 
-.algoritmos-page {
-    --header-line-color: var(--header-line-color-algoritmos);
+/* ===== PROCESOS ===== */
+body.procesos-page {
+    --header-line-color: var(--color-procesos);
+    --accent: var(--color-procesos);
+    --theme-color: var(--color-procesos);
+    --theme-color-dark: var(--color-procesos-dark);
 }
 
-/* Estilos específicos de algoritmos (ejemplo) */
-.tp1-algoritmos-page .btn-volver,
-.tp1-algoritmos-page .nav-btn {
-    background: var(--header-line-color-algoritmos) !important;
+body.procesos-page .btn-volver,
+body.procesos-page .nav-btn,
+body.procesos-page .theme-btn {
+    background: var(--color-procesos);
 }
-
-.tp1-algoritmos-page .btn-volver:hover {
-    background: #c0392b !important;
+body.procesos-page .btn-volver:hover,
+body.procesos-page .nav-btn:hover,
+body.procesos-page .theme-btn:hover {
+    background: var(--color-procesos-dark);
 }
-
-/* === _trabajos.css === */
-
-/* Color específico para tarjetas en Algoritmos */
-body.algoritmos-page .trabajo-card:hover::after {
-    background: #e74c3c !important;
+body.procesos-page .trabajo-card {
+    border-left: 4px solid var(--color-procesos);
 }
-
-/* === DETALLES ROJOS PARA ALGORITMOS === */
-body.algoritmos-page {
-    --algoritmos-red: #e74c3c;
-    --algoritmos-red-dark: #c0392b;
-}
-
-/* Botón Volver personalizado */
-body.algoritmos-page .btn-volver {
-    background: var(--algoritmos-red);
-    border-color: var(--algoritmos-red);
-}
-
-body.algoritmos-page .btn-volver:hover {
-    background: var(--algoritmos-red-dark);
-    border-color: var(--algoritmos-red-dark);
-}
-
-/* Botón de tema */
-body.algoritmos-page .theme-btn {
-    background: var(--algoritmos-red);
-}
-
-body.algoritmos-page .theme-btn:hover {
-    background: var(--algoritmos-red-dark);
-}
-
-/* Destello en tarjetas al hacer hover */
-body.algoritmos-page .trabajo-card:hover {
-    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-}
-
-/* Textos de títulos con tono rojizo */
-body.algoritmos-page .card-content h2 {
-    color: #ff6b6b;
-}
-
-[data-theme="light"] body.algoritmos-page {
-    --text-color: #2d3748 !important;       /* Texto más oscuro */
-    --text-muted: #4a5568 !important;       /* Texto secundario más oscuro */
-}
-
-/* Modifica los títulos para que sean legibles */
-body.algoritmos-page .card-content h2 {
-    color: var(--text-color) !important;    /* Usa la variable de color */
-}
-
-/* Asegura contraste en descripciones */
-body.algoritmos-page .descripcion-tp {
-    color: var(--text-muted) !important;    /* Usa la variable de color */
-}
-
-/* Específico para la página de algoritmos */
-body.algoritmos-page .logo {
-    color: #ffffff !important; /* Blanco siempre en algoritmos */
-    text-shadow: 
-        0 1px 3px rgba(0,0,0,0.5),
-        0 0 10px rgba(231, 76, 60, 0.5); /* Glow rojo sutil */
-    transition: all 0.3s ease;
-}
-
-body.algoritmos-page .logo:hover {
-    text-shadow: 
-        0 1px 5px rgba(0,0,0,0.7),
-        0 0 15px rgba(231, 76, 60, 0.7); /* Efecto hover más intenso */
+body.procesos-page .trabajo-card:hover {
+    border-color: var(--color-procesos-dark);
+    box-shadow: 0 5px 15px rgba(184, 77, 255, 0.3);
 }
 
 /* === THEMES === */
@@ -1031,7 +791,7 @@ body.algoritmos-page .logo:hover {
 /* === _darklight.css === */
 
 :root {
-  /* Colores base (light mode) */
+  /* Colores base (modo claro) */
   --color-cards: #ffffff;
   --color-titulos: #2d3748;
   --color-parrafos: #4a5568;
@@ -1042,7 +802,7 @@ body.algoritmos-page .logo:hover {
 }
 
 [data-theme="dark"] {
-  /* Dark mode */
+  /* Modo oscuro */
   --color-cards: #1a202c;
   --color-titulos: #e2e8f0;
   --color-parrafos: #cbd5e0;
@@ -1050,13 +810,37 @@ body.algoritmos-page .logo:hover {
   --color-boton-eliminar: #fc8181;
   --color-borde: #2d3748;
   --color-sombra: rgba(0, 0, 0, 0.3);
-  --header-bg: #0f172a; /* Fondo oscuro del header */
-  --header-text: #e2e8f0; /* Texto claro */
-  --header-line-color-index: #ffffff; /* Línea blanca en index (tema oscuro) */
+  --header-bg: #0f172a;
+  --header-text: #e2e8f0;
+  --header-line-color-index: #ffffff;
 }
 
 /* === UTILITIES === */
 
 /* === _animatios.css === */
+
+/* Animaciones */
+@keyframes checkPop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* === _responsive.css === */

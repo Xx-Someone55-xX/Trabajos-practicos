@@ -3,10 +3,11 @@
     background: var(--code-bg);
     border-radius: 8px;
     margin: 2rem auto;
-    max-width: 800px;
+    width: 100%;
     position: relative;
     box-shadow: var(--shadow);
     border: var(--code-border);
+    overflow: hidden;
 }
 
 pre {
@@ -18,32 +19,10 @@ pre {
     line-height: 1.5;
     tab-size: 4;
     margin: 0;
+    max-height: 100%;
 }
 
-/* Animaciones */
-@keyframes checkPop {
-    0% { transform: scale(0); }
-    80% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    75% { transform: translateX(3px); }
-}
-
-.code-box {
-    position: relative;
-    overflow: hidden;
-}
-
-pre {
-    position: relative;
-    max-height: 400px;
-    overflow: auto;
-}
-
+/* TP Container y menú lateral */
 .tp-container {
     display: grid;
     grid-template-columns: 250px 1fr;
@@ -61,11 +40,9 @@ pre {
     list-style: none;
     padding: 0;
 }
-
 .puntos-list li {
     margin: 0.5rem 0;
 }
-
 .punto-link {
     display: block;
     padding: 0.5rem;
@@ -74,18 +51,17 @@ pre {
     border-radius: 4px;
     transition: background 0.2s;
 }
-
 .punto-link:hover, .punto-link.active {
     background: #3498db;
     color: white;
 }
 
+/* Contenedor de código con encabezado */
 .code-container {
     background: #282c34;
     border-radius: 8px;
     overflow: hidden;
 }
-
 .code-header {
     display: flex;
     justify-content: space-between;
@@ -94,7 +70,6 @@ pre {
     background: #1e2127;
     color: white;
 }
-
 .copy-btn {
     background: #3498db;
     color: white;
@@ -103,7 +78,11 @@ pre {
     border-radius: 4px;
     cursor: pointer;
 }
-
 .copy-btn:hover {
     background: #2980b9;
+}
+
+/* Ocultar slides no activos inicialmente */
+.slide:not(.active) {
+    display: none;
 }

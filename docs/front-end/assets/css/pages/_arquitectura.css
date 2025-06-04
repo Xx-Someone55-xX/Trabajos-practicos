@@ -1,0 +1,24 @@
+/* ===== ARQUITECTURA ===== */
+body.arquitectura-page {
+    --header-line-color: var(--color-arquitectura);
+    --accent: var(--color-arquitectura);
+    --theme-color: var(--color-arquitectura);
+    --theme-color-dark: var(--color-arquitectura-dark);
+}
+
+body.arquitectura-page .btn-volver,
+body.arquitectura-page .nav-btn,
+body.arquitectura-page .theme-btn {
+    background: var(--color-arquitectura);
+}
+
+body.arquitectura-page .btn-volver:hover,
+body.arquitectura-page .nav-btn:hover,
+body.arquitectura-page .theme-btn:hover {
+    background: var(--color-arquitectura-dark);
+}
+
+body.arquitectura-page .punto-counter,
+body.arquitectura-page .exercise-description h3 {
+    color: var(--color-arquitectura);
+}

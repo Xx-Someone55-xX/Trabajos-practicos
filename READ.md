@@ -28,46 +28,93 @@ Bienvenido al repositorio de mi portal personal de trabajos prácticos universit
 
 ## 📂 Estructura del proyecto
 
-Trabajos-practicos/
-├── assets/
-│ ├── css/
-│ │ ├── base/ # Estilos base y reset
-│ │ │ ├── \_reset.css
-│ │ │ ├── \_typography.css
-│ │ │ └── \_variables.css
-│ │ ├── components/ # Componentes UI
-│ │ │ ├── \_buttons.css
-│ │ │ ├── \_cards.css
-│ │ │ ├── \_code.css
-│ │ │ └── \_header.css
-│ │ ├── layout/ # Diseño de estructura
-│ │ │ ├── \_grid.css
-│ │ │ └── \_navigation.css
-│ │ ├── pages/ # Estilos específicos de página
-│ │ │ ├── \_home.css
-│ │ │ ├── \_trabajos.css
-│ │ │ └── \_tp1.css
-│ │ ├── themes/ # Temas
-│ │ │ └── \_dark-light.css
-│ │ ├── utilities/ # Utilidades
+Directory structure:
+└── xx-someone55-xx-trabajos-practicos/
+├── READ.md
+├── docs/
+│ ├── index.html
+│ ├── .nojekyll
+│ ├── back-end/
+│ │ └── django_api/
+│ │ ├── manage.py
+│ │ ├── django_api/
+│ │ │ ├── **init**.py
+│ │ │ ├── asgi.py
+│ │ │ ├── settings.py
+│ │ │ ├── urls.py
+│ │ │ └── wsgi.py
+│ │ └── tps/
+│ │ ├── **init**.py
+│ │ ├── admin.py
+│ │ ├── apps.py
+│ │ ├── models.py
+│ │ ├── tests.py
+│ │ └── views.py
+│ └── front-end/
+│ ├── assets/
+│ │ ├── css/
+│ │ │ ├── ia.css
+│ │ │ ├── main.css
+│ │ │ ├── base/
+│ │ │ │ ├── \_reset.css
+│ │ │ │ ├── \_typography.css
+│ │ │ │ └── \_variables.css
+│ │ │ ├── components/
+│ │ │ │ ├── \_buttons.css
+│ │ │ │ ├── \_cards.css
+│ │ │ │ ├── \_code.css
+│ │ │ │ └── \_header.css
+│ │ │ ├── layout/
+│ │ │ │ ├── \_grid.css
+│ │ │ │ └── \_navigation.css
+│ │ │ ├── pages/
+│ │ │ │ ├── \_home.css
+│ │ │ │ ├── \_tp1.css
+│ │ │ │ └── \_trabajos.css
+│ │ │ ├── themes/
+│ │ │ │ └── \_dark-light.css
+│ │ │ └── utilities/
 │ │ │ ├── \_animations.css
 │ │ │ └── \_responsive.css
-│ │ └── main.css # Archivo principal CSS
-│ ├── js/
-│ │ ├── copy.js # Copiar código
-│ │ ├── theme.js # Manejo de tema
-│ │ └── navigation.js # Navegación entre puntos
-│ └── icons/ # Íconos
-│ └── favicon.png
-├── index.html # Página principal
-├── algoritmos.html # Trabajos de Algoritmos
-├── matematica.html # Trabajos de Matemática
-├── algoritmos/ # Trabajos específicos de Algoritmos
-│ └── tp1_algoritmos.html # TP1 de Algoritmos
-├── matematica/ # Trabajos específicos de Matemática
-│ └── ...
-├── README.md # Este archivo
-└── .gitignore # Archivos ignorados por Git
+│ │ └── js/
+│ │ ├── anterior_siguiente.js
+│ │ ├── color_theme.js
+│ │ ├── copy.js
+│ │ ├── index.js
+│ │ └── theme.js
+│ └── materias/
+│ ├── algoritmos.html
+│ ├── sistemas_procesos.html
+│ └── algoritmos/
+│ ├── tp1_algoritmos.html
+│ └── tp2_algoritmos.html
+├── TP1/
+│ ├── tp1_punto1.c
+│ ├── tp1_punto10.c
+│ ├── tp1_punto11.c
+│ ├── tp1_punto11_v.2.c
+│ ├── tp1_punto12.c
+│ ├── tp1_punto13.c
+│ ├── tp1_punto14.c
+│ ├── tp1_punto15.c
+│ ├── tp1_punto16.c
+│ ├── tp1_punto17.c
+│ ├── tp1_punto18.c
+│ ├── tp1_punto2.c
+│ ├── tp1_punto3.c
+│ ├── tp1_punto4.c
+│ ├── tp1_punto5.c
+│ ├── tp1_punto6.c
+│ ├── tp1_punto7.c
+│ ├── tp1_punto8.c
+│ └── tp1_punto9.c
+└── TP2/
+├── punto1.c
+├── punto2.c
+├── punto3.c
+├── punto4.c
+├── punto5.c
+└── punto6.c
 
 ## 🔍 Vista previa de funcionalidades
 
