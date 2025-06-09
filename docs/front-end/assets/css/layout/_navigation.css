@@ -138,3 +138,24 @@
         flex-shrink: 0;
     }
 }
+
+/* Ocultar menú original en móviles */
+@media (max-width: 767px) {
+  .slide-controls {
+    display: none;
+  }
+  
+  .mobile-nav-select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+}
+
+/* Mostrar solo en pantallas grandes */
+@media (min-width: 768px) {
+  .mobile-nav-select {
+    display: none;
+  }
+}

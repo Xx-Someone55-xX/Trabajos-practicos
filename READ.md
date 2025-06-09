@@ -68,26 +68,70 @@ Directory structure:
 │ │ │ │ ├── \_grid.css
 │ │ │ │ └── \_navigation.css
 │ │ │ ├── pages/
-│ │ │ │ ├── \_home.css
-│ │ │ │ ├── \_tp1.css
-│ │ │ │ └── \_trabajos.css
+│ │ │ │ ├── \_algebra.css
+│ │ │ │ ├── \_algoritmos.css
+│ │ │ │ ├── \_arquitectura.css
+│ │ │ │ ├── \_fisica1.css
+│ │ │ │ ├── \_index.css
+│ │ │ │ ├── \_logica.css
+│ │ │ │ └── \_procesos.css
 │ │ │ ├── themes/
 │ │ │ │ └── \_dark-light.css
 │ │ │ └── utilities/
 │ │ │ ├── \_animations.css
 │ │ │ └── \_responsive.css
 │ │ └── js/
-│ │ ├── anterior_siguiente.js
 │ │ ├── color_theme.js
 │ │ ├── copy.js
 │ │ ├── index.js
+│ │ ├── selector_puntos.js
 │ │ └── theme.js
 │ └── materias/
+│ ├── algebra.html
 │ ├── algoritmos.html
+│ ├── arquitectura.html
+│ ├── fisica1.html
+│ ├── logica.html
 │ ├── sistemas_procesos.html
-│ └── algoritmos/
-│ ├── tp1_algoritmos.html
-│ └── tp2_algoritmos.html
+│ ├── algebra/
+│ │ ├── tp1_selector_algebra.html
+│ │ ├── tp2_selector_algebra.html
+│ │ ├── tp3_selector_algebra.html
+│ │ ├── tp4_selector_algebra.html
+│ │ └── tp5_selector_algebra.html
+│ ├── algoritmos/
+│ │ ├── tp1_algoritmos.html
+│ │ └── tp2_algoritmos.html
+│ ├── arquitectura/
+│ │ ├── tp1_arquitectura.html
+│ │ ├── tp2_arquitectura.html
+│ │ ├── tp3_arquitectura.html
+│ │ ├── tp4_arquitectura.html
+│ │ ├── tp5_arquitectura.html
+│ │ ├── tp6_arquitectura.html
+│ │ ├── tp7_arquitectura.html
+│ │ └── tp8_arquitectura.html
+│ ├── fisica1/
+│ │ ├── tp1_fisica1.html
+│ │ ├── tp2_fisica1.html
+│ │ ├── tp3_fisica1.html
+│ │ └── tp4_fisica1.html
+│ ├── logica/
+│ │ ├── tp1_logica.html
+│ │ ├── tp2_logica.html
+│ │ ├── tp3_logica.html
+│ │ ├── tp4_logica.html
+│ │ ├── tp5_logica.html
+│ │ └── tp6_logica.html
+│ └── sistemas_procesos/
+│ ├── tp1_sistemas_procesos.html
+│ ├── tp2_sistemas_procesos.html
+│ ├── tp3_sistemas_procesos.html
+│ ├── tp4_sistemas_procesos.html
+│ ├── tp5_sistemas_procesos.html
+│ └── tp6_sistemas_procesos.html
+├── TP Grupales/
+│ └── grupal.c
 ├── TP1/
 │ ├── tp1_punto1.c
 │ ├── tp1_punto10.c
