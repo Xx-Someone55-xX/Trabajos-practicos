@@ -45,6 +45,17 @@
     --header-line-color-index: #4a5568;
     --header-line-color-index-dark: #ffffff;
     --header-line-color-algoritmos: var(--color-algoritmos);
+
+    /* Variables específicas para tablas y fórmulas */
+    --table-border-color: #4a5568;
+    --table-header-bg: #2d3748;
+    --table-text-color: #e0e0e0;
+    --table-row-even: #2d3748;
+    --table-row-odd: #1a202c;
+    --formula-bg: #2d3748;
+    --formula-text: var(--color-fisica);
+    --formula-border: var(--color-fisica);
+    --formula-secondary-text: #e0e0e0;
 }
 
 /* ===== TEMA CLARO ===== */
@@ -58,12 +69,23 @@
     --accent: #1d4ed8;
     --shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
     --button-hover-bg: #1e40af;
-    --code-bg: #ddd ;
+    --code-bg: #ddd;
     --code-text: #0f172a;
     --text-muted: #475569;
     --card-border: 1px solid #cbd5e1;
     --header-border: 1px solid #333;
     --code-border: 1px solid #94a3b8;
+    
+    /* Variables específicas para tablas y fórmulas (modo claro) */
+    --table-border-color: #cbd5e1;
+    --table-header-bg: #e2e8f0;
+    --table-text-color: #1a202c;
+    --table-row-even: #f8fafc;
+    --table-row-odd: #ffffff;
+    --formula-bg: #f1f5f9;
+    --formula-text: #1a202c;
+    --formula-border: #1a202c;
+    --formula-secondary-text: #475569;
 }
 
 /* ===== TEMA OSCURO ===== */
@@ -78,4 +100,15 @@
     --header-bg: #0f172a;
     --header-text: #e2e8f0;
     --header-line-color-index: #ffffff;
+    
+    /* Variables específicas para tablas y fórmulas (modo oscuro) */
+    --table-border-color: #4a5568;
+    --table-header-bg: #1e293b;
+    --table-text-color: #e0e0e0;
+    --table-row-even: #2d3748;
+    --table-row-odd: #1a202c;
+    --formula-bg: #1e293b;
+    --formula-text: #e0e0e0;
+    --formula-border: #e0e0e0;
+    --formula-secondary-text: #e0e0e0;
 }
