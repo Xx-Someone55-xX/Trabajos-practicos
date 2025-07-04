@@ -8,6 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
     init();
     animate();
     setupThemeObserver();
+    
+    // Vinculación segura del evento click
+    const updateButton = document.getElementById('update-vectors');
+    if (updateButton) {
+        updateButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            updateParallelepiped();
+        });
+    } else {
+        console.error('No se encontró el botón con ID "update-vectors"');
+    }
 });
 
 function init() {
@@ -51,7 +62,6 @@ function init() {
     
     // 8. Event listeners
     window.addEventListener('resize', onWindowResize);
-    document.getElementById('update-vectors').addEventListener('click', updateParallelepiped);
 }
 
 function setupThemeObserver() {
@@ -134,46 +144,51 @@ function updateMaterials() {
 }
 
 function updateParallelepiped() {
-    // 1. Obtener valores de los inputs
-    const a = new THREE.Vector3(
-        parseFloat(document.getElementById('a-x').value),
-        parseFloat(document.getElementById('a-y').value),
-        parseFloat(document.getElementById('a-z').value)
-    );
-    
-    const b = new THREE.Vector3(
-        parseFloat(document.getElementById('b-x').value),
-        parseFloat(document.getElementById('b-y').value),
-        parseFloat(document.getElementById('b-z').value)
-    );
-    
-    const c = new THREE.Vector3(
-        parseFloat(document.getElementById('c-x').value),
-        parseFloat(document.getElementById('c-y').value),
-        parseFloat(document.getElementById('c-z').value)
-    );
-    
-    // 2. Cálculos matemáticos
-    const cross = new THREE.Vector3();
-    cross.crossVectors(b, c);
-    const dot = a.dot(cross);
-    const volume = Math.abs(dot);
-    
-    // 3. Actualizar UI
-    document.getElementById('volume-result').innerHTML = 
-        `Volumen: |a · (b × c)| = ${volume.toFixed(2)}`;
-    showCalculationSteps(a, b, c, cross, dot);
-    
-    // 4. Limpiar objetos anteriores
-    clearPreviousObjects();
-    
-    // 5. Crear nuevo paralelepípedo
-    createParallelepiped(a, b, c);
-    
-    // 6. Dibujar vectores
-    drawVector(new THREE.Vector3(0, 0, 0), a, getVectorColor('a'), 'a');
-    drawVector(new THREE.Vector3(0, 0, 0), b, getVectorColor('b'), 'b');
-    drawVector(new THREE.Vector3(0, 0, 0), c, getVectorColor('c'), 'c');
+    try {
+        // 1. Obtener valores de los inputs
+        const a = new THREE.Vector3(
+            parseFloat(document.getElementById('a-x').value) || 0,
+            parseFloat(document.getElementById('a-y').value) || 0,
+            parseFloat(document.getElementById('a-z').value) || 0
+        );
+        
+        const b = new THREE.Vector3(
+            parseFloat(document.getElementById('b-x').value) || 0,
+            parseFloat(document.getElementById('b-y').value) || 0,
+            parseFloat(document.getElementById('b-z').value) || 0
+        );
+        
+        const c = new THREE.Vector3(
+            parseFloat(document.getElementById('c-x').value) || 0,
+            parseFloat(document.getElementById('c-y').value) || 0,
+            parseFloat(document.getElementById('c-z').value) || 0
+        );
+        
+        // 2. Cálculos matemáticos
+        const cross = new THREE.Vector3();
+        cross.crossVectors(b, c);
+        const dot = a.dot(cross);
+        const volume = Math.abs(dot);
+        
+        // 3. Actualizar UI
+        document.getElementById('volume-result').textContent = 
+            `Volumen: |a · (b × c)| = ${volume.toFixed(2)}`;
+        showCalculationSteps(a, b, c, cross, dot);
+        
+        // 4. Limpiar objetos anteriores
+        clearPreviousObjects();
+        
+        // 5. Crear nuevo paralelepípedo
+        createParallelepiped(a, b, c);
+        
+        // 6. Dibujar vectores
+        drawVector(new THREE.Vector3(0, 0, 0), a, getVectorColor('a'), 'a');
+        drawVector(new THREE.Vector3(0, 0, 0), b, getVectorColor('b'), 'b');
+        drawVector(new THREE.Vector3(0, 0, 0), c, getVectorColor('c'), 'c');
+        
+    } catch (error) {
+        console.error("Error en updateParallelepiped:", error);
+    }
 }
 
 function getVectorColor(name) {
@@ -210,7 +225,7 @@ function createParallelepiped(a, b, c) {
     vertices.forEach((v, i) => {
         const pointGeometry = new THREE.SphereGeometry(0.1, 16, 16);
         const pointMaterial = new THREE.MeshBasicMaterial({ 
-            color: getVectorColor('a') // Usar mismo color que vector a
+            color: getVectorColor('a')
         });
         const point = new THREE.Mesh(pointGeometry, pointMaterial);
         point.position.copy(v);

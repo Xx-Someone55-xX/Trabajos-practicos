@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP - Grupal</title>
+    <title>Producto Mixto - Álgebra</title>
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="producto-mixto.css">
     <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+    <style>
+        /* Estilos específicos para las propiedades */
+        .propiedades {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .propiedad {
+            width: 100%;
+            margin-bottom: 1rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .propiedad h5 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .propiedad p {
+            margin-bottom: 0.5rem;
+        }
+        .formula {
+            display: inline-block;
+            background: var(--formula-bg);
+            color: var(--formula-text);
+            border: 1px solid var(--formula-border);
+            border-radius: var(--border-radius);
+            padding: 0.7rem 1rem;
+            font-family: monospace;
+            font-size: 0.95rem;
+            margin: 0.6rem 0;
+            white-space: pre;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        .formula-matrix {
+            display: block;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body class="algebra-page">
     <header class="header">
@@ -33,51 +75,109 @@
     </header>
 
     <main class="producto-mixto-container">
-
-        <!-- Texto de contexto añadido aquí -->
+        <!-- Contexto práctico -->
         <div class="producto-mixto-contexto">
             <h3>Contexto Práctico</h3>
             <p>Un arquitecto le solicita a un ingeniero que determine el volumen máximo de agua que puede contener una pileta con base rectangular de 3 m por 5 m y una profundidad de 2 m. Como el ingeniero no recuerda la fórmula directa para calcular el volumen de un prisma rectangular (largo × ancho × alto), decide aplicar sus conocimientos de álgebra vectorial. Para ello, interpreta las dimensiones proporcionadas por el arquitecto como vectores en ℝ³ y utiliza el producto mixto entre ellos para hallar el volumen del paralelepípedo que representa la pileta.</p>
         </div>
         
+        <!-- Visualización 3D y controles -->
         <div id="producto-mixto-canvas-container" class="producto-mixto-canvas" style="height: 150%;">
-
             <div class="producto-mixto-controls">
-            <h2>Producto Mixto</h2>
-            <p>Arrastra para rotar. Rueda para zoom.</p>
-            
-            <h3>Vectores</h3>
-            <div class="producto-mixto-vector-input">
-                <span>a =</span>
-                <input type="number" id="a-x" value="3" step="0.1">
-                <input type="number" id="a-y" value="0" step="0.1">
-                <input type="number" id="a-z" value="0" step="0.1">
+                <h2>Producto Mixto</h2>
+                <p>Arrastra para rotar. Rueda para zoom.</p>
+                
+                <h3>Vectores</h3>
+                <div class="producto-mixto-vector-input">
+                    <span>a =</span>
+                    <input type="number" id="a-x" value="3" step="0.1">
+                    <input type="number" id="a-y" value="0" step="0.1">
+                    <input type="number" id="a-z" value="0" step="0.1">
+                </div>
+                <div class="producto-mixto-vector-input">
+                    <span>b =</span>
+                    <input type="number" id="b-x" value="0" step="0.1">
+                    <input type="number" id="b-y" value="-2" step="0.1">
+                    <input type="number" id="b-z" value="0" step="0.1">
+                </div>
+                <div class="producto-mixto-vector-input">
+                    <span>c =</span>
+                    <input type="number" id="c-x" value="0" step="0.1">
+                    <input type="number" id="c-y" value="0" step="0.1">
+                    <input type="number" id="c-z" value="5" step="0.1">
+                </div>
+                
+                <button id="update-vectors" class="producto-mixto-btn">Calcular Volumen</button>
+                
+                <div id="volume-result" class="producto-mixto-volume">Volumen: |a · (b × c)| = 30.00</div>
             </div>
-            <div class="producto-mixto-vector-input">
-                <span>b =</span>
-                <input type="number" id="b-x" value="0" step="0.1">
-                <input type="number" id="b-y" value="-2" step="0.1">
-                <input type="number" id="b-z" value="0" step="0.1">
-            </div>
-            <div class="producto-mixto-vector-input">
-                <span>c =</span>
-                <input type="number" id="c-x" value="0" step="0.1">
-                <input type="number" id="c-y" value="0" step="0.1">
-                <input type="number" id="c-z" value="5" step="0.1">
-            </div>
-            
-            <button id="update-vectors" class="producto-mixto-btn">Calcular Volumen</button>
-            
-            <div id="volume-result" class="producto-mixto-volume">Volumen: |a · (b × c)| = 30.00</div>
-        </div>
-
         </div>
         
+        <!-- Cálculos y explicación -->
         <div class="producto-mixto-calculation">
             <h3>Desarrollo del Cálculo</h3>
             <span class="producto-mixto-formula">Fórmula: Volumen = |a · (b × c)|</span>
             <div id="calculation-steps">
-                <!-- Los pasos del cálculo se insertarán aquí dinámicamente -->
+                <!-- Los pasos del cálculo se insertarán acá dinámicamente -->
+            </div>
+            
+            <!-- Explicación detallada del producto mixto -->
+            <div class="producto-mixto-explicacion">
+                <h3>Explicación del Producto Mixto</h3>
+                
+                <h4>1. Definición Formal</h4>
+                <p>El <strong>producto mixto</strong> (o triple producto escalar) de tres vectores en ℝ³ combina el producto vectorial y escalar:</p>
+                <span class="formula">a · (b × c)</span>
+                
+                <h4>2. Interpretación Geométrica</h4>
+                <p>El valor absoluto del producto mixto representa el <strong>volumen del paralelepípedo</strong> definido por los tres vectores:</p>
+                <ul>
+                    <li><strong>Positivo</strong>: Orientación derecha (regla de la mano derecha)</li>
+                    <li><strong>Cero</strong>: Vectores coplanares (linealmente dependientes)</li>
+                    <li><strong>Negativo</strong>: Orientación izquierda</li>
+                </ul>
+                
+                <h4>3. Propiedades Clave</h4>
+                <div class="propiedades">
+                    <div class="propiedad">
+                        <h5>Permutación Cíclica</h5>
+                        <p class="formula">a·(b×c) = b·(c×a) = c·(a×b)</p>
+                        <p>El producto mixto mantiene su valor bajo permutaciones cíclicas de los vectores. Esto significa que podemos rotar el orden de los vectores sin cambiar el resultado. Sin embargo, cambiar el orden no cíclico altera el signo del resultado.</p>
+                    </div>
+                    <div class="propiedad">
+                        <h5>Anticonmutatividad</h5>
+                        <p class="formula">a·(b×c) = -a·(c×b)</p>
+                        <p>El producto mixto cambia de signo cuando se intercambian dos vectores. Esta propiedad proviene de la anticonmutatividad del producto vectorial. Es importante para determinar la orientación del sistema de vectores.</p>
+                    </div>
+                    <div class="propiedad">
+                        <h5>Linealidad</h5>
+                        <p>Lineal en cada argumento</p>
+                        <p>El producto mixto es lineal en cada uno de sus argumentos. Esto significa que cumple con las propiedades de aditividad y homogeneidad para cada vector:</p>
+                        <p class="formula">(αa + βa')·(b×c) = αa·(b×c) + βa'·(b×c)</p>
+                        <p>Esta propiedad permite descomponer cálculos complejos en partes más simples.</p>
+                    </div>
+                    <div class="propiedad">
+                        <h5>Condición de coplanaridad</h5>
+                        <p class="formula">a·(b×c) = 0 ⇔ a, b, c son coplanares</p>
+                        <p>Cuando el producto mixto es cero, indica que los tres vectores están en el mismo plano (son linealmente dependientes). Esta propiedad es fundamental para verificar la independencia lineal de vectores en ℝ³.</p>
+                    </div>
+                </div>
+                
+                <h4>4. Cálculo mediante Determinante</h4>
+                <p>Se puede calcular como el determinante de la matriz formada por los vectores:</p>
+                <div class="formula formula-matrix">det(a, b, c) = |a₁ a₂ a₃|
+               |b₁ b₂ b₃|
+               |c₁ c₂ c₃|</div>
+                <p>Que se desarrolla como:</p>
+                <div class="formula">a₁(b₂c₃ - b₃c₂) - a₂(b₁c₃ - b₃c₁) + a₃(b₁c₂ - b₂c₁)</div>
+                
+                <h4>5. Aplicaciones Prácticas</h4>
+                <ul>
+                    <li>Cálculo de volúmenes en geometría</li>
+                    <li>Determinar si vectores son coplanares</li>
+                    <li>Física: torque, momento angular</li>
+                    <li>Computación gráfica: normales a superficies</li>
+                </ul>
             </div>
         </div>
     </main>
