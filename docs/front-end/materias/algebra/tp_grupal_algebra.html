@@ -90,21 +90,21 @@
                 <h3>Vectores</h3>
                 <div class="producto-mixto-vector-input">
                     <span>a =</span>
-                    <input type="number" id="a-x" value="3" step="0.1">
-                    <input type="number" id="a-y" value="0" step="0.1">
-                    <input type="number" id="a-z" value="0" step="0.1">
+                    <input type="number" id="a-x" value="3" step="1">
+                    <input type="number" id="a-y" value="0" step="1">
+                    <input type="number" id="a-z" value="0" step="1">
                 </div>
                 <div class="producto-mixto-vector-input">
                     <span>b =</span>
-                    <input type="number" id="b-x" value="0" step="0.1">
-                    <input type="number" id="b-y" value="-2" step="0.1">
-                    <input type="number" id="b-z" value="0" step="0.1">
+                    <input type="number" id="b-x" value="0" step="1">
+                    <input type="number" id="b-y" value="-2" step="1">
+                    <input type="number" id="b-z" value="0" step="1">
                 </div>
                 <div class="producto-mixto-vector-input">
                     <span>c =</span>
-                    <input type="number" id="c-x" value="0" step="0.1">
-                    <input type="number" id="c-y" value="0" step="0.1">
-                    <input type="number" id="c-z" value="5" step="0.1">
+                    <input type="number" id="c-x" value="0" step="1">
+                    <input type="number" id="c-y" value="0" step="1">
+                    <input type="number" id="c-z" value="5" step="1">
                 </div>
                 
                 <button id="update-vectors" class="producto-mixto-btn">Calcular Volumen</button>
@@ -141,20 +141,13 @@
                 <div class="propiedades">
                     <div class="propiedad">
                         <h5>Permutación Cíclica</h5>
-                        <p class="formula">a·(b×c) = b·(c×a) = c·(a×b)</p>
+                        <p class="formula">|a·(b×c)| = |b·(c×a)| = |c·(a×b)|</p>
                         <p>El producto mixto mantiene su valor bajo permutaciones cíclicas de los vectores. Esto significa que podemos rotar el orden de los vectores sin cambiar el resultado. Sin embargo, cambiar el orden no cíclico altera el signo del resultado.</p>
                     </div>
                     <div class="propiedad">
                         <h5>Anticonmutatividad</h5>
                         <p class="formula">a·(b×c) = -a·(c×b)</p>
                         <p>El producto mixto cambia de signo cuando se intercambian dos vectores. Esta propiedad proviene de la anticonmutatividad del producto vectorial. Es importante para determinar la orientación del sistema de vectores.</p>
-                    </div>
-                    <div class="propiedad">
-                        <h5>Linealidad</h5>
-                        <p>Lineal en cada argumento</p>
-                        <p>El producto mixto es lineal en cada uno de sus argumentos. Esto significa que cumple con las propiedades de aditividad y homogeneidad para cada vector:</p>
-                        <p class="formula">(αa + βa')·(b×c) = αa·(b×c) + βa'·(b×c)</p>
-                        <p>Esta propiedad permite descomponer cálculos complejos en partes más simples.</p>
                     </div>
                     <div class="propiedad">
                         <h5>Condición de coplanaridad</h5>

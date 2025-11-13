@@ -1,0 +1,1613 @@
+/* ===== Reset y Estilos Base ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fix para scrollbar */
+html {
+    overflow-y: scroll;
+}
+
+/* Estilos Base */
+body {
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== VARIABLES GLOBALES ===== */
+:root {
+    /* Colores base */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    
+    /* Colores temáticos */
+    --color-algoritmos: #e74c3c;
+    --color-algoritmos-dark: #c0392b;
+    --color-fisica: #2ecc71;
+    --color-fisica-dark: #27ae60;
+    --color-procesos: #b84dff;
+    --color-procesos-dark: #9b3dde;
+    --color-algebra: #F1C40F;
+    --color-algebra-dark: #D4AC0D;
+    --color-index: #4a5568;
+    --color-index-dark: #ffffff;
+    --color-arquitectura: #3498db;
+    --color-arquitectura-dark: #2980b9;
+    --color-logica: #ff6b9e;
+    --color-logica-dark: #e8437a;
+    
+    /* Variables de diseño */
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --header-bg: #000000;
+    --header-text: #ffffff;
+    --card-bg: #2d3748;
+    --card-hover: #4a5568;
+    --accent: #60a5fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --button-hover-bg: #4f8fdf;
+    --code-bg: #1e1e1e;
+    --code-text: #d4d4d4;
+    --text-muted: #94a3b8;
+    --card-border: none;
+    --header-border: none;
+    --code-border: none;
+    --border-radius: 0.5rem;
+    --header-height: 80px;
+    --max-width: 1200px;
+    --spacing: 1rem;
+    --header-line-width: 2px;
+    --header-line-color: var(--accent);
+    --header-line-color-index: #4a5568;
+    --header-line-color-index-dark: #ffffff;
+    --header-line-color-algoritmos: var(--color-algoritmos);
+
+    /* Variables específicas para tablas y fórmulas */
+    --table-border-color: #4a5568;
+    --table-header-bg: #2d3748;
+    --table-text-color: #e0e0e0;
+    --table-row-even: #2d3748;
+    --table-row-odd: #1a202c;
+    --formula-bg: #2d3748;
+    --formula-text: var(--color-fisica);
+    --formula-border: var(--color-fisica);
+    --formula-secondary-text: #e0e0e0;
+}
+
+/* ===== TEMA CLARO ===== */
+:root[data-theme="light"] {
+    --bg-color: var(--color-white);
+    --text-color: #1a202c;
+    --header-bg: #000000;
+    --header-text: #ffffff;
+    --card-bg: #efefef;
+    --card-hover: #e2e8f0;
+    --accent: #1d4ed8;
+    --shadow: 0 2px 8px rgba(30, 41, 59, 0.1);
+    --button-hover-bg: #1e40af;
+    --code-bg: #ddd;
+    --code-text: #0f172a;
+    --text-muted: #475569;
+    --card-border: 1px solid #cbd5e1;
+    --header-border: 1px solid #333;
+    --code-border: 1px solid #94a3b8;
+    
+    /* Variables específicas para tablas y fórmulas (modo claro) */
+    --table-border-color: #cbd5e1;
+    --table-header-bg: #e2e8f0;
+    --table-text-color: #1a202c;
+    --table-row-even: #f8fafc;
+    --table-row-odd: #ffffff;
+    --formula-bg: #f1f5f9;
+    --formula-text: #1a202c;
+    --formula-border: #1a202c;
+    --formula-secondary-text: #475569;
+}
+
+/* ===== TEMA OSCURO ===== */
+[data-theme="dark"] {
+    --color-fisica: #1e8449;
+    --color-fisica-dark: #145a32;
+    --color-algebra: #F39C12;
+    --color-algebra-dark: #D68910;
+    --color-logica: #ff85b3;
+    --color-logica-dark: #e8437a;
+    --color-index: var(--color-index-dark);
+    --header-bg: #0f172a;
+    --header-text: #e2e8f0;
+    --header-line-color-index: #ffffff;
+    
+    /* Variables específicas para tablas y fórmulas (modo oscuro) */
+    --table-border-color: #4a5568;
+    --table-header-bg: #1e293b;
+    --table-text-color: #e0e0e0;
+    --table-row-even: #2d3748;
+    --table-row-odd: #1a202c;
+    --formula-bg: #1e293b;
+    --formula-text: #e0e0e0;
+    --formula-border: #e0e0e0;
+    --formula-secondary-text: #e0e0e0;
+}
+
+/* ===== Botón Tema ===== */
+.theme-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+.theme-btn:hover {
+    transform: scale(1.05);
+    background: var(--button-hover-bg);
+}
+
+/* ===== Botón Volver ===== */
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: var(--shadow);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.btn-volver:hover {
+    transform: translateY(-2px);
+    background: var(--button-hover-bg);
+    border-color: var(--accent);
+}
+.btn-volver svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+/* ===== Botones de Navegación ===== */
+.nav-btn {
+    background: var(--accent);
+    color: white !important;
+    border: none;
+    padding: 0.8rem 3.5rem;
+    margin: 0 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.nav-btn:hover:not(.disabled) {
+    transform: translateY(-2px);
+    background: var(--button-hover-bg);
+}
+.nav-btn.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* ===== Botón Copiar ===== */
+.btn-copy {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.btn-copy:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+.btn-copy .fa-copy, 
+.btn-copy .fa-check {
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.btn-copy.copied .fa-check {
+    display: inline-block !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+.btn-copy.copied .fa-copy {
+    display: none !important;
+}
+@keyframes checkPop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+.btn-copy.copied .fa-check {
+    animation: checkPop 0.3s ease;
+}
+
+/* ===== Tarjetas de Materias ===== */
+.materias-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: var(--max-width);
+    margin: 2rem auto;
+}
+
+.materia-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: var(--card-border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.materia-card:hover {
+    transform: translateY(-5px);
+    background: var(--card-hover);
+}
+
+/* Colores por materia */
+.materia-card:nth-child(1):hover {
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+.materia-card:nth-child(2):hover {
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+}
+.materia-card:nth-child(3):hover {
+    box-shadow: 0 10px 20px rgba(184, 77, 255, 0.3);
+}
+.materia-card:nth-child(4):hover {
+    box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
+}
+
+/* Línea base y hover animado */
+.materia-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+.materia-card:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.materia-card:nth-child(1)::after { background: #e74c3c; }
+.materia-card:nth-child(2)::after { background: #2ecc71; }
+.materia-card:nth-child(3)::after { background: #b84dff; }
+.materia-card:nth-child(4)::after { background: #F1C40F; }
+
+/* Iconos */
+.materia-card .materia-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    display: block;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.3s ease;
+}
+.materia-card:hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+    transform: scale(1.05);
+}
+/* Brillo por materia en hover */
+.materia-card:nth-child(1):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(231, 76, 60, 0.4));
+}
+.materia-card:nth-child(2):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.4));
+}
+.materia-card:nth-child(3):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(184, 77, 255, 0.4));
+}
+.materia-card:nth-child(4):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(241, 196, 15, 0.4));
+}
+/* Optimización modo oscuro */
+[data-theme="dark"] .materia-card .materia-icon {
+    stroke-width: 3.2;
+}
+[data-theme="dark"] .materia-card:nth-child(1) .materia-icon {
+    filter: brightness(1.3);
+}
+/* ... similares para los otros ítems */
+
+/* ===== Tarjetas de Trabajos ===== */
+.trabajos-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: var(--max-width);
+    margin: 2rem auto;
+}
+
+.trabajo-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: var(--card-border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--theme-color, #ccc);
+}
+
+.trabajo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: var(--card-hover);
+}
+
+.trabajo-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.trabajo-card:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* === Estilos para las tarjetas de puntos/exercises === */
+.punto-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1rem auto;
+    max-width: var(--max-width);
+    box-shadow: var(--shadow);
+    border: var(--card-border);
+}
+
+.exercise-description {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border: var(--code-border);
+}
+
+.exercise-description h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.exercise-description p {
+    white-space: pre-line;
+    margin-bottom: 0;
+}
+
+.materia-card:nth-child(5):hover {
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.materia-card:nth-child(5)::after {
+    background: var(--color-arquitectura);
+}
+
+.materia-card:nth-child(5):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(52, 152, 219, 0.4));
+}
+
+body.arquitectura-page .trabajo-card {
+    border-left: 4px solid var(--color-arquitectura);
+}
+
+body.arquitectura-page .trabajo-card:hover {
+    border-color: var(--color-arquitectura-dark);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.materia-card:nth-child(6):hover {
+    box-shadow: 0 10px 20px rgba(255, 107, 158, 0.3);
+}
+
+.materia-card:nth-child(6)::after {
+    background: var(--color-logica);
+}
+
+.materia-card:nth-child(6):hover .materia-icon {
+    filter: drop-shadow(0 0 8px rgba(255, 107, 158, 0.4));
+}
+
+/* ===== Bloques de Código ===== */
+.code-box {
+    background: var(--code-bg);
+    border-radius: 8px;
+    margin: 2rem auto;
+    width: 100%;
+    position: relative;
+    box-shadow: var(--shadow);
+    border: var(--code-border);
+    overflow: hidden;
+}
+
+pre {
+    padding: 2rem;
+    overflow-x: auto;
+    color: var(--code-text);
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    tab-size: 4;
+    margin: 0;
+    max-height: 100%;
+}
+
+/* TP Container y menú lateral */
+.tp-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.puntos-menu {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.puntos-list {
+    list-style: none;
+    padding: 0;
+}
+.puntos-list li {
+    margin: 0.5rem 0;
+}
+.punto-link {
+    display: block;
+    padding: 0.5rem;
+    color: #2c3e50;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+.punto-link:hover, .punto-link.active {
+    background: #3498db;
+    color: white;
+}
+
+/* Contenedor de código con encabezado */
+.code-container {
+    background: #282c34;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: #1e2127;
+    color: white;
+}
+.copy-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.copy-btn:hover {
+    background: #2980b9;
+}
+
+/* Ocultar slides no activos inicialmente */
+.slide:not(.active) {
+    display: none;
+}
+
+/* ===== Estilos del Header ===== */
+.header {
+    background: #000000 !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+    position: relative;
+    color: #ffffff !important;
+    border-bottom: var(--header-line-width) solid var(--header-line-color);
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-line-width);
+    background-color: var(--header-line-color);
+    z-index: 10;
+}
+
+.header .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: var(--header-height);
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 1.5rem;
+    color: #ffffff !important;
+    font-weight: 700;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* ===== ESTILOS PARA TABLAS ===== */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    color: var(--table-text-color);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.data-table th, 
+.data-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid var(--table-border-color);
+}
+
+.data-table th {
+    background-color: var(--table-header-bg);
+    font-weight: 600;
+    color: var(--header-text);
+}
+
+.data-table tr:nth-child(even) {
+    background-color: var(--table-row-even);
+}
+
+.data-table tr:nth-child(odd) {
+    background-color: var(--table-row-odd);
+}
+
+/* ===== ESTILOS PARA FÓRMULAS ===== */
+.formula-container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--formula-bg);
+    border-radius: var(--border-radius);
+    font-family: "Courier New", monospace;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: var(--card-border);
+}
+
+.formula-text {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--formula-text);
+    font-weight: 500;
+}
+
+/* Notación vectorial (v con barra superior) */
+.vector {
+    text-decoration: overline;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--formula-text);
+}
+
+/* Contenedor de fracción */
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 8px;
+}
+
+/* Numerador */
+.numerator {
+    border-bottom: 2px solid var(--formula-border);
+    padding: 0 10px;
+    display: block;
+    color: var(--formula-text);
+    font-weight: bold;
+}
+
+/* Denominador */
+.denominator {
+    display: block;
+    padding: 5px 10px 0;
+    color: var(--formula-text);
+    font-weight: bold;
+}
+
+/* Explicación de variables */
+.calculation {
+    margin-top: 20px;
+    font-style: italic;
+    text-align: left;
+    color: var(--formula-secondary-text);
+    padding: 0 10px;
+}
+
+/* Variables en la explicación */
+.variable {
+    font-style: italic;
+    color: var(--formula-text);
+}
+
+/* Valores en la explicación */
+.value {
+    font-weight: bold;
+    color: var(--formula-secondary-text);
+}
+
+/* Subíndices */
+sub {
+    vertical-align: sub;
+    font-size: 0.8em;
+}
+
+/* Mejora para la legibilidad de las fórmulas */
+.formula-container .fraction {
+    font-size: 1.2em;
+}
+
+/* ----- Controles de navegación ----- */
+.slide-controls {
+    position: sticky;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    border-radius: 50px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    z-index: 10;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    width: fit-content;
+    margin: 0 auto 30px;
+    max-width: 95%;
+}
+
+/* ----- Puntos de navegación ----- */
+.nav-points {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.nav-point {
+    position: relative;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    white-space: nowrap;
+    border: 1px solid transparent;
+    flex-shrink: 0;
+}
+
+.nav-point:hover {
+    background: var(--hover-color);
+    color: var(--primary-color);
+    transform: translateY(-1px);
+    border-color: rgba(var(--primary-rgb), 0.2);
+}
+
+.nav-point.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.25);
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+/* Indicador de punto activo mejorado */
+.nav-point.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    animation: bubble 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+}
+
+@keyframes bubble {
+    to {
+        opacity: 1;
+        bottom: -10px;
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* ----- Contador de puntos ----- */
+.punto-counter {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: rgba(var(--primary-rgb), 0.1);
+    padding: 5px 10px;
+    border-radius: 50px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.punto-counter::before {
+    content: 'Punto';
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* ----- Transiciones para slides ----- */
+.slide {
+    transition: opacity 0.35s ease-out, transform 0.4s ease-out;
+    will-change: opacity, transform;
+}
+
+.slide:not(.active) {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    transform: translateY(5px);
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    height: auto;
+    position: relative;
+    animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(8px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* ----- Responsive Design Mejorado ----- */
+@media (max-width: 768px) {
+    .slide-controls {
+        top: 10px;
+        padding: 6px 12px;
+        margin-bottom: 20px;
+        width: auto;
+        max-width: calc(100% - 20px);
+    }
+    
+    .nav-points {
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-points::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav-point {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        scroll-snap-align: center;
+    }
+    
+    .punto-counter {
+        font-size: 0.78rem;
+        padding: 4px 8px;
+    }
+}
+
+/* Efecto de foco para accesibilidad */
+.nav-point:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ===== ÁLGEBRA ===== */
+body.algebra-page {
+    --header-line-color: var(--color-algebra);
+    --accent: var(--color-algebra);
+    --theme-color: var(--color-algebra);
+    --theme-color-dark: var(--color-algebra-dark);
+}
+
+/* Botones */
+body.algebra-page .btn-volver,
+body.algebra-page .nav-btn,
+body.algebra-page .theme-btn {
+    background: var(--color-algebra);
+}
+body.algebra-page .btn-volver:hover,
+body.algebra-page .nav-btn:hover,
+body.algebra-page .theme-btn:hover {
+    background: var(--color-algebra-dark);
+}
+
+/* Tarjetas de trabajos */
+body.algebra-page .trabajo-card {
+    border-left: 4px solid var(--color-algebra);
+}
+body.algebra-page .trabajo-card:hover {
+    border-color: var(--color-algebra-dark);
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3); /* Sombra amarilla */
+}
+
+/* Contador y títulos */
+body.algebra-page .punto-counter,
+body.algebra-page .exercise-description h3 {
+    color: var(--color-algebra);
+}
+
+/* Logo con efecto hover */
+body.algebra-page .logo:hover {
+    text-shadow: 0 1px 5px rgba(0,0,0,0.7), 0 0 15px rgba(241, 196, 15, 0.7);
+}
+
+/* ===== ALGORITMOS ===== */
+body.algoritmos-page,
+body.tp1-algoritmos-page {
+    --header-line-color: var(--color-algoritmos);
+    --accent: var(--color-algoritmos);
+    --theme-color: var(--color-algoritmos);
+    --theme-color-dark: var(--color-algoritmos-dark);
+}
+
+body.algoritmos-page .btn-volver,
+body.tp1-algoritmos-page .btn-volver,
+body.algoritmos-page .nav-btn,
+body.tp1-algoritmos-page .nav-btn,
+body.algoritmos-page .theme-btn,
+body.tp1-algoritmos-page .theme-btn {
+    background: var(--color-algoritmos);
+}
+
+body.algoritmos-page .btn-volver:hover,
+body.tp1-algoritmos-page .btn-volver:hover,
+body.algoritmos-page .nav-btn:hover,
+body.tp1-algoritmos-page .nav-btn:hover,
+body.algoritmos-page .theme-btn:hover,
+body.tp1-algoritmos-page .theme-btn:hover {
+    background: var(--color-algoritmos-dark);
+}
+
+body.algoritmos-page .trabajo-card,
+body.tp1-algoritmos-page .trabajo-card {
+    border-left: 4px solid var(--color-algoritmos);
+}
+body.algoritmos-page .trabajo-card:hover,
+body.tp1-algoritmos-page .trabajo-card:hover {
+    border-color: var(--color-algoritmos-dark);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+body.algoritmos-page .trabajo-card:hover::after,
+body.tp1-algoritmos-page .trabajo-card:hover::after {
+    background: var(--color-algoritmos) !important;
+}
+
+body.algoritmos-page .logo,
+body.tp1-algoritmos-page .logo {
+    color: #ffffff !important;
+}
+body.algoritmos-page .logo:hover,
+body.tp1-algoritmos-page .logo:hover {
+    text-shadow: 0 1px 5px rgba(0,0,0,0.7), 0 0 15px rgba(231, 76, 60, 0.7);
+}
+
+body.algoritmos-page .punto-counter,
+body.tp1-algoritmos-page .punto-counter,
+body.algoritmos-page .exercise-description h3,
+body.tp1-algoritmos-page .exercise-description h3 {
+    color: var(--color-algoritmos);
+}
+
+/* ===== ARQUITECTURA ===== */
+body.arquitectura-page {
+    --header-line-color: var(--color-arquitectura);
+    --accent: var(--color-arquitectura);
+    --theme-color: var(--color-arquitectura);
+    --theme-color-dark: var(--color-arquitectura-dark);
+}
+
+body.arquitectura-page .btn-volver,
+body.arquitectura-page .nav-btn,
+body.arquitectura-page .theme-btn {
+    background: var(--color-arquitectura);
+}
+
+body.arquitectura-page .btn-volver:hover,
+body.arquitectura-page .nav-btn:hover,
+body.arquitectura-page .theme-btn:hover {
+    background: var(--color-arquitectura-dark);
+}
+
+body.arquitectura-page .punto-counter,
+body.arquitectura-page .exercise-description h3 {
+    color: var(--color-arquitectura);
+}
+
+/* ===== FÍSICA ===== */
+body.fisica-page {
+    --header-line-color: var(--color-fisica);
+    --accent: var(--color-fisica);
+    --theme-color: var(--color-fisica);
+    --theme-color-dark: var(--color-fisica-dark);
+}
+
+body.fisica-page .btn-volver,
+body.fisica-page .nav-btn,
+body.fisica-page .theme-btn {
+    background: var(--color-fisica);
+}
+body.fisica-page .btn-volver:hover,
+body.fisica-page .nav-btn:hover,
+body.fisica-page .theme-btn:hover {
+    background: var(--color-fisica-dark);
+}
+body.fisica-page .trabajo-card {
+    border-left: 4px solid var(--color-fisica);
+}
+body.fisica-page .trabajo-card:hover {
+    border-color: var(--color-fisica-dark);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+/* ===== INDEX ===== */
+body.index-page {
+    --header-line-color: var(--color-index);
+    --theme-color: var(--color-index);
+}
+body[data-theme="dark"].index-page {
+    --header-line-color: var(--color-index-dark);
+}
+body.index-page .header {
+    background: #000000 !important;
+}
+body.index-page .logo {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+body.index-page .theme-btn {
+    background: #333 !important;
+}
+body.index-page .theme-btn:hover {
+    background: #444 !important;
+}
+
+/* ===== LÓGICA ===== */
+body.logica-page {
+    --header-line-color: var(--color-logica);
+    --accent: var(--color-logica);
+    --theme-color: var(--color-logica);
+    --theme-color-dark: var(--color-logica-dark);
+}
+
+body.logica-page .btn-volver,
+body.logica-page .nav-btn,
+body.logica-page .theme-btn {
+    background: var(--color-logica);
+}
+body.logica-page .btn-volver:hover,
+body.logica-page .nav-btn:hover,
+body.logica-page .theme-btn:hover {
+    background: var(--color-logica-dark);
+}
+
+body.logica-page .trabajo-card {
+    border-left: 4px solid var(--color-logica);
+}
+body.logica-page .trabajo-card:hover {
+    border-color: var(--color-logica-dark);
+    box-shadow: 0 5px 15px rgba(255, 107, 158, 0.3);
+}
+
+body.logica-page .punto-counter,
+body.logica-page .exercise-description h3 {
+    color: var(--color-logica);
+}
+
+body.logica-page .logo:hover {
+    text-shadow: 0 1px 5px rgba(0,0,0,0.7), 0 0 15px rgba(255, 107, 158, 0.7);
+}
+
+/* ===== PROCESOS ===== */
+body.procesos-page {
+    --header-line-color: var(--color-procesos);
+    --accent: var(--color-procesos);
+    --theme-color: var(--color-procesos);
+    --theme-color-dark: var(--color-procesos-dark);
+}
+
+body.procesos-page .btn-volver,
+body.procesos-page .nav-btn,
+body.procesos-page .theme-btn {
+    background: var(--color-procesos);
+}
+body.procesos-page .btn-volver:hover,
+body.procesos-page .nav-btn:hover,
+body.procesos-page .theme-btn:hover {
+    background: var(--color-procesos-dark);
+}
+body.procesos-page .trabajo-card {
+    border-left: 4px solid var(--color-procesos);
+}
+body.procesos-page .trabajo-card:hover {
+    border-color: var(--color-procesos-dark);
+    box-shadow: 0 5px 15px rgba(184, 77, 255, 0.3);
+}
+
+/* Estilos específicos para la página de Producto Mixto */
+.algebra-page {
+  .producto-mixto-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  .producto-mixto-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .producto-mixto-controls, 
+  .producto-mixto-calculation {
+    background: var(--card-bg);
+    border: none !important;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    z-index: 10;
+  }
+
+  .producto-mixto-controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 15px;
+    max-width: 350px;
+    max-height: 50vh;
+    overflow-y: auto;
+    background: var(--card-bg);
+  }
+
+  .producto-mixto-calculation {
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--card-bg);
+    position: relative;
+  }
+
+  /* Canvas y contenedor responsivos */
+  #producto-mixto-canvas-container {
+    position: relative;
+    flex-grow: 1;
+    min-height: 60vh;
+    width: 100%;
+    margin: 0;
+    z-index: 5;
+  }
+
+  .producto-mixto-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+  }
+
+  /* Elementos de control */
+  .producto-mixto-control {
+    margin-bottom: 15px;
+  }
+
+  .producto-mixto-vector-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+    label {
+      display: inline-block;
+      width: 20px;
+      font-weight: bold;
+      color: var(--text-color);
+      margin-right: 8px;
+    }
+    
+    input {
+      width: 60px;
+      padding: 8px;
+      border: 1px solid var(--table-border-color);
+      border-radius: var(--border-radius);
+      margin-right: 10px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: 14px;
+    }
+  }
+
+  .producto-mixto-volume {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 15px 0;
+    color: var(--color-algebra);
+    padding: 12px;
+    background: rgba(241, 196, 15, 0.1);
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: none;
+    border-left: 4px solid var(--color-algebra);
+  }
+
+  .producto-mixto-btn {
+    background: var(--color-algebra);
+    color: var(--color-black);
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin: 10px 0;
+    transition: background 0.3s ease;
+    font-size: 14px;
+
+    &:hover {
+      background: var(--color-algebra-dark);
+    }
+  }
+
+  .producto-mixto-step {
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 3px solid var(--color-algebra);
+  }
+
+  .producto-mixto-formula {
+    font-weight: bold;
+    color: var(--color-algebra);
+    margin-bottom: 10px;
+    display: block;
+    font-size: 16px;
+  }
+
+  .producto-mixto-step-title {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+
+  .producto-mixto-math {
+    background: var(--formula-bg);
+    padding: 8px 10px;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    margin: 5px 0;
+    color: var(--formula-text);
+    border: none;
+    border-left: 3px solid var(--formula-border);
+    font-family: monospace;
+    font-size: 14px;
+  }
+
+  /* Estilos responsive */
+  @media (max-width: 1200px) {
+    .producto-mixto-controls {
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .producto-mixto-controls {
+      position: relative;
+      top: auto;
+      left: auto;
+      max-width: 100%;
+      max-height: none;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    #producto-mixto-canvas-container {
+      min-height: 50vh;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .producto-mixto-content-wrapper {
+      padding: 15px;
+    }
+
+    .producto-mixto-controls {
+      padding: 12px;
+    }
+
+    .producto-mixto-vector-input input {
+      width: 50px;
+      padding: 6px;
+    }
+
+    .producto-mixto-calculation {
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .producto-mixto-content-wrapper {
+      padding: 10px;
+    }
+
+    .producto-mixto-vector-input {
+      flex-wrap: wrap;
+      
+      input {
+        width: 40px;
+        padding: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
+    .producto-mixto-btn {
+      padding: 8px 12px;
+    }
+
+    .producto-mixto-math {
+      font-size: 13px;
+      padding: 6px 8px;
+    }
+  }
+}
+
+/* Estilos comunes */
+.producto-mixto-content {
+  padding: 20px;
+  background: var(--background-color);
+  box-sizing: border-box;
+}
+
+.producto-mixto-contexto {
+  margin: 0.1rem 0 0;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+
+  h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+  }
+
+  p {
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+}
+
+/* === Explicación detallada del Producto Mixto ========================= */
+.algebra-page {
+  /* Tarjeta-contenedor */
+  .producto-mixto-explicacion {
+    background: var(--card-bg);
+    border-left: 4px solid var(--color-algebra);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+
+  /* Titulares con el color temático */
+  .producto-mixto-explicacion h3,
+  .producto-mixto-explicacion h4 {
+    color: var(--color-algebra);
+    margin: 1.2rem 0 0.8rem;
+  }
+  .producto-mixto-explicacion h5 {
+    color: var(--text-muted);
+    font-weight: 600;
+    margin: 0.8rem 0 0.4rem;
+  }
+
+  /* Bloques de fórmula */
+  .producto-mixto-explicacion .formula {
+    display: inline-block;
+    max-width: 100%;
+    white-space: pre-wrap;
+    background: var(--formula-bg);
+    color: var(--formula-text);
+    border: 1px solid var(--formula-border);
+    border-radius: var(--border-radius);
+    padding: 0.7rem 1rem;
+    font-family: monospace;
+    font-size: 0.95rem;
+    overflow-x: auto;
+    margin: 0.6rem 0 1rem;
+  }
+
+  /* Tipos específicos de fórmulas */
+  .producto-mixto-explicacion .formula-matrix {
+    display: inline-block;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    font-family: monospace;
+    line-height: 1.5;
+  }
+
+  .producto-mixto-explicacion .formula-inline {
+    display: inline;
+    padding: 0.2rem 0.4rem;
+  }
+
+  /* Grupo de propiedades (tres tarjetitas) */
+  .producto-mixto-explicacion .propiedades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.2rem 0;
+  }
+  .producto-mixto-explicacion .propiedad {
+    flex: 1 1 200px;
+    background: var(--card-hover);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    border-left: 4px solid var(--color-algebra);
+  }
+  .producto-mixto-explicacion .propiedad p {
+    margin: 0.4rem 0 0;
+    color: var(--formula-secondary-text);
+  }
+
+  /* Listas */
+  .producto-mixto-explicacion ul {
+    margin-left: 1rem;
+    list-style: disc;
+  }
+  .producto-mixto-explicacion li {
+    margin: 0.4rem 0;
+  }
+
+  /* Responsive: ocupa toda la anchura en pantallas estrechas */
+  @media (max-width: 768px) {
+    .producto-mixto-explicacion {
+      padding: 1rem;
+    }
+  }
+}
+
+/* Ajustes de contraste en modo oscuro */
+[data-theme="dark"] .algebra-page {
+  .producto-mixto-canvas {
+    background-color: #121212;
+  }
+  
+  .producto-mixto-controls,
+  .producto-mixto-calculation,
+  .producto-mixto-explicacion {
+    background: var(--card-bg);
+    border-color: var(--color-algebra-dark) !important;
+  }
+
+  .producto-mixto-explicacion .propiedad {
+    background: var(--table-row-even);
+  }
+
+  .producto-mixto-math {
+    background: var(--formula-bg);
+    color: var(--formula-text);
+    border-color: var(--formula-border);
+  }
+}
+
+.producto-mixto-contexto h3 {
+  color: var(--color-primary-dark);
+}
+
+:root {
+  /* Colores base (modo claro) */
+  --color-cards: #ffffff;
+  --color-titulos: #2d3748;
+  --color-parrafos: #4a5568;
+  --color-boton-editar: #4299e1;
+  --color-boton-eliminar: #e53e3e;
+  --color-borde: #e2e8f0;
+  --color-sombra: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  /* Modo oscuro */
+  --color-cards: #1a202c;
+  --color-titulos: #e2e8f0;
+  --color-parrafos: #cbd5e0;
+  --color-boton-editar: #63b3ed;
+  --color-boton-eliminar: #fc8181;
+  --color-borde: #2d3748;
+  --color-sombra: rgba(0, 0, 0, 0.3);
+  --header-bg: #0f172a;
+  --header-text: #e2e8f0;
+  --header-line-color-index: #ffffff;
+}
+
+/* Animaciones */
+@keyframes checkPop {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

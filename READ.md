@@ -34,26 +34,9 @@ Directory structure:
 ├── docs/
 │ ├── index.html
 │ ├── .nojekyll
-│ ├── back-end/
-│ │ └── django_api/
-│ │ ├── manage.py
-│ │ ├── django_api/
-│ │ │ ├── **init**.py
-│ │ │ ├── asgi.py
-│ │ │ ├── settings.py
-│ │ │ ├── urls.py
-│ │ │ └── wsgi.py
-│ │ └── tps/
-│ │ ├── **init**.py
-│ │ ├── admin.py
-│ │ ├── apps.py
-│ │ ├── models.py
-│ │ ├── tests.py
-│ │ └── views.py
 │ └── front-end/
 │ ├── assets/
 │ │ ├── css/
-│ │ │ ├── ia.css
 │ │ │ ├── main.css
 │ │ │ ├── base/
 │ │ │ │ ├── \_reset.css
@@ -63,7 +46,8 @@ Directory structure:
 │ │ │ │ ├── \_buttons.css
 │ │ │ │ ├── \_cards.css
 │ │ │ │ ├── \_code.css
-│ │ │ │ └── \_header.css
+│ │ │ │ ├── \_header.css
+│ │ │ │ └── \_tables.css
 │ │ │ ├── layout/
 │ │ │ │ ├── \_grid.css
 │ │ │ │ └── \_navigation.css
@@ -74,7 +58,8 @@ Directory structure:
 │ │ │ │ ├── \_fisica1.css
 │ │ │ │ ├── \_index.css
 │ │ │ │ ├── \_logica.css
-│ │ │ │ └── \_procesos.css
+│ │ │ │ ├── \_procesos.css
+│ │ │ │ └── \_producto_mixto.css
 │ │ │ ├── themes/
 │ │ │ │ └── \_dark-light.css
 │ │ │ └── utilities/
@@ -84,6 +69,7 @@ Directory structure:
 │ │ ├── color_theme.js
 │ │ ├── copy.js
 │ │ ├── index.js
+│ │ ├── producto_mixto.js
 │ │ ├── selector_puntos.js
 │ │ └── theme.js
 │ └── materias/
@@ -98,10 +84,12 @@ Directory structure:
 │ │ ├── tp2_selector_algebra.html
 │ │ ├── tp3_selector_algebra.html
 │ │ ├── tp4_selector_algebra.html
-│ │ └── tp5_selector_algebra.html
+│ │ ├── tp5_selector_algebra.html
+│ │ └── tp_grupal_algebra.html
 │ ├── algoritmos/
 │ │ ├── tp1_algoritmos.html
-│ │ └── tp2_algoritmos.html
+│ │ ├── tp2_algoritmos.html
+│ │ └── tp3_algoritmos.html
 │ ├── arquitectura/
 │ │ ├── tp1_arquitectura.html
 │ │ ├── tp2_arquitectura.html
@@ -115,7 +103,8 @@ Directory structure:
 │ │ ├── tp1_fisica1.html
 │ │ ├── tp2_fisica1.html
 │ │ ├── tp3_fisica1.html
-│ │ └── tp4_fisica1.html
+│ │ ├── tp4_fisica1.html
+│ │ └── tp5_fisica1.html
 │ ├── logica/
 │ │ ├── tp1_logica.html
 │ │ ├── tp2_logica.html
@@ -130,6 +119,8 @@ Directory structure:
 │ ├── tp4_sistemas_procesos.html
 │ ├── tp5_sistemas_procesos.html
 │ └── tp6_sistemas_procesos.html
+├── Parciales/
+│ └── Parcial_1.c
 ├── TP Grupales/
 │ └── grupal.c
 ├── TP1/
