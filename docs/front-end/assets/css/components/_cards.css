@@ -157,7 +157,6 @@
     background: var(--card-bg);
     border-radius: var(--border-radius);
     padding: 1.5rem;
-    margin: 1rem auto;
     max-width: var(--max-width);
     box-shadow: var(--shadow);
     border: var(--card-border);

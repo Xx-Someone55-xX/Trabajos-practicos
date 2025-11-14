@@ -1,0 +1,149 @@
+/*
+ * Archivo: _laboratorio_algebra.css
+ * Estilos específicos para la página laboratorio_algebra.html
+ */
+
+/* Contenedor principal de la página */
+.lab-ia-container {
+    max-width: var(--max-width, 1200px);
+    margin: 2rem auto;
+    padding: 0 var(--spacing, 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* * Asegura que las listas (como la de 'Integrantes')
+ * se alineen correctamente.
+ */
+.punto-card ul {
+    list-style-position: inside; 
+    padding-left: 0; 
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.integrantes-list li {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+/* --- NUEVOS ESTILOS AÑADIDOS --- */
+
+/* Estilos para el título y subtítulo de la primera tarjeta */
+.main-title {
+    color: var(--color-algebra, #F1C40F); /* Usa el color del tema */
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.main-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted, #94a3b8);
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Divisor horizontal para separar secciones dentro de una tarjeta */
+.card-divider {
+    border: none;
+    height: 1px;
+    background-color: var(--table-border-color, #4a5568);
+    margin: 1.5rem 0;
+}
+
+/* Contenedor para los pasos de Bhaskara */
+.bhaskara-steps {
+    margin-top: 1.5rem;
+}
+
+.bhaskara-steps h3 {
+    color: var(--color-algebra, #F1C40F);
+    margin-bottom: 1rem;
+}
+
+.bhaskara-steps p {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo para la fórmula de Bhaskara (heredado de tu ia.css) */
+.formula-matrix {
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0.7rem 1rem;
+    font-family: monospace;
+    margin: 0.6rem 0;
+    background: var(--formula-bg);
+    color: var(--formula-text);
+    border: 1px solid var(--formula-border);
+    border-radius: var(--border-radius);
+}
+
+/* --- Estilos para Fórmula Bhaskara --- */
+
+.formula-bhaskara {
+    /* Reutiliza el fondo y bordes de otras fórmulas */
+    background: var(--formula-bg, #f0f0f0);
+    border: 1px solid var(--formula-border, #ccc);
+    border-radius: var(--border-radius, 8px);
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+    
+    /* Contenedor principal de la fórmula */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    
+    /* Estilos de fuente (Times New Roman se ve muy bien para matemática) */
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6em; /* Un poco más grande para que se luzca */
+    color: var(--formula-text, #333);
+    overflow-x: auto; /* Para pantallas muy chicas */
+}
+
+.formula-bhaskara .variable {
+    font-style: italic;
+    font-weight: bold;
+    margin-right: 0.25em;
+}
+
+.formula-bhaskara .fraction {
+    /* El contenedor de la fracción */
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.formula-bhaskara .numerator {
+    /* La parte de arriba */
+    padding: 0.25em 0.5em;
+    /* La línea de la fracción, usando el color de tu tema */
+    border-bottom: 2px solid var(--formula-border, #ccc); 
+    white-space: nowrap;
+}
+
+.formula-bhaskara .denominator {
+    /* La parte de abajo */
+    padding: 0.25em 0.5em;
+    white-space: nowrap;
+}
+
+.formula-bhaskara .sqrt-content {
+    /* Esta es la 'casita' de la raíz cuadrada */
+    border-top: 2px solid var(--text-color, #333);
+    padding: 0 0.4em;
+    margin-left: -0.2em; /* Pega la línea al símbolo raíz (radic) */
+}
+
+.formula-bhaskara sup {
+    /* El '2' del b² */
+    vertical-align: super;
+    font-size: 0.7em;
+    margin-left: 0.1em;
+}

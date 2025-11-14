@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio IA - Álgebra</title>
+    
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    
+    <link rel="stylesheet" href="_lab_ia.css">
+    
+    <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+</head>
+<body class="algebra-page"> 
+
+    <header class="header">
+        <div class="header-container">
+            <nav class="container">
+                <a href="../algebra.html" class="btn-volver">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>Volver</span>
+                </a>
+                <button class="theme-btn" aria-label="Cambiar tema">
+                    <svg class="theme-icon moon-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1-8.313-12.454z"/>
+                    </svg>
+                    <svg class="theme-icon sun-icon" aria-hidden="true" style="display: none;" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.5 4.9l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1zm14.2 14.2l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1zm-14.2 0l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4zm14.2-14.2l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4z"/>
+                    </svg>
+                </button>
+            </nav>
+            <div class="header-line"></div>
+        </div>
+    </header>
+
+    <main class="lab-ia-container">
+        
+        <div class="punto-card">
+            <h3 class="main-title">Laboratorio de Álgebra y Geometría Analítica</h3>
+            <p class="main-subtitle">Resolviendo con IA en Álgebra y Geometría Analítica</p>
+            
+            <hr class="card-divider">
+
+            <h2>Integrantes</h2>
+            <ul class="integrantes-list">
+                <li>Flores Pedro (34744)</li>
+                <li>Giusso Agustín (34776)</li>
+            </ul>
+        </div>
+
+        <div class="punto-card">
+            <h2>Actividad 1</h2>
+            <p>En el primer caso, las tres herramientas de IA (Gemini, ChatGPT y Photomath) resolvieron el problema prácticamente igual. La utilización inicial de Gemini ayudó a la comprensión del ejercicio, fue la primera en ser usada y la más clara, mostrando que era posible llegar al resultado mediante una diferencia de cuadrados.</p>
+            <p>Posteriormente, la expresión se simplifica con el denominador común <code>(x-3)(x+3)</code>. Es notable que ninguna de las herramientas proporcionó los valores que se obtendrían al aplicar Bhaskara al multiplicar el denominador por 0. Solo presentaron la ecuación simplificada, indicando el dominio como los números reales a excepción de 3 y -3.</p>
+        </div>
+
+        <div class="punto-card">
+            <h2>Actividad 2</h2>
+            <p>Para la segunda actividad, fue necesario solicitar estrictamente el resultado final sin el procedimiento, ya que las aplicaciones suelen mostrar el proceso al introducir solo la ecuación. Solo una de las herramientas se equivocó en los resultados por un signo (los resultados correctos son <code>2</code> y <code>-1/3</code>).</p>
+            <p>Se considera fundamental conocer los pasos para verificar la exactitud del resultado y para poder resolver el ejercicio en un parcial, donde solo proporcionar la respuesta final no es suficiente.</p>
+
+            <hr class="card-divider">
+            <div class="bhaskara-steps">
+                <h3>Resolución con Bhaskara: <code>3x² - 5x = 2</code></h3>
+                
+                <p><strong>Paso 1:</strong> Escribir la ecuación en su forma general (ax² + bx + c = 0).</p>
+                <div class="code-box">
+                    <pre>3x² - 5x - 2 = 0</pre>
+                </div>
+
+                <p><strong>Paso 2:</strong> Identificar los coeficientes <code>a</code>, <code>b</code> y <code>c</code>.</p>
+                <ul>
+                    <li><code>a = 3</code></li>
+                    <li><code>b = -5</code></li>
+                    <li><code>c = -2</code></li>
+                </ul>
+
+                <p><strong>Paso 3:</strong> Aplicar la fórmula de Bhaskara (cuadrática).</p>
+                <div class="formula-bhaskara">
+                    <span class="variable">x =</span>
+                    <div class="fraction">
+                        <span class="numerator">-b &pm; &radic;<span class="sqrt-content">b<sup>2</sup> - 4ac</span></span>
+                        <span class="denominator">2a</span>
+                    </div>
+                </div>
+
+                <p><strong>Paso 4:</strong> Calcular el discriminante (Δ = b² - 4ac).</p>
+                <div class="code-box">
+                    <pre>
+Δ = (-5)² - 4(3)(-2)
+Δ = 25 - (-24)
+Δ = 25 + 24
+Δ = 49
+</pre>
+                </div>
+                
+                <p><strong>Paso 5:</strong> Reemplazar los valores en la fórmula.</p>
+                <div class="code-box">
+                    <pre>
+x = ( -(-5) ± √49 ) / ( 2 * 3 )
+x = ( 5 ± 7 ) / 6
+</pre>
+                </div>
+
+                <p><strong>Paso 6:</strong> Calcular las dos raíces (x₁ y x₂).</p>
+                <div class="code-box">
+                    <pre>
+x₁ = ( 5 + 7 ) / 6 = 12 / 6 = 2
+
+x₂ = ( 5 - 7 ) / 6 = -2 / 6 = -1/3
+</pre>
+                </div>
+                <p><strong>Resultado:</strong> Las soluciones son <code>x = 2</code> y <code>x = -1/3</code>.</p>
+            </div>
+            </div>
+
+        <div class="punto-card">
+            <h2>Actividad 3</h2>
+            <p><strong>Problema:</strong></p>
+            <div class="code-box">
+                <pre>
+g(x) = 5x + 3x² − 6
+f(x) = 2x − 17
+Resolver: (f∘g)(x) = f(g(x))
+                </pre>
+            </div>
+            <p>Se observó que ChatGPT tuvo dificultades para completar la resolución. Al utilizar una aplicación de IA repetidamente y presentarle un problema complejo, si no se explican los pasos necesarios con claridad, la herramienta tiende a no resolverlo o a no alcanzar el resultado deseado.</p>
+        </div>
+
+        <div class="punto-card">
+            <h2>Reflexión final</h2>
+            <p>El uso de las inteligencias artificiales se considera parte de la nueva era. No se percibe como un reemplazo inminente del ser humano, sino como una herramienta significativa que facilita el trabajo. Puede emplearse en tareas sencillas, liberando tiempo que puede ser utilizado para la reflexión y la resolución de problemas más complejos.</p>
+            <p>Además, dado que los humanos podemos olvidar detalles, fórmulas o resoluciones si estamos "oxidados", la IA puede ayudar a reforzar el conocimiento ya existente, especialmente al identificar sus errores. Es una herramienta poderosa que debe usarse “con respeto”.</p>
+            <p>No se recomienda usarla para realizar acciones sobre un tema desconocido, ya que esto dejaría al usuario completamente dependiente de ella, lo cual no es el propósito de la herramienta.</p>
+
+            <h3>Dato adicional</h3>
+            <p>Como dato adicional, en el ámbito laboral la IA ya es utilizada para el desarrollo de aplicaciones. No se le encarga la creación de una aplicación completa, sino que se emplea para tareas menores que requieren tiempo de escritura, pero que no son complejas en sí mismas.</p>
+        </div>
+
+    </main>
+    
+    <script src="../../assets/js/theme.js"></script>
+    
+</body>
+</html>
