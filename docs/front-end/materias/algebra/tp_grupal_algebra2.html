@@ -51,12 +51,12 @@
 
             <h3>La Recta en R² (Plano 2D)</h3>
             <ul>
-                <li><strong>Ecuación General (Implícita):</strong> <code>Ax + By + C = 0</code>. Define la recta como una relación donde A, B y C son constantes.</li>
-                <li><strong>Ecuación Explícita (Pendiente-Ordenada):</strong> <code>y = mx + d</code>. Es la más usada para visualización, donde <code>m</code> es la pendiente y <code>d</code> la ordenada al origen.</li>
+                <li><strong>Ecuación General (Implícita):</strong> <code>Ax + By + C = 0</code>.</li>
+                <li><strong>Ecuación Explícita (Pendiente-Ordenada):</strong> <code>y = mx + d</code>.</li>
             </ul>
             
-            <h4>Derivación de la Explícita</h4>
-            <p>Para obtener la ecuación explícita (usada en el Ejemplo 1) partiendo de la general, simplemente despejamos <code>y</code>:</p>
+            <h4>Derivación de la Explícita (Recta)</h4>
+            <p>Para obtener la ecuación explícita partiendo de la general, despejamos <code>y</code>:</p>
             <div class="code-box">
                 <pre>
 Ecuación General: Ax + By + C = 0
@@ -73,23 +73,23 @@ y = mx + d
 
             <h3>El Plano en R³ (Espacio 3D)</h3>
             <ul>
-                <li><strong>Ecuación General (Implícita):</strong> <code>Ax + By + Cz + D = 0</code>. Un vector normal al plano es <code>n(A, B, C)</code>.</li>
-                <li><strong>Ecuación Explícita:</strong> <code>z = k₁x + k₂y + k₀</code>. Se usa para representar <code>z</code> como una función de <code>x</code> e <code>y</code>.</li>
+                <li><strong>Ecuación General (Implícita):</strong> <code>Ax + By + Cz + D = 0</code>. (Nota: Esta 'C' es el coeficiente de 'z').</li>
+                <li><strong>Ecuación Explícita:</strong> <code>z = Ax + By + &delta;</code>. (Usamos 'A' y 'B' como nuevos coeficientes y '&delta;' como la constante).</li>
             </ul>
 
-            <h4>Derivación de la Explícita</h4>
-            <p>De forma similar, para obtener la ecuación explícita (usada en el Ejemplo 2), despejamos <code>z</code>:</p>
+            <h4>Derivación de la Explícita (Plano)</h4>
+            <p>De forma similar, para obtener la ecuación explícita, despejamos <code>z</code> de la general:</p>
             <div class="code-box">
                 <pre>
 Ecuación General: Ax + By + Cz + D = 0
 Despejamos Cz:     Cz = -Ax - By - D
 Dividimos por C:  z = (-A/C)x + (-B/C)y + (-D/C)
 
-Si renombramos las constantes k₁ = (-A/C), k₂ = (-B/C) y k₀ = (-D/C), obtenemos:
-z = k₁x + k₂y + k₀
+Si renombramos los coeficientes (ej. k₁ = -A/C, k₂ = -B/C) y la constante (ej. &delta; = -D/C), obtenemos:
+z = k₁x + k₂y + &delta;
 </pre>
             </div>
-            <p>Esta es la forma que se usa en el segundo ejemplo (<code>z = 0.6y + 3x + D</code>), donde los coeficientes son <code>k₁=3</code>, <code>k₂=0.6</code> y el término independiente es <code>k₀=D</code>.</p>
+            <p>Esta es la forma que utilizas en tu trabajo (<code>z = 0.6y + 3x + &delta;</code>).</p>
         </div>
         <div class="punto-card">
             <h2>Ejemplo 1: Análisis de rendimiento de un sistema 2D</h2>
@@ -161,12 +161,12 @@ x = 25</pre>
 
         <div class="punto-card">
             <h2>Ejemplo 2: Análisis de rendimiento de un sistema 3D</h2>
-            <p>Calculamos el tiempo de respuesta ('z') sobre la cantidad de usuarios ('x') y el tamaño de archivos ('y'). Usando la ecuación implícita del plano (Ax + By + Cz + D = 0) tenemos: <code>z = 0.6y + 3x + D</code>.</p>
+            <p>Calculamos el tiempo de respuesta ('z') sobre la cantidad de usuarios ('x') y el tamaño de archivos ('y'). Usando la ecuación explícita del plano (z = Ax + By + &delta;) tenemos: <code>z = 0.6y + 3x + &delta;</code>.</p>
             <ul>
                 <li><strong>z</strong>: Es el tiempo de respuesta.</li>
                 <li><strong>x</strong>: Indica la cantidad de usuarios conectados.</li>
                 <li><strong>y</strong>: Indica el tamaño de los archivos solicitados.</li>
-                <li><strong>D</strong>: El valor inicial de z cuando (x,y) valen 0.</li>
+                <li><strong>&delta;</strong>: El valor inicial de z cuando (x,y) valen 0.</li>
             </ul>
 
             <div class="chart-container-3d">
