@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP1: Determinación de Aceleraciones - Física I</title>
+    
+    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <link rel="stylesheet" href="_labs_fisica1.css">
+    <link rel="icon" type="image/png" href="../../../assets/icons/favicon.png">
+</head>
+
+<body class="fisica-page"> 
+    
+    <header class="header">
+        <nav class="container">
+            <a href="../laboratorio_fisica.html" class="btn-volver">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+            </a>
+            
+            <h1 class="logo">TP Nº 1: Física I</h1>
+            
+            <button class="theme-btn" id="theme-toggle">
+                <svg aria-hidden="true" class="sun" width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.5 4.9l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1zm14.2 14.2l1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1zm-14.2 0 2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4zm14.2-14.2l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4z"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="tp-container">
+
+        <div class="punto-card">
+            <h3 class="main-title">TRABAJO PRÁCTICO Nº 1</h3>
+            <p class="main-subtitle">DETERMINACIÓN DE ACELERACIONES</p>
+            <hr class="card-divider">
+            
+            <h2>1. Objetivos del Ensayo</h2>
+            <p>Aplicar, a partir de hechos experimentales, las leyes del movimiento.</p>
+        </div>
+
+        <div class="punto-card">
+            <h2>2. Equipo a Ensayar</h2>
+            <p>Carril.</p>
+
+            <div class="carril-container">
+            <div class="carril-title">Esquema del Montaje Experimental</div>
+
+            <div class="elemento-mesa-pata-izq"></div>
+            <div class="elemento-mesa-pata-der"></div>
+            <div class="elemento-mesa-tapa"></div>
+
+            <div class="elemento-riel"></div>
+
+            <div class="elemento-polea-izq"></div>
+            <div class="elemento-polea-der"></div>
+
+            <div class="elemento-carro">
+            <div class="carro-bandera"></div>
+            <span class="carro-texto">M</span>
+        </div>
+
+        <div class="elemento-sensor-1"><span>S1</span></div>
+        <div class="elemento-sensor-2"><span>S2</span></div>
+
+        <div class="elemento-masa-1"><span>m₁</span></div>
+        <div class="elemento-masa-2"><span>m₂</span></div>
+
+        <div class="cable-horiz-izq"></div>
+        <div class="cable-horiz-der"></div>
+        <div class="cable-vert-izq"></div>
+        <div class="cable-vert-der"></div>
+        </div>
+        </div>
+
+        <div class="punto-card">
+            <h2>3. Componentes</h2>
+            <ul class="componentes-list">
+                <li>Un riel de metal de precisión de 1,5 m (1)</li>
+                <li>Dos ruedas de radios multiuso (2)</li>
+                <li>Un carrito (3)</li>
+                <li>Una bandera (\(\Delta x = 5\) mm) (4)</li>
+                <li>Dos barreras luminosas multiuso (fotogate) (5)</li>
+                <li>Cables de conexión, Porta pesas y Pesas (6, 7, 8)</li>
+                <li>Sistema de adquisición: Pocket-CASSY, CASSY Lab y PC (9, 10)</li>
+            </ul>
+        </div>
+
+        <div class="punto-card">
+            <h2>4. Procedimiento de Ensayo</h2>
+            <h3>I - Primera Parte: Cálculo Dinámico</h3>
+            <p>Se utiliza un carrito de masa <strong>M</strong> unido por una cuerda ideal a dos cuerpos de masas <strong>m₁</strong> y <strong>m₂</strong>. El carrito desliza sobre el riel teóricamente sin rozamiento.</p>
+            
+            <h4 class="table-label">Tabla I: Masas del Sistema</h4>
+            <table class="data-table" style="margin-bottom:25px;" >
+                <thead>
+                    <tr>
+                        <th>M (Masa del Carro) [kg]</th>
+                        <th>m₁ (Masa 1) [kg]</th>
+                        <th>m₂ (Masa 2) [kg]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0,6982</td>
+                        <td>0,0398</td>
+                        <td>0,0100</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <h3>II - Segunda Parte: Cálculo Cinemático</h3>
+            <p>La aceleración se determina indirectamente midiendo velocidades instantáneas con barreras luminosas. La bandera tiene un espesor <strong>\(\Delta x = 0,005\) m</strong>.</p>
+            
+            <div style="font-size: 1.3em; text-align: center; margin: 1rem 0;">
+                $$ v = \frac{\Delta x}{\Delta t} $$
+            </div>
+
+            <p>Los sensores se colocan a una distancia <strong>D = 0,50 m</strong>.</p>
+
+            <h4 class="table-label">Tabla II: Velocidades Medidas</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>n</th>
+                        <th>v₁ [m/s]</th>
+                        <th>v₂ [m/s]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>0,221</td><td>0,669</td></tr>
+                    <tr><td>2</td><td>0,222</td><td>0,663</td></tr>
+                    <tr><td>3</td><td>0,218</td><td>0,643</td></tr>
+                    <tr><td>4</td><td>0,224</td><td>0,650</td></tr>
+                    <tr><td>5</td><td>0,222</td><td>0,665</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="punto-card">
+            <h2>5. Cálculos y Análisis</h2>
+            <p>Utilizando las ecuaciones cinemáticas para un sistema uniformemente acelerado:</p>
+            <div class="code-box">
+                <pre>v₂² = v₁² + 2·a·D</pre>
+            </div>
+            
+            <p>Despejando la aceleración para cada medición <i>i</i>:</p>
+            
+            <div style="font-size: 1.3em; text-align: center; margin: 1rem 0;">
+                $$ a_i = \frac{v_2^2 - v_1^2}{2 \cdot D} $$
+            </div>
+
+            <p style="font-style: italic; color: var(--text-muted); text-align: center; margin-bottom: 1.5rem;">
+                Nota: Dado que la distancia entre sensores es <strong>D = 0,50 m</strong>, el denominador (2·D) resulta igual a <strong>1</strong>. <br>
+                Por lo tanto, para el cálculo numérico la expresión se simplifica a: <strong>\( a_i = v_2^2 - v_1^2 \)</strong>.
+            </p>
+
+            <h4 class="table-label">Tabla de Tratamiento Estadístico</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>n</th>
+                        <th>\(a_i\) [m/s²]</th>
+                        <th>\(\Delta a (\bar{a} - a_i)\)</th>
+                        <th>\((\bar{a} - a_i)^2\)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>0,399</td>
+                        <td>-0,015</td>
+                        <td>0,0002</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>0,390</td>
+                        <td>-0,006</td>
+                        <td>0,0000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>0,366</td>
+                        <td>0,018</td>
+                        <td>0,0003</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>0,372</td>
+                        <td>0,012</td>
+                        <td>0,0001</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>0,393</td>
+                        <td>-0,009</td>
+                        <td>0,0001</td>
+                    </tr>
+                    <tr class="table-summary">
+                        <td colspan="2">
+                            Promedio \( \bar{a} = 0,384 \)
+                        </td>
+                        <td colspan="2">
+                            \( \sum (\bar{a} - a_i)^2 = 0,0008 \)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Cálculo de Errores y Resultado</h3>
+            
+            <div class="result-container">
+                <p><strong>Error Absoluto (Ea):</strong></p>
+                
+                <div style="font-size: 1.4em; margin: 1.5rem 0; text-align: center;">
+                    $$ Ea = \pm \sqrt{ \frac{\sum (\bar{a} - a_i)^2}{n(n - 1)} } = \mathbf{0,006} \text{ m/s}^2 $$
+                </div>
+
+                <p style="text-align: center; font-size: 0.95em; color: var(--text-muted); margin-top: -1rem; margin-bottom: 2rem;">
+                    Donde <strong>n</strong> es el número de mediciones (n = 5).
+                </p>
+
+                <p><strong>Resultado Final:</strong></p>
+                <div class="final-result-box" style="font-size: 1.4em;">
+                    $$ a = (0,384 \pm 0,006) \text{ m/s}^2 $$
+                </div>
+            </div>
+        </div>
+
+        <div class="punto-card">
+            <h2>6. Conclusiones</h2>
+            <div class="conclusion-text">
+                <p>En el presente trabajo práctico se determinó la aceleración de un sistema compuesto por un carrito y masas suspendidas mediante el análisis cinemático, midiendo velocidades instantáneas a través de barreras luminosas (fotogates).</p>
+                <p>Tras realizar el tratamiento estadístico de las mediciones y calcular el error absoluto, se obtuvo un valor experimental para la aceleración de <strong>0,384 m/s²</strong> con una incertidumbre de <strong>&pm; 0,006 m/s²</strong>. Este procedimiento permitió verificar la validez de las ecuaciones del movimiento uniformemente variado (MRUV) en condiciones de laboratorio.</p>
+                <p>Las posibles discrepancias observadas respecto a un modelo ideal pueden atribuirse principalmente a fuerzas de rozamiento no despreciables entre el carrito y el riel, así como a la precisión en la determinación de los tiempos de paso (\(\Delta t\)) de la bandera por los sensores.</p>
+            </div>
+        </div>
+
+    </main>
+
+    
+    <script src="../../../assets/js/formulas_mat.js" defer></script>
+    <script src="../../../assets/js/theme.js"></script>
+</body>
+</html>

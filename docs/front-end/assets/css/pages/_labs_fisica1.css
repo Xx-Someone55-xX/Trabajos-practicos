@@ -1,0 +1,381 @@
+/* * Estilos específicos para TP1_fisica.html 
+ * Hereda variables de main.css (fisica-page)
+ */
+
+.tp-container {
+    max-width: var(--max-width, 1200px);
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Alineación forzada a la izquierda para textos SOLAMENTE dentro de este TP */
+.tp-container .punto-card {
+    text-align: left;
+}
+
+/* Títulos (Limitados al contenedor tp-container) */
+.tp-container .main-title {
+    color: var(--color-fisica, #2ecc71);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.tp-container .main-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted, #94a3b8);
+    margin-top: 0.5rem;
+    color: var(--color-fisica-dark);
+}
+
+.tp-container .card-divider {
+    border: 0;
+    height: 1px;
+    background: var(--table-border-color);
+    margin: 1.5rem 0;
+}
+
+/* Listas */
+.tp-container .componentes-list {
+    list-style-position: inside;
+    padding-left: 0;
+}
+.tp-container .componentes-list li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+/* Tablas */
+.tp-container .table-label {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-fisica);
+    font-weight: 600;
+}
+
+.tp-container .table-summary td {
+    background-color: var(--formula-bg);
+    font-weight: bold;
+    color: var(--formula-text);
+}
+
+/* Fórmulas Simples (Fracciones) */
+.tp-container .formula-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--formula-bg);
+    border: 1px solid var(--formula-border);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-family: "Times New Roman", serif;
+    font-size: 1.4rem;
+    color: var(--formula-text);
+}
+
+.tp-container .fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0.5rem;
+    vertical-align: middle;
+}
+
+.tp-container .fraction .num {
+    border-bottom: 2px solid var(--color-fisica);
+    padding: 0 0.5rem;
+}
+
+.tp-container .fraction .den {
+    padding: 0 0.5rem;
+}
+
+/* Fórmula de Error (Estilo Bhaskara adaptado) */
+/* Al poner .tp-container delante, esto NO afectará a la fórmula de Álgebra */
+.tp-container .formula-bhaskara {
+    background: var(--formula-bg);
+    border: 1px solid var(--formula-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Times New Roman", serif;
+    color: var(--formula-text);
+    overflow-x: auto;
+}
+
+.tp-container .formula-bhaskara .numerator {
+    border-top: 1px solid var(--text-color) !important; /* Línea de la raíz */
+    border-bottom: 2px solid var(--color-fisica) !important; /* Línea fracción */
+    padding: 2px 5px;
+}
+
+/* Resultado Final */
+.tp-container .final-result-box {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1.5rem;
+    border: 2px solid var(--color-fisica);
+    border-radius: 10px;
+    background: var(--card-bg);
+    margin-top: 1rem;
+    color: var(--color-fisica-dark);
+}
+
+.tp-container .placeholder-val {
+    color: var(--text-muted);
+    border-bottom: 1px dashed var(--text-muted);
+    padding: 0 5px;
+}
+
+/* Textarea Conclusiones */
+.tp-container .conclusiones-input, 
+.tp-container .conclusion-text {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--table-border-color);
+    background: var(--card-hover);
+    color: var(--text-color);
+    font-family: inherit;
+    resize: vertical;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   ESQUEMA DE LABORATORIO - CONTROL TOTAL
+   ============================================================ */
+
+/* --- CONTENEDOR PRINCIPAL (El Lienzo) --- */
+.tp-container .carril-container {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    height: 350px; /* Altura total del dibujo */
+    margin: 2rem auto;
+    background-color: var(--card-bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.tp-container .carril-title {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ============================================================
+   1. LA MESA (Soporte)
+   ============================================================ */
+
+/* Tapa de la mesa */
+.tp-container .elemento-mesa-tapa {
+    position: absolute;
+    /* CAMBIAR ESTOS VALORES PARA MOVER LA TABLA */
+    top: 130px;      
+    left: 50px;
+    right: 50px;
+    height: 15px;
+    background-color: #8B4513; /* Color Marrón */
+    border-radius: 3px;
+    z-index: 1;
+}
+
+/* Pata Izquierda */
+.tp-container .elemento-mesa-pata-izq {
+    position: absolute;
+    top: 145px; /* Justo debajo de la tapa */
+    left: 80px;
+    width: 15px;
+    height: 180px; /* Largo de la pata */
+    background-color: #A0522D;
+}
+
+/* Pata Derecha */
+.tp-container .elemento-mesa-pata-der {
+    position: absolute;
+    top: 145px;
+    right: 80px;
+    width: 15px;
+    height: 180px;
+    background-color: #A0522D;
+}
+
+/* ============================================================
+   2. EL RIEL (Base gris)
+   ============================================================ */
+.tp-container .elemento-riel {
+    position: absolute;
+    /* POSICIÓN DEL RIEL */
+    top: 120px;  /* 10px arriba de la mesa */
+    left: 50px;
+    right: 50px;
+    height: 10px;
+    background: #555;
+    border-radius: 2px;
+    z-index: 2;
+}
+
+/* ============================================================
+   3. LAS POLEAS (Circunferencias en los extremos)
+   ============================================================ */
+/* Estilo común para ambas */
+.tp-container .elemento-polea-izq,
+.tp-container .elemento-polea-der {
+    position: absolute;
+    width: 30px;  /* Tamaño */
+    height: 30px; /* Tamaño */
+    border-radius: 50%;
+    background: #ccc;
+    border: 3px solid #333;
+    z-index: 3;
+}
+
+/* Posición Polea Izquierda */
+.tp-container .elemento-polea-izq {
+    top: 100px;  /* Debe coincidir para que la cuerda salga recta */
+    left: 35px;  /* Sobresaliendo un poco del riel */
+}
+
+/* Posición Polea Derecha */
+.tp-container .elemento-polea-der {
+    top: 100px;
+    right: 35px;
+}
+
+/* ============================================================
+   4. EL CARRO (Masa M)
+   ============================================================ */
+.tp-container .elemento-carro {
+    position: absolute;
+    /* POSICIÓN DEL CARRO */
+    top: 90px;   /* Apoyado en el riel (riel en 120 - 30 alto carro = 90) */
+    left: 45%;   /* Centrado horizontalmente (ajustar % para mover) */
+    width: 80px;
+    height: 30px;
+    background: var(--color-fisica);
+    border: 2px solid var(--color-fisica-dark);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+.tp-container .carro-texto { color: white; font-weight: bold; }
+
+/* ============================================================
+   5. LOS SENSORES (S1 y S2)
+   ============================================================ */
+/* Estilo común */
+.tp-container .elemento-sensor-1,
+.tp-container .elemento-sensor-2 {
+    position: absolute;
+    width: 15px;
+    height: 35px;
+    background: #2c3e50;
+    border: 1px solid #999;
+    z-index: 5; /* Encima de todo */
+}
+.tp-container .elemento-sensor-1 span,
+.tp-container .elemento-sensor-2 span {
+    position: absolute;
+    top: -20px; left: -2px; font-size: 0.8em; color: #666;
+}
+
+/* Ubicación Sensor 1 */
+.tp-container .elemento-sensor-1 {
+    top: 90px;  /* Alineado con el carro */
+    left: 25%;  /* Posición horizontal */
+}
+
+/* Ubicación Sensor 2 */
+.tp-container .elemento-sensor-2 {
+    top: 90px; 
+    left: 75%;
+}
+
+/* ============================================================
+   6. LAS MASAS COLGANTES (m1 y m2)
+   ============================================================ */
+.tp-container .elemento-masa-1,
+.tp-container .elemento-masa-2 {
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    background: #444;
+    color: white;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    z-index: 3;
+}
+
+/* Masa 1 (Izquierda) */
+.tp-container .elemento-masa-1 {
+    top: 220px;  /* Qué tan abajo cuelga */
+    left: 25px;  /* Alineado verticalmente con la polea izq */
+}
+
+/* Masa 2 (Derecha) */
+.tp-container .elemento-masa-2 {
+    top: 200px;  /* Qué tan abajo cuelga */
+    right: 25px; /* Alineado verticalmente con la polea der */
+}
+
+/* ============================================================
+   7. LOS CABLES (Líneas negras)
+   ============================================================ */
+/* Estilo base de cable */
+.tp-container div[class^="cable-"] {
+    background-color: black;
+    position: absolute;
+    z-index: 2;
+}
+
+/* --- CABLE HORIZONTAL IZQUIERDO --- */
+.tp-container .cable-horiz-izq {
+    height: 2px;
+    top: 100px;  /* Alineado con la parte superior de la polea */
+    left: 50px;  /* Desde la polea */
+    width: calc(45% - 50px); /* Hasta el carro (45% es el left del carro) */
+}
+
+/* --- CABLE HORIZONTAL DERECHO --- */
+.tp-container .cable-horiz-der {
+    height: 2px;
+    top: 100px;
+    right: 50px; /* Desde la polea derecha */
+    /* Calculo complejo: 100% - (left del carro + ancho del carro) - margen der */
+    width: calc(100% - (45% + 80px) - 50px); 
+}
+
+/* --- CABLE VERTICAL IZQUIERDO --- */
+.tp-container .cable-vert-izq {
+    width: 2px;
+    top: 115px;  /* Centro de la polea */
+    left: 35px;  /* Borde externo de la polea */
+    height: 105px; /* Llega hasta la masa 1 (top masa - top cable) */
+}
+
+/* --- CABLE VERTICAL DERECHO --- */
+.tp-container .cable-vert-der {
+    width: 2px;
+    top: 115px;
+    right: 35px;
+    height: 85px; /* Llega hasta la masa 2 */
+}

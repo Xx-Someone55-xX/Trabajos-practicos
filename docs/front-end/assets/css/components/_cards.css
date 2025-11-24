@@ -101,19 +101,26 @@
 [data-theme="dark"] .materia-card:nth-child(1) .materia-icon {
     filter: brightness(1.3);
 }
-/* ... similares para los otros ítems */
 
 /* ===== Tarjetas de Trabajos ===== */
 .trabajos-grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Las mantiene centradas */
     gap: 2rem;
     padding: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     max-width: var(--max-width);
     margin: 2rem auto;
 }
 
 .trabajo-card {
+    /* CAMBIO CLAVE AQUÍ: */
+    /* flex: grow shrink basis */
+    /* 0: NO crecer (para que no se estiren si sobran espacios) */
+    /* 1: SÍ encoger (para móviles) */
+    /* 350px: Ancho ideal de la tarjeta (aumenté un poco de 300 a 350 para que se vean mejor) */
+    flex: 0 1 350px; 
+    
     background: var(--card-bg);
     border-radius: var(--border-radius);
     padding: 1.5rem;
@@ -126,6 +133,13 @@
     position: relative;
     overflow: hidden;
     border-left: 4px solid var(--theme-color, #ccc);
+}
+
+/* MANTENEMOS TU CASO ESPECIAL */
+/* Si hay UNA SOLA tarjeta en total, dejamos que ocupe todo */
+.trabajo-card:only-child {
+    flex: 1 0 auto;  /* Aquí sí le permitimos crecer */
+    max-width: 100%; 
 }
 
 .trabajo-card:hover {

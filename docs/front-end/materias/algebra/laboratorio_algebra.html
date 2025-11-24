@@ -6,9 +6,7 @@
     <title>Laboratorio IA - Álgebra</title>
     
     <link rel="stylesheet" href="../../assets/css/main.css">
-    
     <link rel="stylesheet" href="_lab_ia.css">
-    
     <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
 </head>
 <body class="algebra-page"> 
@@ -21,7 +19,6 @@
                         <line x1="19" y1="12" x2="5" y2="12"></line>
                         <polyline points="12 19 5 12 12 5"></polyline>
                     </svg>
-                    <span>Volver</span>
                 </a>
                 <button class="theme-btn" aria-label="Cambiar tema">
                     <svg class="theme-icon moon-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24">
@@ -66,66 +63,53 @@
             <div class="bhaskara-steps">
                 <h3>Resolución con Bhaskara: <code>3x² - 5x = 2</code></h3>
                 
-                <p><strong>Paso 1:</strong> Escribir la ecuación en su forma general (ax² + bx + c = 0).</p>
-                <div class="code-box">
-                    <pre>3x² - 5x - 2 = 0</pre>
+                <p><strong>Paso 1:</strong> Escribir la ecuación en su forma general (\(ax^2 + bx + c = 0\)).</p>
+                <div style="text-align: center; margin: 1rem 0; font-size: 1.2em;">
+                    $$ 3x^2 - 5x - 2 = 0 $$
                 </div>
 
                 <p><strong>Paso 2:</strong> Identificar los coeficientes <code>a</code>, <code>b</code> y <code>c</code>.</p>
                 <ul>
-                    <li><code>a = 3</code></li>
-                    <li><code>b = -5</code></li>
-                    <li><code>c = -2</code></li>
+                    <li>\( a = 3 \)</li>
+                    <li>\( b = -5 \)</li>
+                    <li>\( c = -2 \)</li>
                 </ul>
 
                 <p><strong>Paso 3:</strong> Aplicar la fórmula de Bhaskara (cuadrática).</p>
-                <div class="formula-bhaskara">
-                    <span class="variable">x =</span>
-                    <div class="fraction">
-                        <span class="numerator">-b &pm; &radic;<span class="sqrt-content">b<sup>2</sup> - 4ac</span></span>
-                        <span class="denominator">2a</span>
-                    </div>
+                <div style="text-align: center; margin: 1.5rem 0; font-size: 1.3em;">
+                    $$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
                 </div>
 
-                <p><strong>Paso 4:</strong> Calcular el discriminante (Δ = b² - 4ac).</p>
-                <div class="code-box">
-                    <pre>
-Δ = (-5)² - 4(3)(-2)
-Δ = 25 - (-24)
-Δ = 25 + 24
-Δ = 49
-</pre>
+                <p><strong>Paso 4:</strong> Calcular el discriminante (\(\Delta = b^2 - 4ac\)).</p>
+                <div style="text-align: center; margin: 1rem 0;">
+                    $$ \Delta = (-5)^2 - 4(3)(-2) $$
+                    $$ \Delta = 25 - (-24) = 49 $$
                 </div>
                 
                 <p><strong>Paso 5:</strong> Reemplazar los valores en la fórmula.</p>
-                <div class="code-box">
-                    <pre>
-x = ( -(-5) ± √49 ) / ( 2 * 3 )
-x = ( 5 ± 7 ) / 6
-</pre>
+                <div style="text-align: center; margin: 1rem 0; font-size: 1.2em;">
+                    $$ x = \frac{-(-5) \pm \sqrt{49}}{2 \cdot 3} = \frac{5 \pm 7}{6} $$
                 </div>
 
-                <p><strong>Paso 6:</strong> Calcular las dos raíces (x₁ y x₂).</p>
-                <div class="code-box">
-                    <pre>
-x₁ = ( 5 + 7 ) / 6 = 12 / 6 = 2
-
-x₂ = ( 5 - 7 ) / 6 = -2 / 6 = -1/3
-</pre>
+                <p><strong>Paso 6:</strong> Calcular las dos raíces (\(x_1\) y \(x_2\)).</p>
+                <div style="text-align: center; margin: 1rem 0; font-size: 1.2em;">
+                    $$ x_1 = \frac{5 + 7}{6} = \frac{12}{6} = 2 $$
+                    <br>
+                    $$ x_2 = \frac{5 - 7}{6} = \frac{-2}{6} = -\frac{1}{3} $$
                 </div>
-                <p><strong>Resultado:</strong> Las soluciones son <code>x = 2</code> y <code>x = -1/3</code>.</p>
+                <p><strong>Resultado:</strong> Las soluciones son \( x = 2 \) y \( x = -1/3 \).</p>
             </div>
-            </div>
+        </div>
 
         <div class="punto-card">
             <h2>Actividad 3</h2>
             <p><strong>Problema:</strong></p>
-            <div class="code-box">
-                <pre>
-g(x) = 5x + 3x² − 6
-f(x) = 2x − 17
-Resolver: (f∘g)(x) = f(g(x))
-                </pre>
+            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.2em;">
+                $$ g(x) = 5x + 3x^2 - 6 $$
+                $$ f(x) = 2x - 17 $$
+                <br>
+                <strong>Resolver:</strong>
+                $$ (f \circ g)(x) = f(g(x)) $$
             </div>
             <p>Se observó que ChatGPT tuvo dificultades para completar la resolución. Al utilizar una aplicación de IA repetidamente y presentarle un problema complejo, si no se explican los pasos necesarios con claridad, la herramienta tiende a no resolverlo o a no alcanzar el resultado deseado.</p>
         </div>
@@ -142,6 +126,7 @@ Resolver: (f∘g)(x) = f(g(x))
 
     </main>
     
+    <script src="../../assets/js/formulas_mat.js"></script>
     <script src="../../assets/js/theme.js"></script>
     
 </body>
