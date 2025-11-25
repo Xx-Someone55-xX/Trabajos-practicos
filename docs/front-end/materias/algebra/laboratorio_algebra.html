@@ -6,12 +6,8 @@
     <title>Laboratorio IA - Álgebra</title>
     
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="_lab_ia.css">
-    <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
 </head>
-<body class="algebra-page"> 
-
-    <header class="header">
+<body class="algebra-page"> <header class="header">
         <div class="header-container">
             <nav class="container">
                 <a href="../algebra.html" class="btn-volver">
@@ -33,12 +29,11 @@
         </div>
     </header>
 
-    <main class="lab-ia-container">
+    <main class="lab-algebra-container">
         
         <div class="punto-card">
-            <h3 class="main-title">Laboratorio de Álgebra y Geometría Analítica</h3>
-            <p class="main-subtitle">Resolviendo con IA en Álgebra y Geometría Analítica</p>
-            
+            <h3 class="main-title">LABORATORIO DE ÁLGEBRA</h3>
+            <p class="main-subtitle">RESOLVIENDO CON IA EN ÁLGEBRA Y GEOMETRÍA ANALÍTICA</p>
             <hr class="card-divider">
 
             <h2>Integrantes</h2>
@@ -60,39 +55,31 @@
             <p>Se considera fundamental conocer los pasos para verificar la exactitud del resultado y para poder resolver el ejercicio en un parcial, donde solo proporcionar la respuesta final no es suficiente.</p>
 
             <hr class="card-divider">
+            
             <div class="bhaskara-steps">
                 <h3>Resolución con Bhaskara: <code>3x² - 5x = 2</code></h3>
                 
                 <p><strong>Paso 1:</strong> Escribir la ecuación en su forma general (\(ax^2 + bx + c = 0\)).</p>
-                <div style="text-align: center; margin: 1rem 0; font-size: 1.2em;">
-                    $$ 3x^2 - 5x - 2 = 0 $$
-                </div>
+                <div class="formula-box">$$ 3x^2 - 5x - 2 = 0 $$</div>
 
-                <p><strong>Paso 2:</strong> Identificar los coeficientes <code>a</code>, <code>b</code> y <code>c</code>.</p>
-                <ul>
+                <p><strong>Paso 2:</strong> Identificar los coeficientes:</p>
+                <ul style="list-style-type: none; padding-left: 20px;">
                     <li>\( a = 3 \)</li>
                     <li>\( b = -5 \)</li>
                     <li>\( c = -2 \)</li>
                 </ul>
 
-                <p><strong>Paso 3:</strong> Aplicar la fórmula de Bhaskara (cuadrática).</p>
-                <div style="text-align: center; margin: 1.5rem 0; font-size: 1.3em;">
-                    $$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
-                </div>
+                <p><strong>Paso 3:</strong> Aplicar la fórmula cuadrática.</p>
+                <div class="formula-box">$$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</div>
 
-                <p><strong>Paso 4:</strong> Calcular el discriminante (\(\Delta = b^2 - 4ac\)).</p>
-                <div style="text-align: center; margin: 1rem 0;">
-                    $$ \Delta = (-5)^2 - 4(3)(-2) $$
-                    $$ \Delta = 25 - (-24) = 49 $$
-                </div>
+                <p><strong>Paso 4:</strong> Calcular el discriminante (\(\Delta\)).</p>
+                <div class="formula-box">$$ \Delta = (-5)^2 - 4(3)(-2) = 25 + 24 = 49 $$</div>
                 
-                <p><strong>Paso 5:</strong> Reemplazar los valores en la fórmula.</p>
-                <div style="text-align: center; margin: 1rem 0; font-size: 1.2em;">
-                    $$ x = \frac{-(-5) \pm \sqrt{49}}{2 \cdot 3} = \frac{5 \pm 7}{6} $$
-                </div>
+                <p><strong>Paso 5:</strong> Reemplazar valores.</p>
+                <div class="formula-box">$$ x = \frac{-(-5) \pm \sqrt{49}}{2 \cdot 3} = \frac{5 \pm 7}{6} $$</div>
 
-                <p><strong>Paso 6:</strong> Calcular las dos raíces (\(x_1\) y \(x_2\)).</p>
-                <div style="text-align: center; margin: 1rem 0; font-size: 1.2em;">
+                <p><strong>Paso 6:</strong> Calcular las raíces.</p>
+                <div class="formula-box">
                     $$ x_1 = \frac{5 + 7}{6} = \frac{12}{6} = 2 $$
                     <br>
                     $$ x_2 = \frac{5 - 7}{6} = \frac{-2}{6} = -\frac{1}{3} $$
@@ -103,31 +90,31 @@
 
         <div class="punto-card">
             <h2>Actividad 3</h2>
-            <p><strong>Problema:</strong></p>
-            <div style="text-align: center; margin: 1.5rem 0; font-size: 1.2em;">
+            <p><strong>Problema:</strong> Dadas las funciones:</p>
+            <div class="formula-box">
                 $$ g(x) = 5x + 3x^2 - 6 $$
                 $$ f(x) = 2x - 17 $$
                 <br>
-                <strong>Resolver:</strong>
+                <strong>Resolver la composición:</strong>
                 $$ (f \circ g)(x) = f(g(x)) $$
             </div>
             <p>Se observó que ChatGPT tuvo dificultades para completar la resolución. Al utilizar una aplicación de IA repetidamente y presentarle un problema complejo, si no se explican los pasos necesarios con claridad, la herramienta tiende a no resolverlo o a no alcanzar el resultado deseado.</p>
         </div>
 
         <div class="punto-card">
-            <h2>Reflexión final</h2>
+            <h2>Reflexión Final</h2>
             <p>El uso de las inteligencias artificiales se considera parte de la nueva era. No se percibe como un reemplazo inminente del ser humano, sino como una herramienta significativa que facilita el trabajo. Puede emplearse en tareas sencillas, liberando tiempo que puede ser utilizado para la reflexión y la resolución de problemas más complejos.</p>
             <p>Además, dado que los humanos podemos olvidar detalles, fórmulas o resoluciones si estamos "oxidados", la IA puede ayudar a reforzar el conocimiento ya existente, especialmente al identificar sus errores. Es una herramienta poderosa que debe usarse “con respeto”.</p>
             <p>No se recomienda usarla para realizar acciones sobre un tema desconocido, ya que esto dejaría al usuario completamente dependiente de ella, lo cual no es el propósito de la herramienta.</p>
 
-            <h3>Dato adicional</h3>
-            <p>Como dato adicional, en el ámbito laboral la IA ya es utilizada para el desarrollo de aplicaciones. No se le encarga la creación de una aplicación completa, sino que se emplea para tareas menores que requieren tiempo de escritura, pero que no son complejas en sí mismas.</p>
+            <h3>Dato Adicional</h3>
+            <p>En el ámbito laboral la IA ya es utilizada para el desarrollo de aplicaciones. No se le encarga la creación de una aplicación completa, sino que se emplea para tareas menores que requieren tiempo de escritura, pero que no son complejas en sí mismas.</p>
         </div>
 
     </main>
     
-    <script src="../../assets/js/formulas_mat.js"></script>
     <script src="../../assets/js/theme.js"></script>
+    <script src="../../assets/js/formulas_mat.js"></script>
     
 </body>
 </html>

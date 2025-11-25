@@ -6,9 +6,9 @@
     <title>Producto Mixto - Álgebra</title>
 
     <link rel="stylesheet" href="../../assets/css/main.css">
-
 </head>
 <body class="algebra-page">
+
     <header class="header">
         <div class="header-container">
             <nav class="container">
@@ -31,113 +31,119 @@
         </div>
     </header>
 
-    <main class="producto-mixto-container">
-        <!-- Contexto práctico -->
-        <div class="producto-mixto-contexto">
-            <h3>Contexto Práctico</h3>
-            <p>Un arquitecto le solicita a un ingeniero que determine el volumen máximo de agua que puede contener una pileta con base rectangular de 3 m por 5 m y una profundidad de 2 m. Como el ingeniero no recuerda la fórmula directa para calcular el volumen de un prisma rectangular (largo × ancho × alto), decide aplicar sus conocimientos de álgebra vectorial. Para ello, interpreta las dimensiones proporcionadas por el arquitecto como vectores en ℝ³ y utiliza el producto mixto entre ellos para hallar el volumen del paralelepípedo que representa la pileta.</p>
+    <main class="pm-main-container">
+        
+        <div class="pm-card">
+            <h3 class="pm-title">PRODUCTO MIXTO</h3>
+            <p class="pm-subtitle">APLICACIÓN EN CÁLCULO DE VOLÚMENES</p>
+            <hr class="pm-divider">
+            
+            <h2 class="pm-section-title">1. Contexto Práctico</h2>
+            <p>Un arquitecto le solicita a un ingeniero que determine el volumen máximo de agua que puede contener una pileta con base rectangular de 3 m por 5 m y una profundidad de 2 m. Como el ingeniero no recuerda la fórmula directa para calcular el volumen de un prisma rectangular, decide aplicar sus conocimientos de álgebra vectorial, interpretando las dimensiones como vectores en ℝ³ y utilizando el producto mixto.</p>
         </div>
         
-        <!-- Visualización 3D y controles -->
-        <div id="producto-mixto-canvas-container" class="producto-mixto-canvas" style="height: 150%;">
-            <div class="producto-mixto-controls">
-                <h2>Producto Mixto</h2>
-                <p>Arrastra para rotar. Rueda para zoom.</p>
-                
-                <h3>Vectores</h3>
-                <div class="producto-mixto-vector-input">
-                    <span>a =</span>
-                    <input type="number" id="a-x" value="3" step="1">
-                    <input type="number" id="a-y" value="0" step="1">
-                    <input type="number" id="a-z" value="0" step="1">
+        <div class="pm-card">
+            <h2 class="pm-section-title">2. Simulador Interactivo</h2>
+            <p>Modifica los componentes de los vectores para visualizar el paralelepípedo y calcular su volumen.</p>
+            
+            <div class="pm-simulador-layout">
+                <div class="pm-controls-panel">
+                    <h3>Vectores</h3>
+                    
+                    <div class="pm-input-group">
+                        <span class="pm-vector-label pm-label-a">\( \vec{a} = \)</span>
+                        <input type="number" id="pm-a-x" value="3" step="1" placeholder="x">
+                        <input type="number" id="pm-a-y" value="0" step="1" placeholder="y">
+                        <input type="number" id="pm-a-z" value="0" step="1" placeholder="z">
+                    </div>
+                    
+                    <div class="pm-input-group">
+                        <span class="pm-vector-label pm-label-b">\( \vec{b} = \)</span>
+                        <input type="number" id="pm-b-x" value="0" step="1">
+                        <input type="number" id="pm-b-y" value="-2" step="1">
+                        <input type="number" id="pm-b-z" value="0" step="1">
+                    </div>
+                    
+                    <div class="pm-input-group">
+                        <span class="pm-vector-label pm-label-c">\( \vec{c} = \)</span>
+                        <input type="number" id="pm-c-x" value="0" step="1">
+                        <input type="number" id="pm-c-y" value="0" step="1">
+                        <input type="number" id="pm-c-z" value="5" step="1">
+                    </div>
+                    
+                    <button id="pm-update-vectors" class="pm-btn-action">Calcular Volumen</button>
+                    
+                    <div id="pm-volume-result" class="pm-result-box">Volumen: 30.00</div>
+                    <p class="pm-instruction"><small>🖱️ Arrastra para rotar | Rueda para zoom</small></p>
                 </div>
-                <div class="producto-mixto-vector-input">
-                    <span>b =</span>
-                    <input type="number" id="b-x" value="0" step="1">
-                    <input type="number" id="b-y" value="-2" step="1">
-                    <input type="number" id="b-z" value="0" step="1">
-                </div>
-                <div class="producto-mixto-vector-input">
-                    <span>c =</span>
-                    <input type="number" id="c-x" value="0" step="1">
-                    <input type="number" id="c-y" value="0" step="1">
-                    <input type="number" id="c-z" value="5" step="1">
-                </div>
-                
-                <button id="update-vectors" class="producto-mixto-btn">Calcular Volumen</button>
-                
-                <div id="volume-result" class="producto-mixto-volume">Volumen: |a · (b × c)| = 30.00</div>
+
+                <div id="producto-mixto-canvas-container" class="pm-canvas-wrapper" style="width: 100%; height: 400px; min-height: 400px;"></div>
             </div>
         </div>
         
-        <!-- Cálculos y explicación -->
-        <div class="producto-mixto-calculation">
-            <h3>Desarrollo del Cálculo</h3>
-            <span class="producto-mixto-formula">Fórmula: Volumen = |a · (b × c)|</span>
-            <div id="calculation-steps">
-                <!-- Los pasos del cálculo se insertarán acá dinámicamente -->
+        <div class="pm-card">
+            <h2 class="pm-section-title">3. Desarrollo del Cálculo</h2>
+            <div class="pm-formula-box">
+                $$ \text{Volumen} = | \vec{a} \cdot (\vec{b} \times \vec{c}) | $$
             </div>
             
-            <!-- Explicación detallada del producto mixto -->
-            <div class="producto-mixto-explicacion">
-                <h3>Explicación del Producto Mixto</h3>
-                
-                <h4>1. Definición Formal</h4>
-                <p>El <strong>producto mixto</strong> (o triple producto escalar) de tres vectores en ℝ³ combina el producto vectorial y escalar:</p>
-                <span class="formula">a · (b × c)</span>
-                
-                <h4>2. Interpretación Geométrica</h4>
-                <p>El valor absoluto del producto mixto representa el <strong>volumen del paralelepípedo</strong> definido por los tres vectores:</p>
-                <ul>
-                    <li><strong>Positivo</strong>: Orientación derecha (regla de la mano derecha)</li>
-                    <li><strong>Cero</strong>: Vectores coplanares (linealmente dependientes)</li>
-                    <li><strong>Negativo</strong>: Orientación izquierda</li>
-                </ul>
-                
-                <h4>3. Propiedades Clave</h4>
-                <div class="propiedades">
-                    <div class="propiedad">
-                        <h5>Permutación Cíclica</h5>
-                        <p class="formula">|a·(b×c)| = |b·(c×a)| = |c·(a×b)|</p>
-                        <p>El producto mixto mantiene su valor bajo permutaciones cíclicas de los vectores. Esto significa que podemos rotar el orden de los vectores sin cambiar el resultado. Sin embargo, cambiar el orden no cíclico altera el signo del resultado.</p>
-                    </div>
-                    <div class="propiedad">
-                        <h5>Anticonmutatividad</h5>
-                        <p class="formula">a·(b×c) = -a·(c×b)</p>
-                        <p>El producto mixto cambia de signo cuando se intercambian dos vectores. Esta propiedad proviene de la anticonmutatividad del producto vectorial. Es importante para determinar la orientación del sistema de vectores.</p>
-                    </div>
-                    <div class="propiedad">
-                        <h5>Condición de coplanaridad</h5>
-                        <p class="formula">a·(b×c) = 0 ⇔ a, b, c son coplanares</p>
-                        <p>Cuando el producto mixto es cero, indica que los tres vectores están en el mismo plano (son linealmente dependientes). Esta propiedad es fundamental para verificar la independencia lineal de vectores en ℝ³.</p>
-                    </div>
+            <div id="pm-calculation-steps" class="pm-steps-container">
                 </div>
-                
-                <h4>4. Cálculo mediante Determinante</h4>
-                <p>Se puede calcular como el determinante de la matriz formada por los vectores:</p>
-                <div class="formula formula-matrix">det(a, b, c) = |a₁ a₂ a₃|
-               |b₁ b₂ b₃|
-               |c₁ c₂ c₃|</div>
-                <p>Que se desarrolla como:</p>
-                <div class="formula">a₁(b₂c₃ - b₃c₂) - a₂(b₁c₃ - b₃c₁) + a₃(b₁c₂ - b₂c₁)</div>
-                
-                <h4>5. Aplicaciones Prácticas</h4>
-                <ul>
-                    <li>Cálculo de volúmenes en geometría</li>
-                    <li>Determinar si vectores son coplanares</li>
-                    <li>Física: torque, momento angular</li>
-                    <li>Computación gráfica: normales a superficies</li>
-                </ul>
+        </div>
+
+        <div class="pm-card">
+            <h2 class="pm-section-title">4. Explicación Teórica y Aplicaciones</h2>
+            
+            <h3>Definición Formal</h3>
+            <p>El <strong>producto mixto</strong> (o triple producto escalar) de tres vectores en ℝ³ combina el producto vectorial y escalar:</p>
+            <div class="pm-formula-box">
+                $$ \vec{a} \cdot (\vec{b} \times \vec{c}) $$
             </div>
+            
+            <h3>Propiedades Clave</h3>
+            <div class="pm-props-grid">
+                <div class="pm-prop-item">
+                    <h4>Permutación Cíclica</h4>
+                    <div class="pm-mini-formula">$$ |\vec{a}\cdot(\vec{b}\times \vec{c})| = |\vec{b}\cdot(\vec{c}\times \vec{a})| $$</div>
+                </div>
+                <div class="pm-prop-item">
+                    <h4>Anticonmutatividad</h4>
+                    <div class="pm-mini-formula">$$ \vec{a}\cdot(\vec{b}\times \vec{c}) = -\vec{a}\cdot(\vec{c}\times \vec{b}) $$</div>
+                </div>
+                <div class="pm-prop-item">
+                    <h4>Coplanaridad</h4>
+                    <div class="pm-mini-formula">$$ \vec{a}\cdot(\vec{b}\times \vec{c}) = 0 $$</div>
+                </div>
+            </div>
+            
+            <hr class="pm-divider">
+
+            <h3>Cálculo mediante Determinante</h3>
+            <p>Analíticamente, el producto mixto se calcula como el determinante de la matriz formada por las componentes de los tres vectores:</p>
+            <div class="pm-formula-box">
+                $$ 
+                \vec{a} \cdot (\vec{b} \times \vec{c}) = 
+                \begin{vmatrix} a_x & a_y & a_z \\ b_x & b_y & b_z \\ c_x & c_y & c_z \end{vmatrix} = 
+                a_x(b_y c_z - b_z c_y) - a_y(b_x c_z - b_z c_x) + a_z(b_x c_y - b_y c_x) 
+                $$
+            </div>
+
+            <h3>Aplicaciones Prácticas</h3>
+            <ul class="pm-list">
+                <li><strong>Cálculo de volúmenes en geometría:</strong> Permite hallar el volumen de paralelepípedos y tetraedros definidos por tres vectores concurrentes.</li>
+                <li><strong>Determinación de coplanaridad:</strong> Si el producto mixto es cero, los tres vectores están en el mismo plano (son linealmente dependientes).</li>
+                <li><strong>Física:</strong> Se utiliza en el cálculo de magnitudes como el momento angular y el torque en sistemas tridimensionales.</li>
+                <li><strong>Computación gráfica:</strong> Fundamental para el cálculo de normales a superficies, iluminación y detección de colisiones en motores 3D.</li>
+            </ul>
         </div>
     </main>
     
-    <!-- Scripts de Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
  
     <script src="../../assets/js/theme.js"></script>
     <script src="../../assets/js/producto_mixto.js"></script>
+    <script src="../../assets/js/formulas_mat.js"></script>
     
 </body>
 </html>

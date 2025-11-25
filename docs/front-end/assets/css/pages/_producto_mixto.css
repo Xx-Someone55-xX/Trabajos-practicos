@@ -1,422 +1,255 @@
-/* Estilos específicos para la página de Producto Mixto */
-.algebra-page {
-  .producto-mixto-container {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+/* * Estilos ÚNICOS para Producto Mixto (Álgebra)
+ * Todos los selectores comienzan con .pm- para aislamiento total
+ */
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.pm-main-container {
+    max-width: var(--max-width, 1200px);
+    margin: 2rem auto;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    padding: 0;
-    margin: 0;
-  }
+    gap: 2rem;
+}
 
-  .producto-mixto-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    position: relative;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  .producto-mixto-controls, 
-  .producto-mixto-calculation {
+/* --- TARJETAS ESPECÍFICAS --- */
+.pm-card {
     background: var(--card-bg);
-    border: none !important;
     border-radius: var(--border-radius);
+    padding: 1.5rem;
     box-shadow: var(--shadow);
-    z-index: 10;
-  }
+    border: var(--card-border);
+    text-align: left;
+}
 
-  .producto-mixto-controls {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 15px;
-    max-width: 350px;
-    max-height: 50vh;
-    overflow-y: auto;
-    background: var(--card-bg);
-  }
-
-  .producto-mixto-calculation {
-    padding: 20px;
-    margin-top: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    background: var(--card-bg);
-    position: relative;
-  }
-
-  /* Canvas y contenedor responsivos */
-  #producto-mixto-canvas-container {
-    position: relative;
-    flex-grow: 1;
-    min-height: 60vh;
-    width: 100%;
+/* --- TIPOGRAFÍA Y COLORES ÁLGEBRA --- */
+.pm-title {
+    color: var(--color-algebra, #f1c40f); /* Amarillo Álgebra */
+    font-size: 1.8rem;
+    font-weight: 700;
     margin: 0;
-    z-index: 5;
-  }
+}
 
-  .producto-mixto-canvas {
+.pm-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    color: var(--color-algebra-dark, #d4ac0d);
+}
+
+.pm-section-title {
+    color: var(--color-algebra, #f1c40f);
+    border-bottom: 1px solid var(--table-border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.pm-divider {
+    border: 0;
+    height: 1px;
+    background: var(--table-border-color);
+    margin: 1.5rem 0;
+}
+
+/* --- SIMULADOR (Layout y Controles) --- */
+.pm-simulador-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Izq: Controles, Der: Canvas */
+    gap: 20px;
+    margin-top: 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .pm-simulador-layout {
+        grid-template-columns: 1fr; /* Columna única en móvil */
+    }
+}
+
+.pm-controls-panel {
+    padding: 1rem;
+    background-color: var(--formula-bg);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid var(--table-border-color);
+}
+
+.pm-input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pm-vector-label {
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.1em;
+    width: 30px;
+}
+/* Colores específicos vectores */
+.pm-label-a { color: #ff0000; } 
+.pm-label-b { color: #00cc00; } 
+.pm-label-c { color: #0000ff; } 
+
+.pm-input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.pm-btn-action {
+    background: var(--color-algebra);
+    color: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.2s;
+    margin-top: 10px;
+}
+.pm-btn-action:hover {
+    filter: brightness(0.9);
+}
+
+.pm-result-box {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--card-bg);
+    border: 2px solid var(--color-algebra);
+    border-radius: 4px;
+    color: var(--text-color);
+}
+
+.pm-instruction {
+    text-align: center;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* --- CANVAS 3D (Three.js) --- */
+.pm-canvas-wrapper {
+    width: 100%;
+    height: 400px; /* Altura fija obligatoria */
+    min-height: 400px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--table-border-color);
+    position: relative;
+}
+
+.pm-canvas-wrapper canvas {
     width: 100% !important;
     height: 100% !important;
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--bg-color);
-  }
+}
 
-  /* Elementos de control */
-  .producto-mixto-control {
-    margin-bottom: 15px;
-  }
-
-  .producto-mixto-vector-input {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    
-    label {
-      display: inline-block;
-      width: 20px;
-      font-weight: bold;
-      color: var(--text-color);
-      margin-right: 8px;
-    }
-    
-    input {
-      width: 60px;
-      padding: 8px;
-      border: 1px solid var(--table-border-color);
-      border-radius: var(--border-radius);
-      margin-right: 10px;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-size: 14px;
-    }
-  }
-
-  .producto-mixto-volume {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin: 15px 0;
-    color: var(--color-algebra);
-    padding: 12px;
-    background: rgba(241, 196, 15, 0.1);
-    border-radius: var(--border-radius);
+/* --- FÓRMULAS Y PASOS --- */
+.pm-formula-box {
     text-align: center;
-    border: none;
-    border-left: 4px solid var(--color-algebra);
-  }
-
-  .producto-mixto-btn {
-    background: var(--color-algebra);
-    color: var(--color-black);
-    border: none;
-    padding: 10px 15px;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-    margin: 10px 0;
-    transition: background 0.3s ease;
-    font-size: 14px;
-
-    &:hover {
-      background: var(--color-algebra-dark);
-    }
-  }
-
-  .producto-mixto-step {
-    margin-bottom: 15px;
-    padding-left: 15px;
-    border-left: 3px solid var(--color-algebra);
-  }
-
-  .producto-mixto-formula {
-    font-weight: bold;
-    color: var(--color-algebra);
-    margin-bottom: 10px;
-    display: block;
-    font-size: 16px;
-  }
-
-  .producto-mixto-step-title {
-    font-weight: bold;
-    color: var(--text-color);
-    margin-bottom: 8px;
-    font-size: 15px;
-  }
-
-  .producto-mixto-math {
+    font-size: 1.3rem;
+    padding: 1rem;
+    margin: 1rem 0;
     background: var(--formula-bg);
-    padding: 8px 10px;
-    border-radius: var(--border-radius);
-    display: inline-block;
-    margin: 5px 0;
-    color: var(--formula-text);
-    border: none;
-    border-left: 3px solid var(--formula-border);
+    border-radius: 8px;
+}
+
+/* CAMBIO AQUÍ: Alineación a la izquierda */
+.producto-mixto-step { 
+    margin-bottom: 15px;
+    padding: 10px;
+    border-left: 3px solid var(--color-algebra);
+    background-color: var(--formula-bg);
+    border-radius: 0 4px 4px 0;
+    text-align: left; /* Pasos alineados a la izquierda */
+}
+
+.producto-mixto-step-title {
+    font-weight: bold;
+    color: var(--color-algebra-dark);
+    margin-bottom: 5px;
+}
+
+.producto-mixto-math {
     font-family: monospace;
-    font-size: 14px;
-  }
-
-  /* Estilos responsive */
-  @media (max-width: 1200px) {
-    .producto-mixto-controls {
-      max-width: 300px;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .producto-mixto-controls {
-      position: relative;
-      top: auto;
-      left: auto;
-      max-width: 100%;
-      max-height: none;
-      margin-bottom: 20px;
-      width: 100%;
-    }
-
-    #producto-mixto-canvas-container {
-      min-height: 50vh;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .producto-mixto-content-wrapper {
-      padding: 15px;
-    }
-
-    .producto-mixto-controls {
-      padding: 12px;
-    }
-
-    .producto-mixto-vector-input input {
-      width: 50px;
-      padding: 6px;
-    }
-
-    .producto-mixto-calculation {
-      padding: 15px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .producto-mixto-content-wrapper {
-      padding: 10px;
-    }
-
-    .producto-mixto-vector-input {
-      flex-wrap: wrap;
-      
-      input {
-        width: 40px;
-        padding: 5px;
-        margin-bottom: 5px;
-      }
-    }
-
-    .producto-mixto-btn {
-      padding: 8px 12px;
-    }
-
-    .producto-mixto-math {
-      font-size: 13px;
-      padding: 6px 8px;
-    }
-  }
+    color: var(--text-color);
 }
 
-/* Estilos comunes */
-.producto-mixto-content {
-  padding: 20px;
-  background: var(--background-color);
-  box-sizing: border-box;
+/* --- TEORÍA (Propiedades) --- */
+.pm-props-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.producto-mixto-contexto {
-  margin: 0.1rem 0 0;
-  padding: 1.5rem;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
+.pm-prop-item {
+    background-color: var(--card-hover);
+    padding: 1rem;
+    border-radius: 8px;
+    border-top: 3px solid var(--color-algebra);
+}
 
-  h3 {
-    color: var(--color-primary);
-    margin-bottom: 0.8rem;
-    font-size: 1.4rem;
-  }
-
-  p {
-    line-height: 1.6;
+.pm-prop-item h4 {
+    margin-top: 0;
     color: var(--text-color);
     font-size: 1rem;
-  }
 }
 
-/* === Explicación detallada del Producto Mixto ========================= */
-.algebra-page {
-  /* Tarjeta-contenedor */
-  .producto-mixto-explicacion {
-    background: var(--card-bg);
-    border-left: 4px solid var(--color-algebra);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    padding: 1.5rem;
-    margin-top: 2rem;
-    line-height: 1.6;
-    overflow-x: auto;
-  }
-
-  /* Titulares con el color temático */
-  .producto-mixto-explicacion h3,
-  .producto-mixto-explicacion h4 {
-    color: var(--color-algebra);
-    margin: 1.2rem 0 0.8rem;
-  }
-  .producto-mixto-explicacion h5 {
-    color: var(--text-muted);
-    font-weight: 600;
-    margin: 0.8rem 0 0.4rem;
-  }
-
-  /* Bloques de fórmula */
-  .producto-mixto-explicacion .formula {
-    display: inline-block;
-    max-width: 100%;
-    white-space: pre-wrap;
-    background: var(--formula-bg);
-    color: var(--formula-text);
-    border: 1px solid var(--formula-border);
-    border-radius: var(--border-radius);
-    padding: 0.7rem 1rem;
+.pm-mini-formula {
     font-family: monospace;
-    font-size: 0.95rem;
-    overflow-x: auto;
-    margin: 0.6rem 0 1rem;
-  }
-
-  /* Tipos específicos de fórmulas */
-  .producto-mixto-explicacion .formula-matrix {
-    display: inline-block;
+    background-color: var(--bg-color);
+    padding: 5px;
     text-align: center;
-    padding: 0.7rem 1rem;
-    font-family: monospace;
-    line-height: 1.5;
-  }
+    border-radius: 4px;
+    margin: 5px 0;
+    color: var(--text-color);
+}
 
-  .producto-mixto-explicacion .formula-inline {
-    display: inline;
-    padding: 0.2rem 0.4rem;
-  }
+.pm-list {
+    padding-left: 20px;
+}
+.pm-list li {
+    margin-bottom: 0.5rem;
+}
 
-  /* Grupo de propiedades (tres tarjetitas) */
-  .producto-mixto-explicacion .propiedades {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 1.2rem 0;
-  }
-  .producto-mixto-explicacion .propiedad {
-    flex: 1 1 200px;
-    background: var(--card-hover);
-    border-radius: var(--border-radius);
-    padding: 1rem;
+/* --- ESTILOS NUEVOS: Derivaciones Matemáticas Compactas --- */
+
+.derivacion-container {
+    background-color: var(--bg-color); /* Fondo grisáceo/oscuro según tema */
+    border: 1px dashed var(--table-border-color); /* Borde sutil */
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 0.9rem; /* Letra un poco más chica para ahorrar espacio */
+}
+
+.derivacion-container p {
+    margin: 5px 0 2px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.derivacion-container .math-step {
+    text-align: center;
+    margin: 2px 0;
+}
+
+/* Resaltar la fórmula final */
+.formula-highlight {
+    background-color: var(--formula-bg);
     border-left: 4px solid var(--color-algebra);
-  }
-  .producto-mixto-explicacion .propiedad p {
-    margin: 0.4rem 0 0;
-    color: var(--formula-secondary-text);
-  }
-
-  /* Listas */
-  .producto-mixto-explicacion ul {
-    margin-left: 1rem;
-    list-style: disc;
-  }
-  .producto-mixto-explicacion li {
-    margin: 0.4rem 0;
-  }
-
-  /* Responsive: ocupa toda la anchura en pantallas estrechas */
-  @media (max-width: 768px) {
-    .producto-mixto-explicacion {
-      padding: 1rem;
-    }
-  }
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-
-/* Ajustes de contraste en modo oscuro */
-[data-theme="dark"] .algebra-page {
-  .producto-mixto-canvas {
-    background-color: #121212;
-  }
-  
-  .producto-mixto-controls,
-  .producto-mixto-calculation,
-  .producto-mixto-explicacion {
-    background: var(--card-bg);
-    border-color: var(--color-algebra-dark) !important;
-  }
-
-  .producto-mixto-explicacion .propiedad {
-    background: var(--table-row-even);
-  }
-
-  .producto-mixto-math {
-    background: var(--formula-bg);
-    color: var(--formula-text);
-    border-color: var(--formula-border);
-  }
-}
-
-.producto-mixto-contexto h3 {
-  color: var(--color-primary-dark);
-}
-
-   /* Estilos específicos para las propiedades */
-        .propiedades {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .propiedad {
-            width: 100%;
-            margin-bottom: 1rem;
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 1rem;
-            box-shadow: var(--shadow-sm);
-        }
-        .propiedad h5 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-        .propiedad p {
-            margin-bottom: 0.5rem;
-        }
-        .formula {
-            display: inline-block;
-            background: var(--formula-bg);
-            color: var(--formula-text);
-            border: 1px solid var(--formula-border);
-            border-radius: var(--border-radius);
-            padding: 0.7rem 1rem;
-            font-family: monospace;
-            font-size: 0.95rem;
-            margin: 0.6rem 0;
-            white-space: pre;
-            max-width: 100%;
-            overflow-x: auto;
-        }
-        .formula-matrix {
-            display: block;
-            text-align: center;
-            line-height: 1.5;
-        }

@@ -1,6 +1,6 @@
-/* * Estilos específicos para TP1_fisica.html 
- * Hereda variables de main.css (fisica-page)
- */
+/* ============================================================
+   ESTILOS GENERALES PARA TODOS LOS LABORATORIOS DE FÍSICA 1
+   ============================================================ */
 
 .tp-container {
     max-width: var(--max-width, 1200px);
@@ -152,7 +152,7 @@
 }
 
 /* ============================================================
-   ESQUEMA DE LABORATORIO - CONTROL TOTAL
+   ESQUEMA TP1 y TP2: Carril con Poleas y Masa-Resorte
    ============================================================ */
 
 /* --- CONTENEDOR PRINCIPAL (El Lienzo) --- */

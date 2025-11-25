@@ -6,9 +6,11 @@
     <title>Rectas y Planos - Álgebra</title>
     
     <link rel="stylesheet" href="../../assets/css/main.css">
-    
+
 </head>
-<body class="algebra-page"> <header class="header">
+<body class="algebra-page"> 
+
+    <header class="header">
         <div class="header-container">
             <nav class="container">
                 <a href="../algebra.html" class="btn-volver">
@@ -30,153 +32,129 @@
         </div>
     </header>
 
-    <main class="recta-plano-container">
+    <main class="algebra-container">
         
         <div class="punto-card">
-            <div class="exercise-description">
-                <h3>Gráficos y Visualización de Datos en Ingeniería en Sistemas</h3>
-                <p>En esta carrera una parte importante del trabajo es analizar y representar información de forma visual, como gráficos, dashboards, simulaciones o modelos en 3D. Para generar dichas representaciones se utilizan ciertas ecuaciones matemáticas, entre ellas ecuaciones de rectas y planos.</p>
-            </div>
-        </div>
-
-        <div class="punto-card">
-            <h2>Fundamentos Teóricos: Rectas y Planos</h2>
-            <p>En álgebra, las rectas y planos se pueden representar con distintas ecuaciones. Nos centramos en la Ecuación General (Implícita) y cómo de ella se deriva la Ecuación Explícita que usamos en los ejemplos.</p>
-
-            <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--table-border-color, #ddd);">
-
-            <h3>La Recta en R² (Plano 2D)</h3>
-            <ul>
-                <li><strong>Ecuación General (Implícita):</strong> <code>Ax + By + C = 0</code>.</li>
-                <li><strong>Ecuación Explícita (Pendiente-Ordenada):</strong> <code>y = mx + d</code>.</li>
-            </ul>
+            <h3 class="main-title">RECTAS Y PLANOS</h3>
+            <p class="main-subtitle">VISUALIZACIÓN DE DATOS EN INGENIERÍA</p>
+            <hr class="card-divider">
             
-            <h4>Derivación de la Explícita (Recta)</h4>
-            <p>Para obtener la ecuación explícita partiendo de la general, despejamos <code>y</code>:</p>
-            <div class="code-box">
-                <pre>
-Ecuación General: Ax + By + C = 0
-Despejamos By:     By = -Ax - C
-Dividimos por B:  y = (-A/B)x + (-C/B)
-
-Si llamamos m = (-A/B) y d = (-C/B), obtenemos la forma explícita:
-y = mx + d
-</pre>
-            </div>
-            <p>Esta es la forma <code>T = 0.2x + 5</code> que se usa en el primer ejemplo.</p>
-
-            <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid var(--table-border-color, #ddd);">
-
-            <h3>El Plano en R³ (Espacio 3D)</h3>
-            <ul>
-                <li><strong>Ecuación General (Implícita):</strong> <code>Ax + By + Cz + D = 0</code>.</li>
-                <li><strong>Ecuación del gráfico:</strong> <code>z = Ax + By + &delta;</code>. (Se usa para representar <code>z</code> como una función de <code>x</code> e <code>y</code>).</li>
-            </ul>
-
-            <h4>Derivación de la ecuación del gráfico (Plano)</h4>
-            <p>De forma similar, para obtener la ecuación del gráfico, despejamos <code>z</code> de la general:</p>
-            <div class="code-box">
-                <pre>
-Ecuación General: Ax + By + Cz + D = 0
-Despejamos Cz:     Cz = -Ax - By - D
-Dividimos por C:  z = (-A/C)x + (-B/C)y + (-D/C)
-
-Si renombramos los coeficientes (ej. k₁ = -A/C, k₂ = -B/C) y la constante (ej. &delta; = -D/C), obtenemos:
-z = k₁x + k₂y + &delta;
-</pre>
-            </div>
-            <p>Esta es la forma que usamos en el ejemplo 2 (<code>z = 0.6y + 3x + &delta;</code>).</p>
-        </div>
-        <div class="punto-card">
-            <h2>Ejemplo 1: Análisis de rendimiento de un sistema 2D</h2>
-            <p>Queremos analizar el rendimiento de un sistema en relación con la cantidad de usuarios conectados y el tiempo de respuesta, usando la ecuación explícita de la recta (y = mx + d) tenemos: <code>T = 0.2x + 5</code>.</p>
-            <ul>
-                <li><strong>T (y)</strong>: Tiempo de respuesta del sistema.</li>
-                <li><strong>x</strong>: Cantidad de usuarios conectados.</li>
-                <li><strong>m (0.2)</strong>: Indicador de cuanto aumenta el tiempo de respuesta.</li>
-                <li><strong>d (5)</strong>: Valor inicial de tiempo cuando x=0.</li>
-            </ul>
-
-            <div class="chart-container-2d">
-                <canvas id="grafico2D"></canvas>
-            </div>
-
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Usuarios (x)</th>
-                        <th>Cálculo de T=0.2x+5</th>
-                        <th>Tiempo (T)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>0</td>
-                        <td>T=0.2(0)+5</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>T=0.2(10)+5</td>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>20</td>
-                        <td>T=0.2(20)+5</td>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td>30</td>
-                        <td>T=0.2(30)+5</td>
-                        <td>11</td>
-                    </tr>
-                    <tr>
-                        <td>40</td>
-                        <td>T=0.2(40)+5</td>
-                        <td>13</td>
-                    </tr>
-                    <tr>
-                        <td>50</td>
-                        <td>T=0.2(50)+5</td>
-                        <td>15</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Análisis y Cálculo</h3>
-            <p>Si deseamos mantener el tiempo <strong>T < 10s</strong>, podemos calcular la cantidad de usuarios que soportaría:</p>
-            <div class="code-box">
-                <pre>
-10 = 0.2x + 5
-5 = 0.2x
-5 / 0.2 = x
-x = 25</pre>
-            </div>
-            <p>El sistema soportaría <strong>25 usuarios</strong> antes de superar los 10s de respuesta.</p>
+            <h2>Contexto</h2>
+            <p>En ingeniería de sistemas, analizar y representar información visualmente (dashboards, modelos 3D) es fundamental. Estas representaciones se basan en ecuaciones matemáticas de rectas y planos.</p>
         </div>
 
         <div class="punto-card">
-            <h2>Ejemplo 2: Análisis de rendimiento de un sistema 3D</h2>
-            <p>Calculamos el tiempo de respuesta ('z') sobre la cantidad de usuarios ('x') y el tamaño de archivos ('y'). Usando la ecuación Implícita del plano (z = Ax + By + &delta;) obtenemos: <code>z = 0.6y + 3x + &delta;</code>.</p>
-            <ul>
-                <li><strong>z</strong>: Es el tiempo de respuesta.</li>
-                <li><strong>x</strong>: Indica la cantidad de usuarios conectados.</li>
-                <li><strong>y</strong>: Indica el tamaño de los archivos solicitados.</li>
-                <li><strong>&delta;</strong>: El valor inicial de z cuando (x,y) valen 0.</li>
-            </ul>
+            <h2>Fundamentos Teóricos</h2>
+            <p>Para graficar, transformamos la Ecuación Implícita en Explícita despejando la variable dependiente.</p>
 
-            <div class="chart-container-3d">
-                <div id="grafico3D"></div>
+            <div class="simulador-layout">
+                <div class="teoria-col">
+                    <h3>La Recta en R²</h3>
+                    
+                    <div class="derivacion-container">
+                        <p>1. Ecuación General:</p>
+                        <div class="math-step">$$ Ax + By + C = 0 $$</div>
+                        
+                        <p>2. Despejando \(y\):</p>
+                        <div class="math-step">$$ By = -Ax - C $$</div>
+                        <div class="math-step">$$ y = -\frac{A}{B}x - \frac{C}{B} $$</div>
+                    </div>
+                    
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Si definimos \( m = -A/B \) y \( d = -C/B \):</p>
+                    
+                    <div class="formula-box formula-highlight">
+                        $$ y = mx + d $$
+                    </div>
+                </div>
+                
+                <div class="teoria-col">
+                    <h3>El Plano en R³</h3>
+                    
+                    <div class="derivacion-container">
+                        <p>1. Ecuación General:</p>
+                        <div class="math-step">$$ Ax + By + Cz + D = 0 $$</div>
+                        
+                        <p>2. Despejando \(z\) (tiempo):</p>
+                        <div class="math-step">$$ Cz = -Ax - By - D $$</div>
+                        <div class="math-step">$$ z = -\frac{A}{C}x - \frac{B}{C}y - \frac{D}{C} $$</div>
+                    </div>
+                    
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Renombrando coeficientes para simplificar:</p>
+                    
+                    <div class="formula-box formula-highlight">
+                        $$ z = Ax + By + \delta $$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="punto-card">
+            <h2>Ejemplo 1: Rendimiento de Sistema 2D</h2>
+            <p>Relación entre usuarios conectados (\(x\)) y tiempo de respuesta (\(T\)). Ecuación: \( T = mx + d \).</p>
+            
+            <div class="simulador-layout">
+                <div class="chart-controls">
+                    <h3>Variables</h3>
+                    <div class="control-group">
+                        <label>Pendiente (m): <span id="val-m">0.2</span></label>
+                        <input type="range" id="slider-m" min="0.1" max="2" step="0.1" value="0.2">
+                    </div>
+                    <div class="control-group">
+                        <label>Ordenada (d): <span id="val-d">5</span></label>
+                        <input type="range" id="slider-d" min="0" max="10" step="1" value="5">
+                    </div>
+                    <div class="info-box">
+                        <small><strong>m:</strong> Aumento de tiempo por usuario.<br><strong>d:</strong> Tiempo base con 0 usuarios.</small>
+                    </div>
+                </div>
+
+                <div class="chart-container-2d">
+                    <canvas id="grafico2D"></canvas>
+                </div>
+            </div>
+
+            <h3>Análisis</h3>
+            <p>Si deseamos mantener el tiempo \( T < 10\text{s} \), el límite de usuarios es:</p>
+            <div id="calculo-2d" class="formula-box">
+                $$ x = \frac{10 - 5}{0.2} = 25 \text{ usuarios} $$
+            </div>
+        </div>
+
+        <div class="punto-card">
+            <h2>Ejemplo 2: Rendimiento de Sistema 3D</h2>
+            <p>Tiempo de respuesta (\(z\)) en función de usuarios (\(x\)) y tamaño de archivos (\(y\)). Ecuación: \( z = Ax + By + \delta \).</p>
+
+            <div class="simulador-layout">
+                <div class="chart-controls">
+                    <h3>Coeficientes</h3>
+                    <div class="control-group">
+                        <label>Peso Usuarios (A): <span id="val-A">3.0</span></label>
+                        <input type="range" id="slider-A" min="0.5" max="5" step="0.5" value="3">
+                    </div>
+                    <div class="control-group">
+                        <label>Peso Archivos (B): <span id="val-B">0.6</span></label>
+                        <input type="range" id="slider-B" min="0.1" max="2" step="0.1" value="0.6">
+                    </div>
+                    <div class="control-group">
+                        <label>Base (&delta;): <span id="val-delta">5</span></label>
+                        <input type="range" id="slider-delta" min="0" max="20" step="1" value="5">
+                    </div>
+                </div>
+
+                <div class="chart-container-3d">
+                    <div id="grafico3D"></div>
+                </div>
             </div>
         </div>
 
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     
     <script src="../../assets/js/theme.js"></script>
     <script src="../../assets/js/recta_plano.js"></script>
+    <script src="../../assets/js/formulas_mat.js"></script>
     
 </body>
 </html>

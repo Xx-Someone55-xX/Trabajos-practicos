@@ -32,21 +32,7 @@
     background: var(--card-hover);
 }
 
-/* Colores por materia */
-.materia-card:nth-child(1):hover {
-    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
-}
-.materia-card:nth-child(2):hover {
-    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
-}
-.materia-card:nth-child(3):hover {
-    box-shadow: 0 10px 20px rgba(184, 77, 255, 0.3);
-}
-.materia-card:nth-child(4):hover {
-    box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
-}
-
-/* Línea base y hover animado */
+/* Línea base animada (Común) */
 .materia-card::after {
     content: "";
     position: absolute;
@@ -62,12 +48,8 @@
     transform: scaleX(1);
     transform-origin: left;
 }
-.materia-card:nth-child(1)::after { background: #e74c3c; }
-.materia-card:nth-child(2)::after { background: #2ecc71; }
-.materia-card:nth-child(3)::after { background: #b84dff; }
-.materia-card:nth-child(4)::after { background: #F1C40F; }
 
-/* Iconos */
+/* Iconos (Base) */
 .materia-card .materia-icon {
     width: 80px;
     height: 80px;
@@ -81,32 +63,55 @@
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
     transform: scale(1.05);
 }
-/* Brillo por materia en hover */
-.materia-card:nth-child(1):hover .materia-icon {
+
+/* --- COLORES ESPECÍFICOS POR CLASE --- */
+
+/* 1. Algoritmos (Rojo) */
+.card-algoritmos:hover {
+    box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+}
+.card-algoritmos::after {
+    background: #e74c3c;
+}
+.card-algoritmos:hover .materia-icon {
     filter: drop-shadow(0 0 8px rgba(231, 76, 60, 0.4));
 }
-.materia-card:nth-child(2):hover .materia-icon {
+
+/* 2. Física (Verde) */
+.card-fisica:hover {
+    box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+}
+.card-fisica::after {
+    background: #2ecc71;
+}
+.card-fisica:hover .materia-icon {
     filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.4));
 }
-.materia-card:nth-child(3):hover .materia-icon {
-    filter: drop-shadow(0 0 8px rgba(184, 77, 255, 0.4));
+
+/* 3. Álgebra (Amarillo/Dorado) */
+.card-algebra:hover {
+    box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
 }
-.materia-card:nth-child(4):hover .materia-icon {
+.card-algebra::after {
+    background: #F1C40F;
+}
+.card-algebra:hover .materia-icon {
     filter: drop-shadow(0 0 8px rgba(241, 196, 15, 0.4));
 }
+
 /* Optimización modo oscuro */
 [data-theme="dark"] .materia-card .materia-icon {
     stroke-width: 3.2;
 }
-[data-theme="dark"] .materia-card:nth-child(1) .materia-icon {
+[data-theme="dark"] .card-algoritmos .materia-icon {
     filter: brightness(1.3);
 }
 
-/* ===== Tarjetas de Trabajos ===== */
+/* ===== Tarjetas de Trabajos (TPs) ===== */
 .trabajos-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Las mantiene centradas */
+    justify-content: center;
     gap: 2rem;
     padding: 2rem;
     max-width: var(--max-width);
@@ -114,13 +119,7 @@
 }
 
 .trabajo-card {
-    /* CAMBIO CLAVE AQUÍ: */
-    /* flex: grow shrink basis */
-    /* 0: NO crecer (para que no se estiren si sobran espacios) */
-    /* 1: SÍ encoger (para móviles) */
-    /* 350px: Ancho ideal de la tarjeta (aumenté un poco de 300 a 350 para que se vean mejor) */
     flex: 0 1 350px; 
-    
     background: var(--card-bg);
     border-radius: var(--border-radius);
     padding: 1.5rem;
@@ -135,10 +134,8 @@
     border-left: 4px solid var(--theme-color, #ccc);
 }
 
-/* MANTENEMOS TU CASO ESPECIAL */
-/* Si hay UNA SOLA tarjeta en total, dejamos que ocupe todo */
 .trabajo-card:only-child {
-    flex: 1 0 auto;  /* Aquí sí le permitimos crecer */
+    flex: 1 0 auto; 
     max-width: 100%; 
 }
 
@@ -197,37 +194,4 @@
 .exercise-description p {
     white-space: pre-line;
     margin-bottom: 0;
-}
-
-.materia-card:nth-child(5):hover {
-    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
-}
-
-.materia-card:nth-child(5)::after {
-    background: var(--color-arquitectura);
-}
-
-.materia-card:nth-child(5):hover .materia-icon {
-    filter: drop-shadow(0 0 8px rgba(52, 152, 219, 0.4));
-}
-
-body.arquitectura-page .trabajo-card {
-    border-left: 4px solid var(--color-arquitectura);
-}
-
-body.arquitectura-page .trabajo-card:hover {
-    border-color: var(--color-arquitectura-dark);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-}
-
-.materia-card:nth-child(6):hover {
-    box-shadow: 0 10px 20px rgba(255, 107, 158, 0.3);
-}
-
-.materia-card:nth-child(6)::after {
-    background: var(--color-logica);
-}
-
-.materia-card:nth-child(6):hover .materia-icon {
-    filter: drop-shadow(0 0 8px rgba(255, 107, 158, 0.4));
 }
