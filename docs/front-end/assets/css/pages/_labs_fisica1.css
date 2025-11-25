@@ -379,3 +379,440 @@
     right: 35px;
     height: 85px; /* Llega hasta la masa 2 */
 }
+
+/* ============================================================
+   ESQUEMA TP3: SISTEMA MASA-RESORTE
+   ============================================================ */
+
+.tp-container .resorte-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Más angosto porque es vertical */
+    height: 400px;
+    margin: 2rem auto;
+    background-color: var(--card-bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.tp-container .resorte-title {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* --- EL SOPORTE --- */
+.tp-container .soporte-base {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
+    height: 10px;
+    background: #555;
+    border-radius: 2px;
+}
+
+.tp-container .soporte-barra {
+    position: absolute;
+    bottom: 30px; /* Sobre la base */
+    left: 50px;   /* Centro de la base */
+    width: 8px;
+    height: 320px;
+    background: #777;
+}
+
+.tp-container .soporte-brazo {
+    position: absolute;
+    top: 50px;
+    left: 54px; /* Pegado a la barra */
+    width: 100px;
+    height: 8px;
+    background: #777;
+}
+
+/* --- EL RESORTE (Dibujado con gradientes CSS) --- */
+.tp-container .resorte-coil {
+    position: absolute;
+    top: 58px; /* Debajo del brazo */
+    left: 130px; /* Cuelga del final del brazo */
+    width: 20px;
+    height: 150px; /* Largo del resorte */
+    /* Truco para hacer el zig-zag del resorte */
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 5px,
+        #333 5px,
+        #333 7px
+    );
+    border-left: 2px solid rgba(0,0,0,0.1); /* Sombra sutil */
+    border-right: 2px solid rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+/* Gancho pequeño arriba y abajo del resorte */
+.tp-container .resorte-coil::before {
+    content: '';
+    position: absolute;
+    top: -10px; left: 8px;
+    width: 2px; height: 10px;
+    background: #333;
+}
+.tp-container .resorte-coil::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; left: 8px;
+    width: 2px; height: 10px;
+    background: #333;
+}
+
+/* --- LA MASA --- */
+.tp-container .resorte-masa {
+    position: absolute;
+    top: 218px; /* (top resorte + height resorte + gancho) */
+    left: 115px; /* Centrado respecto al resorte (130 + 10 - 25) */
+    width: 50px;
+    height: 50px;
+    background: var(--color-fisica); /* Verde */
+    border: 2px solid var(--color-fisica-dark);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.tp-container .resorte-masa span {
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* --- VECTORES DE FUERZA --- */
+.tp-container .flecha-fuerza-abajo {
+    position: absolute;
+    top: 270px; /* Debajo de la masa */
+    left: 139px; /* Centro */
+    width: 2px;
+    height: 40px;
+    background: #e74c3c; /* Rojo */
+}
+.tp-container .flecha-fuerza-abajo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; left: -4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #e74c3c; /* Punta flecha */
+}
+
+.tp-container .label-fuerza {
+    position: absolute;
+    top: 280px;
+    left: 150px;
+    font-size: 0.8em;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* ============================================================
+   ESQUEMA TP4: PÉNDULO FÍSICO (Estilo Realista)
+   ============================================================ */
+
+.tp-container .pendulo-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Ancho contenido */
+    height: 450px;    /* Altura suficiente */
+    margin: 2rem auto;
+    background-color: var(--card-bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.tp-container .pendulo-title {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* --- EL SOPORTE (Hardware) --- */
+.tp-container .soporte-base {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    width: 100px;
+    height: 15px;
+    background: #5d4037; /* Color madera oscura */
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.tp-container .soporte-varilla {
+    position: absolute;
+    bottom: 45px; /* Sobre la base */
+    left: 90px;   /* Centrado en la base aprox */
+    width: 12px;
+    height: 360px;
+    /* Gradiente metálico cilíndrico */
+    background: linear-gradient(to right, #999, #eee, #777);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.tp-container .soporte-brazo-pendulo {
+    position: absolute;
+    top: 60px;
+    left: 101px; /* Desde la varilla hacia la derecha */
+    width: 140px;
+    height: 12px;
+    background: linear-gradient(to bottom, #888, #ccc, #666);
+    border-radius: 2px;
+    z-index: 1;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Puno de sujeción (donde ata el hilo) */
+.tp-container .soporte-brazo-pendulo::after {
+    content: '';
+    position: absolute;
+    right: 10px; /* Cerca del final del brazo */
+    bottom: -6px;
+    width: 6px;
+    height: 8px;
+    background: #333;
+}
+
+/* --- LÍNEA DE REFERENCIA (Vertical pura) --- */
+.tp-container .linea-referencia {
+    position: absolute;
+    top: 72px; /* Justo debajo del brazo */
+    left: 228px; /* (95 varilla + 140 brazo - 10 margen) + ajuste fino */
+    height: 280px;
+    border-left: 1px dashed #bbb;
+    z-index: 0;
+}
+
+/* --- PÉNDULO OSCILANTE (Rotado) --- */
+.tp-container .pendulo-rotado {
+    position: absolute;
+    top: 72px;  /* Punto de pivote (bajo el brazo) */
+    left: 228px; /* Punto de pivote (alineado con referencia) */
+    width: 0;
+    height: 0;
+    /* Rotación para simular el apartamiento theta */
+    transform: rotate(15deg); 
+    transform-origin: top center;
+    z-index: 2;
+}
+
+.tp-container .hilo {
+    position: absolute;
+    top: 0;
+    left: -1px; /* Centrado */
+    width: 2px;
+    height: 250px; /* Largo L visual */
+    background-color: #000;
+}
+
+.tp-container .esfera {
+    position: absolute;
+    top: 250px; /* Final del hilo */
+    left: -15px; /* Centrado (-radio) */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    /* Gradiente dorado metálico (Latón) */
+    background: radial-gradient(circle at 35% 35%, #f1c40f, #b7950b, #5e4503);
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+/* --- ANOTACIONES --- */
+
+/* Arco del ángulo */
+.tp-container .arco-angulo {
+    position: absolute;
+    top: 72px;
+    left: 228px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border-bottom: 2px solid var(--color-fisica); /* Verde del tema */
+    border-right: 2px solid transparent; 
+    border-left: 2px solid transparent;
+    border-top: 2px solid transparent;
+    transform: translateX(-50%) rotate(75deg); /* Posiciona el arco entre vertical y péndulo */
+    opacity: 0.7;
+}
+
+.tp-container .texto-angulo {
+    position: absolute;
+    top: 125px;
+    left: 245px;
+    color: var(--color-fisica);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Cota de Largo L */
+.tp-container .cota-largo {
+    position: absolute;
+    top: 72px;      /* Inicio hilo */
+    left: 280px;    /* A la derecha del péndulo */
+    height: 250px;  /* Mismo largo que el hilo */
+    width: 10px;
+    border-left: 1px solid #777;
+}
+/* Marcas superior e inferior de la cota */
+.tp-container .cota-largo::before {
+    content: ''; position: absolute; top: 0; left: -4px; width: 8px; height: 1px; background: #777;
+}
+.tp-container .cota-largo::after {
+    content: ''; position: absolute; bottom: 0; left: -4px; width: 8px; height: 1px; background: #777;
+}
+
+.tp-container .texto-largo {
+    position: absolute;
+    top: 50%;
+    left: 290px;
+    transform: translateY(-50%);
+    color: #666;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* ============================================================
+   ESQUEMA TP5: ARO (PÉNDULO FÍSICO)
+   ============================================================ */
+
+.tp-container .aro-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    margin: 2rem auto;
+    background-color: var(--card-bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tp-container .aro-title {
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 15px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Soporte superior */
+.tp-container .soporte-techo {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 8px;
+    background: #555;
+    border-radius: 2px;
+    z-index: 2;
+}
+
+/* El Pivote (Cuchilla) */
+.tp-container .pivote {
+    position: absolute;
+    top: 48px; /* Debajo del techo */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid #333; /* Triángulo invertido */
+    z-index: 3;
+}
+
+/* El Aro Metálico */
+.tp-container .aro-metalico {
+    position: absolute;
+    /* El aro cuelga del pivote desde su borde interno */
+    /* Si el aro mide 200px de alto, y el borde mide 20px */
+    top: 55px; 
+    left: 50%;
+    transform: translateX(-50%) rotate(5deg); /* Leve inclinación para realismo */
+    transform-origin: top center; /* Pivota desde arriba */
+    
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    
+    /* Simulamos el grosor del aro con un borde grueso */
+    border: 20px solid #95a5a6; /* Gris metálico */
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Centro de Masa (CM) */
+.tp-container .centro-masa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-fisica); /* Verde */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tp-container .label-cm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(10px, -50%);
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--color-fisica-dark);
+}
+
+/* Cota de Distancia d (Del pivote al CM) */
+.tp-container .cota-d {
+    position: absolute;
+    left: 50%;
+    top: 55px; /* Altura del pivote */
+    height: 100px; /* Hasta el centro del aro (aprox 200/2) */
+    width: 1px;
+    background-color: #e74c3c; /* Línea roja para destacar */
+    transform: translateX(-2px) rotate(5deg); /* Misma rotación que el aro */
+    transform-origin: top center;
+    z-index: 4;
+}
+
+/* Marca de fin de cota */
+.tp-container .cota-d::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -3px;
+    width: 7px;
+    height: 1px;
+    background: #e74c3c;
+}
+
+.tp-container .label-d {
+    position: absolute;
+    top: 40%;
+    left: 5px;
+    color: #e74c3c;
+    font-weight: bold;
+    font-style: italic;
+}
